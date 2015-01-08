@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="60dp"
+        android:text="score"
+        android:textColor="#E09D00"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:layout_weight="30"/>
+
+    <ImageView
+        android:id="@+id/devil"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_weight="10"
+        />
+
+
+    <TextView
+        android:id="@+id/gameover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game Over"
+        android:textSize="60dp"
+        android:layout_gravity="center"
+        android:gravity="bottom"
+        android:textColor="#E09D00"
+        android:layout_weight="15"
+        />
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="15"
+        />
+
+    <Button
+        android:id="@+id/playagain"
+        android:layout_width="240dp"
+        android:layout_height="35dp"
+        android:text="Play Again"
+        android:layout_weight="5"
+        android:textSize="30dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="italic|bold"
+        android:textColor="#E09D00"
+        android:background="@drawable/rounded_corner_button"
+        android:layout_gravity="center"
+        />
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="25"
+        />
+
+
+
+</LinearLayout>
