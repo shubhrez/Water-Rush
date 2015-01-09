@@ -2,13 +2,13 @@ package com.healthtapper.sixtyseconds;
 
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Rect;
 
 import java.util.Random;
 
-public class Drop {
+import java.util.Random;
+
+public class Tap {
 
     private GameView gameView;
     private Bitmap bmp,bucket;
@@ -19,25 +19,25 @@ public class Drop {
     private int ySpeed = 0;
     private int width,height;
 
-    public Drop(GameView gameView, Bitmap bmp,Bitmap bucket) {
+    public Tap(GameView gameView, Bitmap bmp,Bitmap bucket,int x,int y) {
 
         this.gameView = gameView;
         this.bmp = bmp;
-        Random rnd = new Random();
-        x = rnd.nextInt(500) + 1;
-        ySpeed = rnd.nextInt(5) + 25;
+        this.x = x;
+        this.y = y;
+        ySpeed = 20;
         this.bucket = bucket;
     }
 
-    private void update(int a,int b) {
-        y = (y + (ySpeed)/b + a/5);
+    private void update(int a) {
+        y = y + (ySpeed) + a/5;
 
     }
 
 
-    public void onDraw(Canvas canvas,int speedfactor,int freezeFactor) {
+    public void onDraw(Canvas canvas,int speedfactor) {
 
-        update(speedfactor,freezeFactor);
+        update(speedfactor);
         canvas.drawBitmap(bmp,x,y, null);
     }
 
@@ -53,3 +53,4 @@ public class Drop {
                 && y + bmp.getHeight() >= gameView.getHeight() - 190 && y + bmp.getHeight() <= gameView.getHeight() - 160 );
     }
 }
+

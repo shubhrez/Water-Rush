@@ -8,8 +8,6 @@
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="60dp"
-        android:text="score"
         android:textColor="#E09D00"
         android:layout_gravity="center"
         android:gravity="center_vertical"
