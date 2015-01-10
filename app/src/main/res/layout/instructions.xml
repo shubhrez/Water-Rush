@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E09D00"
+    android:background="#00B2FF"
     >
 
 
@@ -94,20 +94,16 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
+        android:layout_weight="5"
         />
 
     <Button
         android:id="@+id/start"
-        android:layout_width="200dp"
-        android:layout_height="22dp"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
         android:layout_weight="15"
-        android:background="@drawable/rounded_corner_button"
+        android:textSize="25dp"
         android:text="Start Game"
-        android:textSize="23dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="italic|bold"
-        android:textColor="#E09D00"
         android:layout_gravity="center"
         />
 

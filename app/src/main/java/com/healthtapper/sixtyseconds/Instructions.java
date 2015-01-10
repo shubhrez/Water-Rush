@@ -16,6 +16,7 @@ public class Instructions extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructions);
         start = (Button) findViewById(R.id.start);
+        start.setBackgroundResource(R.drawable.cloud);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

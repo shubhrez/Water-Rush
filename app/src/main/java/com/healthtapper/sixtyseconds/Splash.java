@@ -19,6 +19,9 @@ public class Splash extends Activity {
         setContentView(R.layout.splash);
         start = (Button) findViewById(R.id.start);
         instructions = (Button) findViewById(R.id.instructions);
+        start.setBackgroundResource(R.drawable.cloud);
+        instructions.setBackgroundResource(R.drawable.cloud);
+    //    start.setText(R.string.hello_world);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

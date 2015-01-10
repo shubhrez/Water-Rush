@@ -30,7 +30,7 @@
         android:textSize="60dp"
         android:layout_gravity="center"
         android:gravity="bottom"
-        android:textColor="#E09D00"
+        android:textColor="#00B2FF"
         android:layout_weight="15"
         />
 
@@ -43,23 +43,20 @@
 
     <Button
         android:id="@+id/playagain"
-        android:layout_width="240dp"
+        android:layout_width="300dp"
         android:layout_height="35dp"
-        android:text="Play Again"
-        android:layout_weight="5"
+        android:layout_weight="15"
         android:textSize="30dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="italic|bold"
-        android:textColor="#E09D00"
-        android:background="@drawable/rounded_corner_button"
+        android:text="Play Again"
         android:layout_gravity="center"
         />
+
 
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="25"
+        android:layout_weight="15"
         />
 
 

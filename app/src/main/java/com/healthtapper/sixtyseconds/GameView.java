@@ -126,10 +126,13 @@ public class GameView extends SurfaceView implements Runnable {
     public void render(Canvas canvas){
 
         canvas.drawColor(Color.BLACK);
-//        Paint background = new Paint();
-//        background.setARGB(100,255,255,255);
-//        Rect back = new Rect(0,0,getWidth(),getHeight());
-////        centerRect.set(0, getHeight() - 300, getWidth(), getHeight() - 290);
+        Paint background = new Paint();
+        background.setARGB(50,0,222,255);
+        Rect back = new Rect(0,0,getWidth(),getHeight());
+        if(freezeFactor == 2){
+            canvas.drawRect(back,background);
+        }
+//        centerRect.set(0, getHeight() - 300, getWidth(), getHeight() - 290);
 //        canvas.drawRect(back, background);
         int timeElapsed = (int) ((System.currentTimeMillis() - clockStart)/1000);
   //      if(timeleft >= 1)
@@ -152,7 +155,8 @@ public class GameView extends SurfaceView implements Runnable {
         textPaint.setColor(Color.RED);
         String timeLeftText = String.valueOf(timelToBeDisplayed);
         textPaint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(timeLeftText,getWidth()/2,getHeight()/2,textPaint);
+  //      canvas.drawText(timeLeftText,getWidth()/2,getHeight()/2,textPaint);
+        canvas.drawText(new StringBuilder().append("00 : ").append(timeLeftText).toString(), 20, 80, textPaint);
 //        canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
         String scoretext = String.valueOf(score);
         textPaint.setTextSize(70);
@@ -246,10 +250,18 @@ public class GameView extends SurfaceView implements Runnable {
         }
 
         canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
+        Paint bucketsupport = new Paint();
+        bucketsupport.setARGB(255,0,178,255);
+   //     Rect bucketsupportRect = new Rect((int) (x - bucket.getWidth()/2) + 10,getHeight() - 60,(int) (x + bucket.getWidth()/2) - 10,getHeight());
+      //  canvas.drawRect(bucketsupportRect,bucketsupport);
+        canvas.drawCircle(x,getHeight() + 40,bucket.getWidth()/2 + 28,bucketsupport);
+        Rect bucketsupportRect = new Rect(0,getHeight() - 20,getWidth(),getHeight());
+        canvas.drawRect(bucketsupportRect,bucketsupport);
         canvas.drawBitmap(cloud,getWidth()/4-cloud.getWidth()/2,-100,null);
         canvas.drawBitmap(cloud,3*getWidth()/4-cloud.getWidth()/2 + 50,-100,null);
         textPaint.setARGB(255,0,178,255);
-        canvas.drawText(new StringBuilder().append("Score : ").append(scoretext).toString(), getWidth() / 2, 80, textPaint);
+//        canvas.drawText(new StringBuilder().append("Score : ").append(scoretext).toString(), getWidth() / 2, 80, textPaint);
+        canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 80, textPaint);
 
         if(splash == 1) {
             if (splashcount <= 10) {

@@ -16,6 +16,7 @@ public class GameOver extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameover);
         restart = (Button) findViewById(R.id.playagain);
+        restart.setBackgroundResource(R.drawable.cloud);
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
