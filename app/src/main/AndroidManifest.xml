@@ -22,6 +22,19 @@
         </activity>
 
         <activity
+            android:name=".Instructions"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="com.healthtapper.sixtyseconds.INSTRUCTIONS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
             android:name=".GameOver"
             android:label="@string/app_name"
             android:theme="@style/Theme.Transparent"

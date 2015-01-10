@@ -8,6 +8,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextPaint;
@@ -26,7 +29,7 @@ public class GameView extends SurfaceView implements Runnable {
     Boolean running = false;
     Thread thread = null;
     int timeleft = 60;
-    Bitmap drop,bucket,drop5,cloud,splash1,splash2;
+    Bitmap drop,bucket,drop5,cloud,splash1,splash2,lightning;
     private List<Drop> drops = new ArrayList<Drop>();
     private List<Drop> drops5 = new ArrayList<Drop>();
     private List<Drop> snow = new ArrayList<Drop>();
@@ -41,12 +44,20 @@ public class GameView extends SurfaceView implements Runnable {
     int tapcount = 0;
     int fivecount = 0;
     int snowcount = 0;
-    int t1,t2,t3,e1,e2,s1;
+    int t1,t2,t3,e1,e2,s1,s2;
     int splash = 0;
     int splashcount = 0;
+    int displayfiveseconds = 0;
+    int displayfivesecondscount = 0;
     Random rnd = new Random();
     int freezeFactor = 1;
     int freezecount = 0;
+    int x1 = 200;
+    int x2 = 300;
+    int x1speed = 20;
+    int x2speed = 20;
+    private SoundPool sounds;
+    private int waterdrip,watersplash,freeze;
 
     public GameView(Context context) {
         super(context);
@@ -57,7 +68,11 @@ public class GameView extends SurfaceView implements Runnable {
         bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
         splash1 = BitmapFactory.decodeResource(getResources(), R.drawable.splash1);
         splash2 = BitmapFactory.decodeResource(getResources(), R.drawable.splash2);
-
+        lightning = BitmapFactory.decodeResource(getResources(), R.drawable.lightning);
+        sounds = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        waterdrip = sounds.load(context,R.raw.waterdrip,1);
+        watersplash = sounds.load(context,R.raw.watersplash,1);
+        freeze = sounds.load(context,R.raw.freeze,1);
         createDrops();
 //        createDrops5();
         createStones();
@@ -69,7 +84,7 @@ public class GameView extends SurfaceView implements Runnable {
         drops.add(createDrop(R.drawable.drop));
         drops.add(createDrop(R.drawable.drop));
         drops.add(createDrop(R.drawable.drop));
-        drops.add(createDrop(R.drawable.drop));
+    //    drops.add(createDrop(R.drawable.drop));
     }
 
     private void createTaps() {
@@ -81,13 +96,13 @@ public class GameView extends SurfaceView implements Runnable {
         taps.add(createTap(R.drawable.drop,xtap,-400));
         taps.add(createTap(R.drawable.drop,xtap,-500));
         taps.add(createTap(R.drawable.drop,xtap,-600));
-        taps.add(createTap(R.drawable.drop,xtap,-700));
+ //       taps.add(createTap(R.drawable.drop,xtap,-700));
     }
 
     private void createStones() {
         stones.add(createDrop(R.drawable.stone));
         stones.add(createDrop(R.drawable.stone));
-        stones.add(createDrop(R.drawable.stone));
+     //   stones.add(createDrop(R.drawable.stone));
     }
 
     private void createDrops5() {
@@ -110,10 +125,28 @@ public class GameView extends SurfaceView implements Runnable {
 
     public void render(Canvas canvas){
 
-        canvas.drawColor(Color.WHITE);
+        canvas.drawColor(Color.BLACK);
+//        Paint background = new Paint();
+//        background.setARGB(100,255,255,255);
+//        Rect back = new Rect(0,0,getWidth(),getHeight());
+////        centerRect.set(0, getHeight() - 300, getWidth(), getHeight() - 290);
+//        canvas.drawRect(back, background);
         int timeElapsed = (int) ((System.currentTimeMillis() - clockStart)/1000);
   //      if(timeleft >= 1)
         timelToBeDisplayed = timeleft - timeElapsed;
+
+        canvas.drawBitmap(lightning,x1,0,null);
+        canvas.drawBitmap(lightning,x2,0,null);
+        if(x1 >= getWidth() - lightning.getWidth() || x1 <= 0) {
+            x1speed = -x1speed;
+        }
+
+        if(x2 >= getWidth() - lightning.getWidth() || x2 <= 0) {
+            x2speed = -x2speed;
+        }
+        x1 = x1 + 4*x1speed;
+        x2 = x2 + 4*x2speed;
+
         Paint textPaint = new Paint();
         textPaint.setTextSize(150);
         textPaint.setColor(Color.RED);
@@ -122,7 +155,7 @@ public class GameView extends SurfaceView implements Runnable {
         canvas.drawText(timeLeftText,getWidth()/2,getHeight()/2,textPaint);
 //        canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
         String scoretext = String.valueOf(score);
-        textPaint.setTextSize(50);
+        textPaint.setTextSize(70);
 //        canvas.drawText(new StringBuilder().append("Score : ").append(scoretext).toString(), getWidth() / 2, 50, textPaint);
 
         for (Drop drop : drops) {
@@ -158,9 +191,9 @@ public class GameView extends SurfaceView implements Runnable {
         }
 
         if(timelToBeDisplayed == t3) {
-            if(tapcount == 1){
+            if(tapcount == 2){
                 createTaps();
-                tapcount = 2;
+                tapcount = 3;
             }
         }
 
@@ -174,13 +207,20 @@ public class GameView extends SurfaceView implements Runnable {
         }
 
 //        if(timelToBeDisplayed == 40) {
-        if(timelToBeDisplayed == e1) {
+//        if(timelToBeDisplayed == e1 || timelToBeDisplayed == e2) {
+//            if(fivecount == 0){
+//                createDrops5();
+//                fivecount = 1;
+//            }
+//        }
+
+
+        if(timelToBeDisplayed == e1 ) {
             if(fivecount == 0){
                 createDrops5();
                 fivecount = 1;
             }
         }
-
 
 
    //     if(timelToBeDisplayed == 20) {
@@ -198,21 +238,40 @@ public class GameView extends SurfaceView implements Runnable {
             }
         }
 
+        if(timelToBeDisplayed == s2) {
+            if(snowcount == 1){
+                createSnow();
+                snowcount = 2;
+            }
+        }
+
         canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
         canvas.drawBitmap(cloud,getWidth()/4-cloud.getWidth()/2,-100,null);
-        canvas.drawBitmap(cloud,3*getWidth()/4-cloud.getWidth()/2,-100,null);
-        canvas.drawText(new StringBuilder().append("Score : ").append(scoretext).toString(), getWidth() / 2, 50, textPaint);
+        canvas.drawBitmap(cloud,3*getWidth()/4-cloud.getWidth()/2 + 50,-100,null);
+        textPaint.setARGB(255,0,178,255);
+        canvas.drawText(new StringBuilder().append("Score : ").append(scoretext).toString(), getWidth() / 2, 80, textPaint);
 
         if(splash == 1) {
             if (splashcount <= 10) {
-                canvas.drawBitmap(splash1, x + bucket.getWidth() / 2 + 10, getHeight() - 180, null);
-                canvas.drawBitmap(splash2, x - bucket.getWidth() / 2 - 70, getHeight() - 180, null);
-                canvas.drawBitmap(splash1, x + bucket.getWidth() / 2 + 50, getHeight() - 120, null);
-                canvas.drawBitmap(splash2, x - bucket.getWidth() / 2 - 110, getHeight() - 120, null);
+                canvas.drawBitmap(splash1, x + bucket.getWidth() / 2 + 5, getHeight() - 200, null);
+                canvas.drawBitmap(splash2, x - bucket.getWidth() / 2 - 65, getHeight() - 200, null);
+                canvas.drawBitmap(splash1, x + bucket.getWidth() / 2 + 45, getHeight() - 160, null);
+                canvas.drawBitmap(splash2, x - bucket.getWidth() / 2 - 105, getHeight() - 160, null);
                 splashcount++;
             } else {
                 splash = 0;
                 splashcount = 0;
+            }
+        }
+
+        if(displayfiveseconds == 1) {
+            if (displayfivesecondscount <= 20) {
+                textPaint.setTextSize(50);
+                canvas.drawText("+ 5 sec",getWidth()/2,getHeight()/2 -200,textPaint);
+                displayfivesecondscount ++;
+            } else {
+                displayfiveseconds = 0;
+                displayfivesecondscount = 0;
             }
         }
 
@@ -241,6 +300,7 @@ public class GameView extends SurfaceView implements Runnable {
                     drops.remove(drop);
                     drops.add(createDrop(R.drawable.drop));
                     score += 1;
+                    sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                 }
             }
 
@@ -249,6 +309,7 @@ public class GameView extends SurfaceView implements Runnable {
                 if (drop.isCollision(getHeight())) {
                     drops5.remove(drop);
        //             drops5.add(createDrop(R.drawable.drop5));
+
                 }
 
             }
@@ -259,6 +320,9 @@ public class GameView extends SurfaceView implements Runnable {
                     drops5.remove(drop);
          //           drops5.add(createDrop(R.drawable.drop5));
                     timeleft += 5;
+                    sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+                    displayfiveseconds = 1;
+
                 }
 
             }
@@ -278,6 +342,7 @@ public class GameView extends SurfaceView implements Runnable {
                     snow.remove(drop);
                     //           drops5.add(createDrop(R.drawable.drop5));
                     freezeFactor = 2;
+                    sounds.play(freeze, 1.0f, 1.0f, 0, 0, 1.5f);
                 }
 
             }
@@ -296,6 +361,7 @@ public class GameView extends SurfaceView implements Runnable {
                     stones.remove(drop);
                     stones.add(createDrop(R.drawable.stone));
                     score -= 5;
+                    sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
                     splash = 1;
      //               startSplash(System.currentTimeMillis());
                 }
@@ -305,6 +371,7 @@ public class GameView extends SurfaceView implements Runnable {
                 Tap tap = taps.get(i);
                 if (tap.isCollision(getHeight())) {
                     taps.remove(tap);
+
            //         taps.add(createDrop(R.drawable.drop));
                 }
             }
@@ -314,6 +381,7 @@ public class GameView extends SurfaceView implements Runnable {
                 if (tap.isCollected(x - bucket.getWidth() / 2)) {
                     taps.remove(tap);
              //       tap.add(createDrop(R.drawable.drop));
+                    sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                     score += 1;
                 }
             }
@@ -405,7 +473,8 @@ public void pause() {
         t2 = rnd.nextInt(10) + 10;
         e1 = rnd.nextInt(20) + 30;
         e2 = rnd.nextInt(20) + 10;
-        s1 = rnd.nextInt(20) + 10;
+        s1 = rnd.nextInt(10) + 30;
+        s2 = rnd.nextInt(10) + 10;
         while (running) {
 
             if(!holder.getSurface().isValid())
