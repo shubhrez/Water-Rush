@@ -9,6 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Sixty Seconds"
+        android:textStyle="italic|bold"
         android:textSize="50dp"
         android:gravity="center"
         android:layout_weight="50"
@@ -16,11 +17,12 @@
 
     <Button
         android:id="@+id/start"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
+        android:layout_width="300dp"
+        android:layout_height="20dp"
         android:layout_weight="10"
-        android:text="start"
-        android:textSize="40dp"
+        android:text="Start"
+        android:textStyle="italic|bold"
+        android:textSize="35dp"
         android:layout_gravity="center"
         />
 
@@ -35,6 +37,7 @@
         android:layout_width="300dp"
         android:layout_height="20dp"
         android:layout_weight="10"
+        android:textStyle="italic|bold"
         android:textSize="30dp"
         android:text="Instructions"
         android:layout_gravity="center"
@@ -43,7 +46,18 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="20"
+        android:layout_weight="10"
         />
+    <Button
+        android:id="@+id/freeflow"
+        android:layout_width="300dp"
+        android:layout_height="20dp"
+        android:layout_weight="10"
+        android:text="Free Flow"
+        android:textStyle="italic|bold"
+        android:textSize="35dp"
+        android:layout_gravity="center"
+        />
+
 
 </LinearLayout>

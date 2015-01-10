@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class Splash extends Activity {
 
-    Button start,instructions;
+    Button start,instructions,freeflow;
     TextView title;
 
     @Override
@@ -18,6 +18,7 @@ public class Splash extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
         start = (Button) findViewById(R.id.start);
+        freeflow = (Button) findViewById(R.id.freeflow);
         instructions = (Button) findViewById(R.id.instructions);
         start.setBackgroundResource(R.drawable.cloud);
         instructions.setBackgroundResource(R.drawable.cloud);
@@ -26,6 +27,14 @@ public class Splash extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent("com.healthtapper.sixtyseconds.MAINACTIVITY");
+                startActivity(intent);
+            }
+        });
+
+        freeflow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.healthtapper.sixtyseconds.FREEFLOW");
                 startActivity(intent);
             }
         });
