@@ -34,6 +34,7 @@ public class GameView extends SurfaceView implements Runnable {
     private List<Drop> drops5 = new ArrayList<Drop>();
     private List<Drop> snow = new ArrayList<Drop>();
     private List<Drop> stones = new ArrayList<Drop>();
+    private List<Drop> bigDrops = new ArrayList<Drop>();
     private List<Tap> taps = new ArrayList<Tap>();
     float x = 250;
     static final long FPS = 20;
@@ -43,8 +44,9 @@ public class GameView extends SurfaceView implements Runnable {
     int timelToBeDisplayed = 0;
     int tapcount = 0;
     int fivecount = 0;
+    int bigdropcount = 0;
     int snowcount = 0;
-    int t1,t2,t3,e1,e2,s1,s2;
+    int t1,t2,t3,e1,e2,s1,s2,b1,b2;
     int splash = 0;
     int splashcount = 0;
     int displayfiveseconds = 0;
@@ -109,6 +111,10 @@ public class GameView extends SurfaceView implements Runnable {
         drops5.add(createDrop(R.drawable.drop5));
     }
 
+    private void createbigDrops() {
+        bigDrops.add(createDrop(R.drawable.bigdrop));
+    }
+
     private void createSnow() {
         snow.add(createDrop(R.drawable.snow));
     }
@@ -156,7 +162,7 @@ public class GameView extends SurfaceView implements Runnable {
         String timeLeftText = String.valueOf(timelToBeDisplayed);
         textPaint.setTextAlign(Paint.Align.CENTER);
   //      canvas.drawText(timeLeftText,getWidth()/2,getHeight()/2,textPaint);
-        canvas.drawText(new StringBuilder().append("00 : ").append(timeLeftText).toString(), 20, 80, textPaint);
+//        canvas.drawText(new StringBuilder().append("00 : ").append(timeLeftText).toString(), 80, 80, textPaint);
 //        canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
         String scoretext = String.valueOf(score);
         textPaint.setTextSize(70);
@@ -206,6 +212,10 @@ public class GameView extends SurfaceView implements Runnable {
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
+        for (Drop drop : bigDrops) {
+            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+        }
+
         for (Drop drop : snow) {
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
@@ -235,6 +245,22 @@ public class GameView extends SurfaceView implements Runnable {
             }
         }
 
+        if(timelToBeDisplayed == b1 ) {
+            if(bigdropcount == 0){
+                createbigDrops();
+                bigdropcount = 1;
+            }
+        }
+
+
+        //     if(timelToBeDisplayed == 20) {
+        if(timelToBeDisplayed == b2) {
+            if(bigdropcount == 1){
+                createbigDrops();
+                bigdropcount = 2;
+            }
+        }
+
         if(timelToBeDisplayed == s1) {
             if(snowcount == 0){
                 createSnow();
@@ -251,18 +277,25 @@ public class GameView extends SurfaceView implements Runnable {
 
         canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
         Paint bucketsupport = new Paint();
-        bucketsupport.setARGB(255,0,178,255);
+        bucketsupport.setARGB(150,0,178,255);
    //     Rect bucketsupportRect = new Rect((int) (x - bucket.getWidth()/2) + 10,getHeight() - 60,(int) (x + bucket.getWidth()/2) - 10,getHeight());
       //  canvas.drawRect(bucketsupportRect,bucketsupport);
-        canvas.drawCircle(x,getHeight() + 40,bucket.getWidth()/2 + 28,bucketsupport);
-        Rect bucketsupportRect = new Rect(0,getHeight() - 20,getWidth(),getHeight());
+  //      canvas.drawCircle(x,getHeight() + 40,bucket.getWidth()/2 + 28,bucketsupport);
+        Rect bucketsupportRect = new Rect(0,getHeight() - 60,getWidth(),getHeight());
         canvas.drawRect(bucketsupportRect,bucketsupport);
         canvas.drawBitmap(cloud,getWidth()/4-cloud.getWidth()/2,-100,null);
         canvas.drawBitmap(cloud,3*getWidth()/4-cloud.getWidth()/2 + 50,-100,null);
         textPaint.setARGB(255,0,178,255);
 //        canvas.drawText(new StringBuilder().append("Score : ").append(scoretext).toString(), getWidth() / 2, 80, textPaint);
+//        bucketsupport.setARGB(255,0,0,0);
+//        canvas.drawCircle(getWidth()-80,60,50,bucketsupport);
         canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 80, textPaint);
-
+        textPaint.setTextSize(60);
+        if(timelToBeDisplayed >= 10) {
+            canvas.drawText(new StringBuilder().append("00:").append(timeLeftText).toString(), 100, 80, textPaint);
+        } else {
+            canvas.drawText(new StringBuilder().append("00:0").append(timeLeftText).toString(), 100, 80, textPaint);
+        }
         if(splash == 1) {
             if (splashcount <= 10) {
                 canvas.drawBitmap(splash1, x + bucket.getWidth() / 2 + 5, getHeight() - 200, null);
@@ -339,6 +372,28 @@ public class GameView extends SurfaceView implements Runnable {
 
             }
 
+            for (int i = bigDrops.size() - 1; i >= 0; i--) {
+                Drop drop = bigDrops.get(i);
+                if (drop.isCollision(getHeight())) {
+                    bigDrops.remove(drop);
+                    //             drops5.add(createDrop(R.drawable.drop5));
+
+                }
+
+            }
+
+            for (int i = bigDrops.size() - 1; i >= 0; i--) {
+                Drop drop = bigDrops.get(i);
+                if (drop.isCollected(x - bucket.getWidth() / 2)) {
+                    bigDrops.remove(drop);
+                    //           drops5.add(createDrop(R.drawable.drop5));
+                    score += 10;
+                    sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+
+                }
+
+            }
+
             for (int i = snow.size() - 1; i >= 0; i--) {
                 Drop drop = snow.get(i);
                 if (drop.isCollision(getHeight())) {
@@ -407,6 +462,7 @@ public class GameView extends SurfaceView implements Runnable {
                  score = 0;
                  tapcount = 0;
                  fivecount = 0;
+                 bigdropcount = 0;
                  snowcount = 0;
                  for (int i = drops.size() - 1; i >= 0; i--) {
                      Drop drop = drops.get(i);
@@ -487,6 +543,8 @@ public void pause() {
         e2 = rnd.nextInt(20) + 10;
         s1 = rnd.nextInt(10) + 30;
         s2 = rnd.nextInt(10) + 10;
+        b1 = rnd.nextInt(10) + 40;
+        b2 = rnd.nextInt(10) + 20;
         while (running) {
 
             if(!holder.getSurface().isValid())
