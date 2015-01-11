@@ -64,6 +64,8 @@ public class GameView extends SurfaceView implements Runnable {
     int bigDropTime = 0;
     int snowCollected = 0;
     int snowTime = 0;
+    int thunderStart = 0;
+    int thunderCount = 0;
 
 
     public GameView(Context context) {
@@ -139,9 +141,30 @@ public class GameView extends SurfaceView implements Runnable {
 
         canvas.drawColor(Color.BLACK);
         Paint background = new Paint();
-        background.setARGB(50,0,222,255);
+
         Rect back = new Rect(0,0,getWidth(),getHeight());
+
+        if(thunderStart == 1) {
+            if (thunderCount == 0) {
+                thunderCount ++;
+                background.setColor(Color.YELLOW);
+                canvas.drawRect(back,background);
+            }
+            if(thunderCount == 1) {
+                thunderCount ++;
+                background.setColor(Color.BLACK);
+                canvas.drawRect(back, background);
+            }
+            if (thunderCount == 2){
+                background.setColor(Color.YELLOW);
+                canvas.drawRect(back,background);
+                thunderStart = 0;
+                thunderCount = 0;
+            }
+        }
+
         if(freezeFactor == 2){
+            background.setARGB(50,0,222,255);
             canvas.drawRect(back,background);
         }
 //        centerRect.set(0, getHeight() - 300, getWidth(), getHeight() - 290);
@@ -344,6 +367,8 @@ public class GameView extends SurfaceView implements Runnable {
             }
         }
 
+
+
         if(snowCollected == 1) {
             if (snowTime <= 100) {
                 snowTime += 1 ;
@@ -431,6 +456,7 @@ public class GameView extends SurfaceView implements Runnable {
                     //           drops5.add(createDrop(R.drawable.drop5));
                     bigDropCollected = 1;
        //             score += 10;
+                    thunderStart = 1;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                     sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
 
@@ -454,6 +480,7 @@ public class GameView extends SurfaceView implements Runnable {
                     //           drops5.add(createDrop(R.drawable.drop5));
                     freezeFactor = 2;
                     snowCollected = 1;
+                    thunderStart = 1;
                     sounds.play(freeze, 1.0f, 1.0f, 0, 0, 1.5f);
                     sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
                 }
