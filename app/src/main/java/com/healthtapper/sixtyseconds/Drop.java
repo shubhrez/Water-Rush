@@ -19,10 +19,11 @@ public class Drop {
     private int ySpeed = 0;
     private int width,height;
 
-    public Drop(GameView gameView, Bitmap bmp,Bitmap bucket) {
+    public Drop(GameView gameView, Bitmap bmp,Bitmap bucket,int y) {
 
         this.gameView = gameView;
         this.bmp = bmp;
+        this.y = y;
         Random rnd = new Random();
         x = rnd.nextInt(500) + 1;
         ySpeed = rnd.nextInt(5) + 25;

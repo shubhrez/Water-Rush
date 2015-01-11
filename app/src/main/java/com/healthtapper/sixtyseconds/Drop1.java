@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Drop1 {
 
-    private GameView1 gameView;
+    private FreePlayGameView gameView;
     private Bitmap bmp,bucket;
     private int MAX_SPEED = 5;
     private int x = 0;
@@ -19,7 +19,7 @@ public class Drop1 {
     private int ySpeed = 0;
     private int width,height;
 
-    public Drop1(GameView1 gameView, Bitmap bmp,Bitmap bucket,int y) {
+    public Drop1(FreePlayGameView gameView, Bitmap bmp,Bitmap bucket,int y) {
 
         this.gameView = gameView;
         this.bmp = bmp;

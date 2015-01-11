@@ -6,13 +6,13 @@ import android.os.Bundle;
 
 public class FreeFlow extends Activity {
 
-    GameView1 gameview;
+    FreePlayGameView gameview;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        gameview = new GameView1(this);
+        gameview = new FreePlayGameView(this);
         setContentView(gameview);
 
     }
