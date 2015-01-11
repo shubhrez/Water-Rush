@@ -59,7 +59,12 @@ public class GameView extends SurfaceView implements Runnable {
     int x1speed = 20;
     int x2speed = 20;
     private SoundPool sounds;
-    private int waterdrip,watersplash,freeze;
+    private int waterdrip,watersplash,freeze,thunder;
+    int bigDropCollected = 0;
+    int bigDropTime = 0;
+    int snowCollected = 0;
+    int snowTime = 0;
+
 
     public GameView(Context context) {
         super(context);
@@ -75,6 +80,7 @@ public class GameView extends SurfaceView implements Runnable {
         waterdrip = sounds.load(context,R.raw.waterdrip,1);
         watersplash = sounds.load(context,R.raw.watersplash,1);
         freeze = sounds.load(context,R.raw.freeze,1);
+        thunder = sounds.load(context,R.raw.thunder,1);
         createDrops();
 //        createDrops5();
         createStones();
@@ -329,13 +335,40 @@ public class GameView extends SurfaceView implements Runnable {
             }
         }
 
+        if(bigDropCollected == 1) {
+            if (bigDropTime <= 100) {
+                bigDropTime += 1 ;
+            } else {
+                bigDropCollected = 0;
+                bigDropTime = 0;
+            }
+        }
+
+        if(snowCollected == 1) {
+            if (snowTime <= 100) {
+                snowTime += 1 ;
+            } else {
+                snowCollected = 0;
+                snowTime = 0;
+            }
+        }
+
         synchronized (holder) {
 
                 for (int i = drops.size() - 1; i >= 0; i--) {
                     Drop drop = drops.get(i);
                     if (drop.isCollision(getHeight())) {
                         drops.remove(drop);
-                        drops.add(createDrop(R.drawable.drop));
+                        if(bigDropCollected == 1){
+                            drops.add(createDrop(R.drawable.bigdrop));
+
+                        } else if(snowCollected == 1){
+                            drops.add(createDrop(R.drawable.snow));
+//
+                        } else {
+                            drops.add(createDrop(R.drawable.drop));
+
+                        }
                     }
                 }
 
@@ -343,8 +376,17 @@ public class GameView extends SurfaceView implements Runnable {
                 Drop drop = drops.get(i);
                 if (drop.isCollected(x - bucket.getWidth() / 2)) {
                     drops.remove(drop);
-                    drops.add(createDrop(R.drawable.drop));
-                    score += 1;
+                    if(bigDropCollected == 1){
+                        drops.add(createDrop(R.drawable.bigdrop));
+                        score += 10;
+                    } else if(snowCollected == 1){
+                            drops.add(createDrop(R.drawable.snow));
+                            score += 5;
+                    } else {
+                        drops.add(createDrop(R.drawable.drop));
+                        score += 1;
+                    }
+
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                 }
             }
@@ -387,8 +429,10 @@ public class GameView extends SurfaceView implements Runnable {
                 if (drop.isCollected(x - bucket.getWidth() / 2)) {
                     bigDrops.remove(drop);
                     //           drops5.add(createDrop(R.drawable.drop5));
-                    score += 10;
+                    bigDropCollected = 1;
+       //             score += 10;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+                    sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
 
                 }
 
@@ -409,7 +453,9 @@ public class GameView extends SurfaceView implements Runnable {
                     snow.remove(drop);
                     //           drops5.add(createDrop(R.drawable.drop5));
                     freezeFactor = 2;
+                    snowCollected = 1;
                     sounds.play(freeze, 1.0f, 1.0f, 0, 0, 1.5f);
+                    sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
                 }
 
             }
@@ -464,6 +510,8 @@ public class GameView extends SurfaceView implements Runnable {
                  fivecount = 0;
                  bigdropcount = 0;
                  snowcount = 0;
+                 snowCollected = 0;
+                 bigDropCollected = 0;
                  for (int i = drops.size() - 1; i >= 0; i--) {
                      Drop drop = drops.get(i);
                      drops.remove(drop);

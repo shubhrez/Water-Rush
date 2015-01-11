@@ -62,6 +62,7 @@ public class GameView1 extends SurfaceView implements Runnable {
     int xtap;
     private int waterdrip,watersplash,freeze;
     int life = 0;
+    int bigDropCollected = 0;
 
     public GameView1(Context context) {
         super(context);
