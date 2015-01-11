@@ -31,10 +31,14 @@ public class GameView extends SurfaceView implements Runnable {
     int timeleft = 60;
     Bitmap drop,bucket,drop5,cloud,splash1,splash2,lightning;
     private List<Drop> drops = new ArrayList<Drop>();
+    private List<Drop> crystal = new ArrayList<Drop>();
     private List<Drop> drops5 = new ArrayList<Drop>();
     private List<Drop> snow = new ArrayList<Drop>();
     private List<Drop> stones = new ArrayList<Drop>();
     private List<Drop> bigDrops = new ArrayList<Drop>();
+    private List<Power> bigDropsSelected = new ArrayList<Power>();
+    private List<Power> snowSelected = new ArrayList<Power>();
+
     private List<Tap> taps = new ArrayList<Tap>();
     float x = 250;
     static final long FPS = 20;
@@ -46,7 +50,7 @@ public class GameView extends SurfaceView implements Runnable {
     int fivecount = 0;
     int bigdropcount = 0;
     int snowcount = 0;
-    int t1,t2,t3,e1,e2,s1,s2,b1,b2;
+    int t1,t2,t3,e1,e2,s1,s2,b1,b2,c1,c2;
     int splash = 0;
     int splashcount = 0;
     int displayfiveseconds = 0;
@@ -61,11 +65,12 @@ public class GameView extends SurfaceView implements Runnable {
     private SoundPool sounds;
     private int waterdrip,watersplash,freeze,thunder;
     int bigDropCollected = 0;
-    int bigDropTime = 0;
+ //   int bigDropTime = 0;
     int snowCollected = 0;
-    int snowTime = 0;
+ //   int snowTime = 0;
     int thunderStart = 0;
     int thunderCount = 0;
+    int crystalCount = 0;
 
 
     public GameView(Context context) {
@@ -97,6 +102,26 @@ public class GameView extends SurfaceView implements Runnable {
     //    drops.add(createDrop(R.drawable.drop));
     }
 
+    private void createbigDropsSelected() {
+        bigDropsSelected.add(createPower(R.drawable.bigdropselected,0));
+        bigDropsSelected.add(createPower(R.drawable.bigdropselected,-50));
+        bigDropsSelected.add(createPower(R.drawable.bigdropselected,-100));
+        bigDropsSelected.add(createPower(R.drawable.bigdropselected,0));
+        bigDropsSelected.add(createPower(R.drawable.bigdropselected,-125));
+        bigDropsSelected.add(createPower(R.drawable.bigdropselected,-70));
+
+    }
+
+    private void createsnowSelected() {
+        snowSelected.add(createPower(R.drawable.snowselected,0));
+        snowSelected.add(createPower(R.drawable.snowselected,-100));
+        snowSelected.add(createPower(R.drawable.snowselected,-200));
+        snowSelected.add(createPower(R.drawable.snowselected,-150));
+        snowSelected.add(createPower(R.drawable.snowselected,-50));
+        snowSelected.add(createPower(R.drawable.snowselected,0));
+        snowSelected.add(createPower(R.drawable.snowselected,-120));
+    }
+
     private void createTaps() {
         int xtap = rnd.nextInt(200) + 50;
         taps.add(createTap(R.drawable.drop,xtap,0));
@@ -115,8 +140,17 @@ public class GameView extends SurfaceView implements Runnable {
      //   stones.add(createDrop(R.drawable.stone));
     }
 
+    private Power createPower(int resource,int y) {
+        Bitmap bmp = BitmapFactory.decodeResource(getResources(), resource);
+        return new Power(this, bmp,bucket,y);
+    }
+
     private void createDrops5() {
         drops5.add(createDrop(R.drawable.drop5));
+    }
+
+    private void createCrystal() {
+        crystal.add(createDrop(R.drawable.cyrstal));
     }
 
     private void createbigDrops() {
@@ -201,6 +235,13 @@ public class GameView extends SurfaceView implements Runnable {
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
+        for (Power power : bigDropsSelected) {
+            power.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+        }
+
+        for (Power power : snowSelected) {
+            power.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+        }
 
         if(timelToBeDisplayed <= 55) {
             for (Drop drop : stones) {
@@ -238,6 +279,10 @@ public class GameView extends SurfaceView implements Runnable {
 
 
         for (Drop drop : drops5) {
+            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+        }
+
+        for (Drop drop : crystal) {
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
@@ -287,6 +332,22 @@ public class GameView extends SurfaceView implements Runnable {
             if(bigdropcount == 1){
                 createbigDrops();
                 bigdropcount = 2;
+            }
+        }
+
+        if(timelToBeDisplayed == c1 ) {
+            if(crystalCount == 0){
+                createCrystal();
+                crystalCount = 1;
+            }
+        }
+
+
+        //     if(timelToBeDisplayed == 20) {
+        if(timelToBeDisplayed == c2) {
+            if(crystalCount == 1){
+                createCrystal();
+                crystalCount = 2;
             }
         }
 
@@ -358,25 +419,35 @@ public class GameView extends SurfaceView implements Runnable {
             }
         }
 
-        if(bigDropCollected == 1) {
-            if (bigDropTime <= 100) {
-                bigDropTime += 1 ;
-            } else {
-                bigDropCollected = 0;
-                bigDropTime = 0;
-            }
+//        if(bigDropCollected == 1) {
+//            if (bigDropTime <= 100) {
+//                bigDropTime += 1 ;
+//            } else {
+//                bigDropCollected = 0;
+//                bigDropTime = 0;
+//            }
+//        }
+
+        if(bigDropCollected == 1){
+            createbigDropsSelected();
+            bigDropCollected = 0;
         }
 
 
-
-        if(snowCollected == 1) {
-            if (snowTime <= 100) {
-                snowTime += 1 ;
-            } else {
-                snowCollected = 0;
-                snowTime = 0;
-            }
+        if(snowCollected == 1){
+            createsnowSelected();
+            snowCollected = 0;
         }
+
+//
+//        if(snowCollected == 1) {
+//            if (snowTime <= 100) {
+//                snowTime += 1 ;
+//            } else {
+//                snowCollected = 0;
+//                snowTime = 0;
+//            }
+//        }
 
         synchronized (holder) {
 
@@ -384,16 +455,17 @@ public class GameView extends SurfaceView implements Runnable {
                     Drop drop = drops.get(i);
                     if (drop.isCollision(getHeight())) {
                         drops.remove(drop);
-                        if(bigDropCollected == 1){
-                            drops.add(createDrop(R.drawable.bigdrop));
-
-                        } else if(snowCollected == 1){
-                            drops.add(createDrop(R.drawable.snow));
+                        drops.add(createDrop(R.drawable.drop));
+//                        if(bigDropCollected == 1){
+//                            drops.add(createDrop(R.drawable.bigdrop));
 //
-                        } else {
-                            drops.add(createDrop(R.drawable.drop));
-
-                        }
+//                        } else if(snowCollected == 1){
+//                            drops.add(createDrop(R.drawable.snow));
+////
+//                        } else {
+//                            drops.add(createDrop(R.drawable.drop));
+//
+//                        }
                     }
                 }
 
@@ -401,18 +473,9 @@ public class GameView extends SurfaceView implements Runnable {
                 Drop drop = drops.get(i);
                 if (drop.isCollected(x - bucket.getWidth() / 2)) {
                     drops.remove(drop);
-                    if(bigDropCollected == 1){
-                        drops.add(createDrop(R.drawable.bigdrop));
-                        score += 10;
-                    } else if(snowCollected == 1){
-                            drops.add(createDrop(R.drawable.snow));
-                            score += 5;
-                    } else {
-                        drops.add(createDrop(R.drawable.drop));
-                        score += 1;
-                    }
-
-                    sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+                     drops.add(createDrop(R.drawable.drop));
+                     score += 1;
+                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                 }
             }
 
@@ -464,6 +527,69 @@ public class GameView extends SurfaceView implements Runnable {
 
             }
 
+            for (int i = bigDropsSelected.size() - 1; i >= 0; i--) {
+                Power power = bigDropsSelected.get(i);
+                if (power.isCollision(getHeight())) {
+                    bigDropsSelected.remove(power);
+                    //             drops5.add(createDrop(R.drawable.drop5));
+
+                }
+
+            }
+
+            for (int i = bigDropsSelected.size() - 1; i >= 0; i--) {
+                Power power = bigDropsSelected.get(i);
+                if (power.isCollected(x - bucket.getWidth() / 2)) {
+                    bigDropsSelected.remove(power);
+                    score += 10;
+                    sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+
+                }
+
+            }
+
+            for (int i = snowSelected.size() - 1; i >= 0; i--) {
+                Power power = snowSelected.get(i);
+                if (power.isCollision(getHeight())) {
+                    snowSelected.remove(power);
+                    //             drops5.add(createDrop(R.drawable.drop5));
+
+                }
+
+            }
+
+            for (int i = snowSelected.size() - 1; i >= 0; i--) {
+                Power power = snowSelected.get(i);
+                if (power.isCollected(x - bucket.getWidth() / 2)) {
+                    snowSelected.remove(power);
+                    score += 5;
+                    sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+
+                }
+
+            }
+
+            for (int i = crystal.size() - 1; i >= 0; i--) {
+                Drop drop = crystal.get(i);
+                if (drop.isCollision(getHeight())) {
+                    crystal.remove(drop);
+                    //             drops5.add(createDrop(R.drawable.drop5));
+
+                }
+
+            }
+
+            for (int i = crystal.size() - 1; i >= 0; i--) {
+                Drop drop = crystal.get(i);
+                if (drop.isCollected(x - bucket.getWidth() / 2)) {
+                    crystal.remove(drop);
+                    //           drops5.add(createDrop(R.drawable.drop5));
+                    freezeFactor = 2;
+                    sounds.play(freeze, 0.2f, 0.2f, 0, 0, 1.5f);
+                }
+
+            }
+
             for (int i = snow.size() - 1; i >= 0; i--) {
                 Drop drop = snow.get(i);
                 if (drop.isCollision(getHeight())) {
@@ -478,7 +604,7 @@ public class GameView extends SurfaceView implements Runnable {
                 if (drop.isCollected(x - bucket.getWidth() / 2)) {
                     snow.remove(drop);
                     //           drops5.add(createDrop(R.drawable.drop5));
-                    freezeFactor = 2;
+    //                freezeFactor = 2;
                     snowCollected = 1;
                     thunderStart = 1;
                     sounds.play(freeze, 1.0f, 1.0f, 0, 0, 1.5f);
@@ -537,6 +663,7 @@ public class GameView extends SurfaceView implements Runnable {
                  fivecount = 0;
                  bigdropcount = 0;
                  snowcount = 0;
+                 crystalCount = 0;
                  snowCollected = 0;
                  bigDropCollected = 0;
                  for (int i = drops.size() - 1; i >= 0; i--) {
@@ -620,6 +747,8 @@ public void pause() {
         s2 = rnd.nextInt(10) + 10;
         b1 = rnd.nextInt(10) + 40;
         b2 = rnd.nextInt(10) + 20;
+        c1 = rnd.nextInt(10) + 40;
+        c2 = rnd.nextInt(10) + 20;
         while (running) {
 
             if(!holder.getSurface().isValid())
