@@ -3,6 +3,7 @@ package com.healthtapper.sixtyseconds;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -29,7 +30,7 @@ public class GameView extends SurfaceView implements Runnable {
     Boolean running = false;
     Thread thread = null;
     int timeleft = 60;
-    Bitmap drop,bucket,drop5,cloud,splash1,splash2,lightning;
+    Bitmap drop,bucket,drop5,cloud,cloudflip,splash1,splash2,lightning;
     private List<Drop> drops = new ArrayList<Drop>();
     private List<Drop> crystal = new ArrayList<Drop>();
     private List<Drop> drops5 = new ArrayList<Drop>();
@@ -39,6 +40,8 @@ public class GameView extends SurfaceView implements Runnable {
     private List<Drop> bigDropsSelected = new ArrayList<Drop>();
     private List<Drop> snowSelected = new ArrayList<Drop>();
     private List<Tap> taps = new ArrayList<Tap>();
+
+    public static final String HIGHESTSCORE = "highestscore";
 
     float x = 250;
     static final long FPS = 20;
@@ -71,8 +74,8 @@ public class GameView extends SurfaceView implements Runnable {
     int thunderStart = 0;
     int thunderCount = 0;
     int crystalCount = 0;
-    int xtap;
-
+    int xtap = rnd.nextInt(200) + 50;;
+    int highestscore;
 
     public GameView(Context context) {
         super(context);
@@ -80,6 +83,7 @@ public class GameView extends SurfaceView implements Runnable {
         drop = BitmapFactory.decodeResource(getResources(), R.drawable.drop);
         drop5 = BitmapFactory.decodeResource(getResources(), R.drawable.drop5);
         cloud = BitmapFactory.decodeResource(getResources(), R.drawable.cloud);
+        cloudflip = BitmapFactory.decodeResource(getResources(), R.drawable.cloudflip);
         bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
         splash1 = BitmapFactory.decodeResource(getResources(), R.drawable.splash1);
         splash2 = BitmapFactory.decodeResource(getResources(), R.drawable.splash2);
@@ -89,6 +93,7 @@ public class GameView extends SurfaceView implements Runnable {
         watersplash = sounds.load(context,R.raw.watersplash,1);
         freeze = sounds.load(context,R.raw.freeze,1);
         thunder = sounds.load(context,R.raw.thunder,1);
+
         createDrops();
         createDrops5();
         createStones();
@@ -297,18 +302,24 @@ public class GameView extends SurfaceView implements Runnable {
         Rect bucketsupportRect = new Rect(0,getHeight() - 60,getWidth(),getHeight());
         canvas.drawRect(bucketsupportRect,bucketsupport);
         canvas.drawBitmap(cloud,getWidth()/4-cloud.getWidth()/2,-100,null);
-        canvas.drawBitmap(cloud,3*getWidth()/4-cloud.getWidth()/2 + 50,-100,null);
+        canvas.drawBitmap(cloudflip,3*getWidth()/4-cloudflip.getWidth()/2 + 50,-100,null);
         textPaint.setARGB(255,0,178,255);
 //        canvas.drawText(new StringBuilder().append("Score : ").append(scoretext).toString(), getWidth() / 2, 80, textPaint);
 //        bucketsupport.setARGB(255,0,0,0);
 //        canvas.drawCircle(getWidth()-80,60,50,bucketsupport);
-        canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 80, textPaint);
-        canvas.drawBitmap(drop,getWidth() - 175 - drop.getWidth()/2,25,null);
+        canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 60, textPaint);
+        canvas.drawBitmap(drop,getWidth() - 175 - drop.getWidth()/2,5,null);
+
+        textPaint.setTextSize(45);
+        highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
+        String highestscoreText = String.valueOf(highestscore);
+        canvas.drawText(new StringBuilder().append("Best:").append(highestscoreText).toString(), getWidth() - 120, 110, textPaint);
+
         textPaint.setTextSize(60);
         if(timelToBeDisplayed >= 10) {
-            canvas.drawText(new StringBuilder().append("0:").append(timeLeftText).toString(), 80, 80, textPaint);
+            canvas.drawText(new StringBuilder().append("0:").append(timeLeftText).toString(), 80, 60, textPaint);
         } else {
-            canvas.drawText(new StringBuilder().append("0:0").append(timeLeftText).toString(), 80, 80, textPaint);
+            canvas.drawText(new StringBuilder().append("0:0").append(timeLeftText).toString(), 80, 60, textPaint);
         }
         if(splash == 1) {
             if (splashcount <= 10) {
@@ -430,9 +441,7 @@ public class GameView extends SurfaceView implements Runnable {
                     bigDrops.remove(drop);
                     createbigDrops();
                     //             drops5.add(createDrop(R.drawable.drop5));
-
                 }
-
             }
 
             for (int i = bigDrops.size() - 1; i >= 0; i--) {
@@ -487,9 +496,7 @@ public class GameView extends SurfaceView implements Runnable {
                 if (drop.isCollision(getHeight())) {
                     crystal.remove(drop);
                     createCrystal();
-
                 }
-
             }
 
             for (int i = crystal.size() - 1; i >= 0; i--) {
@@ -566,6 +573,12 @@ public class GameView extends SurfaceView implements Runnable {
 
 
              if(timelToBeDisplayed  <= 0) {
+                 int highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
+                 if(highestscore < score){
+                     SharedPreferences.Editor editor = Splash.pref.edit();
+                     editor.putInt(HIGHESTSCORE, score);
+                     editor.commit();
+                 }
                  gameoverActivity();
                  timeleft = 60;
                  score = 0;
@@ -587,6 +600,51 @@ public class GameView extends SurfaceView implements Runnable {
                      stones.remove(drop);
                      stones.add(createDrop(R.drawable.stone,0));
                  }
+
+                 for (int i = snow.size() - 1; i >= 0; i--) {
+                     Drop drop = snow.get(i);
+                         snow.remove(drop);
+                         createSnow();
+                 }
+
+                 for (int i = taps.size() - 1; i >= 0; i--) {
+                     Tap tap = taps.get(i);
+                         taps.remove(tap);
+                     }
+                 createTaps();
+
+                 for (int i = crystal.size() - 1; i >= 0; i--) {
+                     Drop drop = crystal.get(i);
+                         crystal.remove(drop);
+                         createCrystal();
+
+                 }
+
+                 for (int i = snowSelected.size() - 1; i >= 0; i--) {
+                     Drop drop = snowSelected.get(i);
+                         snowSelected.remove(drop);
+                     }
+                 createsnowSelected();
+
+                 for (int i = bigDropsSelected.size() - 1; i >= 0; i--) {
+                     Drop drop = bigDropsSelected.get(i);
+                         bigDropsSelected.remove(drop);
+                     }
+                 createbigDropsSelected();
+
+
+                 for (int i = bigDrops.size() - 1; i >= 0; i--) {
+                     Drop drop = bigDrops.get(i);
+                         bigDrops.remove(drop);
+                         createbigDrops();
+                 }
+
+                 for (int i = drops5.size() - 1; i >= 0; i--) {
+                     Drop drop = drops5.get(i);
+                         drops5.remove(drop);
+                         createDrops5();
+                 }
+
              }
 
         }
@@ -648,7 +706,7 @@ public void pause() {
         long ticksPS = 1000 / FPS;
         long startTime;
         long sleepTime;
-        xtap = rnd.nextInt(200) + 50;
+//        xtap = rnd.nextInt(200) + 50;
 
 //        t1 = rnd.nextInt(10) + 30;
 //        t2 = rnd.nextInt(10) + 20;
