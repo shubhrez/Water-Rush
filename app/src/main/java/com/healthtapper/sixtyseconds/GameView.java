@@ -628,6 +628,7 @@ public class GameView extends SurfaceView implements Runnable {
                  gameoverActivity();
                  timeleft = 60;
                  score = 0;
+                 freezeFactor = 1;
                  tapcount = 0;
                  fivecount = 0;
                  bigdropcount = 0;
