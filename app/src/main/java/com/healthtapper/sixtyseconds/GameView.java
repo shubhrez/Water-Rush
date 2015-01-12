@@ -708,11 +708,11 @@ public void pause() {
     public void gameoverActivity(){
         Context context = getContext();
         Intent intent = new Intent("com.healthtapper.sixtyseconds.GAMEOVER");
-//        Bundle bundle = new Bundle();
-////Add your data from getFactualResults method to bundle
-//        bundle.putInt("SCORE", score);
-////Add the bundle to the intent
-//        intent.putExtras(bundle);
+        Bundle bundle = new Bundle();
+//Add your data from getFactualResults method to bundle
+        bundle.putInt("SCORE", score);
+//Add the bundle to the intent
+        intent.putExtras(bundle);
         context.startActivity(intent);
     }
 
