@@ -49,6 +49,18 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".Unlock"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="com.healthtapper.sixtyseconds.UNLOCK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".GameOver"

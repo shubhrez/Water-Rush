@@ -591,6 +591,48 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 stones.remove(drop);
                 stones.add(createDrop(R.drawable.stone,0));
             }
+
+            for (int i = snow.size() - 1; i >= 0; i--) {
+                Drop1 drop = snow.get(i);
+                snow.remove(drop);
+                createSnow();
+            }
+
+            for (int i = taps.size() - 1; i >= 0; i--) {
+                Tap1 tap = taps.get(i);
+                taps.remove(tap);
+            }
+            createTaps();
+
+            for (int i = crystal.size() - 1; i >= 0; i--) {
+                Drop1 drop = crystal.get(i);
+                crystal.remove(drop);
+                createCrystal();
+
+            }
+
+            for (int i = snowSelected.size() - 1; i >= 0; i--) {
+                Drop1 drop = snowSelected.get(i);
+                snowSelected.remove(drop);
+            }
+
+            for (int i = bigDropsSelected.size() - 1; i >= 0; i--) {
+                Drop1 drop = bigDropsSelected.get(i);
+                bigDropsSelected.remove(drop);
+            }
+
+
+            for (int i = bigDrops.size() - 1; i >= 0; i--) {
+                Drop1 drop = bigDrops.get(i);
+                bigDrops.remove(drop);
+                createbigDrops();
+            }
+
+            for (int i = drops5.size() - 1; i >= 0; i--) {
+                Drop1 drop = drops5.get(i);
+                drops5.remove(drop);
+                createDrops5();
+            }
         }
 
     }

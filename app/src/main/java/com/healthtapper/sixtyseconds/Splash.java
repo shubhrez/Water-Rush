@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class Splash extends Activity {
 
-    Button start,instructions,freeflow;
+    Button start,instructions,freeflow,unlock;
     TextView title;
     public static SharedPreferences pref;
     static String PREF_NAME = "SixtySeconds";
@@ -25,6 +25,7 @@ public class Splash extends Activity {
         setContentView(R.layout.splash);
         start = (Button) findViewById(R.id.start);
         freeflow = (Button) findViewById(R.id.freeflow);
+        unlock = (Button) findViewById(R.id.unlock);
         instructions = (Button) findViewById(R.id.instructions);
         start.setBackgroundResource(R.drawable.cloud);
         pref = getSharedPreferences(PREF_NAME, Context.MODE_MULTI_PROCESS);
@@ -45,6 +46,15 @@ public class Splash extends Activity {
                 startActivity(intent);
             }
         });
+
+        unlock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.healthtapper.sixtyseconds.UNLOCK");
+                startActivity(intent);
+            }
+        });
+
 
         instructions.setOnClickListener(new View.OnClickListener() {
             @Override

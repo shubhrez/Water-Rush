@@ -29,7 +29,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
+        android:layout_weight="5"
         />
 
     <Button
@@ -46,8 +46,25 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
+        android:layout_weight="5"
         />
+    <Button
+        android:id="@+id/unlock"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_weight="5"
+        android:text="Unlock"
+        android:textStyle="italic|bold"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        />
+
     <Button
         android:id="@+id/freeflow"
         android:layout_width="300dp"

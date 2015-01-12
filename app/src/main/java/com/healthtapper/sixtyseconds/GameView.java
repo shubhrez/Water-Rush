@@ -42,6 +42,7 @@ public class GameView extends SurfaceView implements Runnable {
     private List<Tap> taps = new ArrayList<Tap>();
 
     public static final String HIGHESTSCORE = "highestscore";
+    public static final String BUCKET = "bucket";
 
     float x = 250;
     static final long FPS = 20;
@@ -84,7 +85,14 @@ public class GameView extends SurfaceView implements Runnable {
         drop5 = BitmapFactory.decodeResource(getResources(), R.drawable.drop5);
         cloud = BitmapFactory.decodeResource(getResources(), R.drawable.cloud);
         cloudflip = BitmapFactory.decodeResource(getResources(), R.drawable.cloudflip);
-        bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
+        int bucketSize = Splash.pref.getInt(BUCKET,0);
+        if(bucketSize == 0){
+            bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucketsmall);
+        }
+        if(bucketSize == 1) {
+            bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
+        }
+
         splash1 = BitmapFactory.decodeResource(getResources(), R.drawable.splash1);
         splash2 = BitmapFactory.decodeResource(getResources(), R.drawable.splash2);
         lightning = BitmapFactory.decodeResource(getResources(), R.drawable.lightning);
@@ -292,7 +300,13 @@ public class GameView extends SurfaceView implements Runnable {
 //                snowcount = 2;
 //            }
 //        }
-
+        int bucketSize = Splash.pref.getInt(BUCKET,0);
+        if(bucketSize == 0){
+            bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucketsmall);
+        }
+        if(bucketSize == 1) {
+            bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
+        }
         canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
         Paint bucketsupport = new Paint();
         bucketsupport.setARGB(150,0,178,255);
@@ -577,6 +591,11 @@ public class GameView extends SurfaceView implements Runnable {
                  if(highestscore < score){
                      SharedPreferences.Editor editor = Splash.pref.edit();
                      editor.putInt(HIGHESTSCORE, score);
+                     editor.commit();
+                 }
+                 if(score >= 100){
+                     SharedPreferences.Editor editor = Splash.pref.edit();
+                     editor.putInt(BUCKET, 1);
                      editor.commit();
                  }
                  gameoverActivity();
