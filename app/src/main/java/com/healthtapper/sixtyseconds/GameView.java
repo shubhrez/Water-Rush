@@ -599,21 +599,30 @@ public class GameView extends SurfaceView implements Runnable {
                      editor.commit();
                  }
                  if(score >= 100){
-                     SharedPreferences.Editor editor = Splash.pref.edit();
-                     editor.putInt(BUCKET, 1);
-                     editor.commit();
+                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+                     if(bucketSize == 0) {
+                         SharedPreferences.Editor editor = Splash.pref.edit();
+                         editor.putInt(BUCKET, 1);
+                         editor.commit();
+                     }
                  }
 
                  if(score >= 140){
-                     SharedPreferences.Editor editor = Splash.pref.edit();
-                     editor.putInt(BUCKET, 2);
-                     editor.commit();
+                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+                     if(bucketSize == 1) {
+                         SharedPreferences.Editor editor = Splash.pref.edit();
+                         editor.putInt(BUCKET, 2);
+                         editor.commit();
+                     }
                  }
 
-                 if(score >= 180){
-                     SharedPreferences.Editor editor = Splash.pref.edit();
-                     editor.putInt(BUCKET, 3);
-                     editor.commit();
+                 if(score >= 180) {
+                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+                     if (bucketSize == 2) {
+                         SharedPreferences.Editor editor = Splash.pref.edit();
+                         editor.putInt(BUCKET, 3);
+                         editor.commit();
+                     }
                  }
 
                  gameoverActivity();
