@@ -274,8 +274,10 @@ public class GameView extends SurfaceView implements Runnable {
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
-        for (Drop drop : crystal) {
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+        if(bucketSize >= 3) {
+            for (Drop drop : crystal) {
+                drop.onDraw(canvas, (61 - timelToBeDisplayed), freezeFactor);
+            }
         }
 
         if(bucketSize >= 2) {
@@ -284,7 +286,7 @@ public class GameView extends SurfaceView implements Runnable {
             }
         }
 
-        if(bucketSize >= 3) {
+        if(bucketSize >= 4) {
             for (Drop drop : snow) {
                 drop.onDraw(canvas, (61 - timelToBeDisplayed), freezeFactor);
             }
@@ -621,6 +623,15 @@ public class GameView extends SurfaceView implements Runnable {
                      if (bucketSize == 2) {
                          SharedPreferences.Editor editor = Splash.pref.edit();
                          editor.putInt(BUCKET, 3);
+                         editor.commit();
+                     }
+                 }
+
+                 if(score >= 200) {
+                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+                     if (bucketSize == 3) {
+                         SharedPreferences.Editor editor = Splash.pref.edit();
+                         editor.putInt(BUCKET, 4);
                          editor.commit();
                      }
                  }

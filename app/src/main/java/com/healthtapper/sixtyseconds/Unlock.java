@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class Unlock extends Activity {
 
-    ImageView bucket,bigdrop,snow;
-    TextView bucketText,bigdropText,snowText;
+    ImageView bucket,bigdrop,snow,crystal;
+    TextView bucketText,bigdropText,snowText,crystalText;
     public static final String BUCKET = "bucket";
 
     @Override
@@ -23,10 +23,12 @@ public class Unlock extends Activity {
         bucketText = (TextView) findViewById(R.id.bucketText);
         bigdropText = (TextView) findViewById(R.id.bigdropText);
         snowText = (TextView) findViewById(R.id.snowText);
+        crystalText = (TextView) findViewById(R.id.crystalText);
 
         bucket = (ImageView) findViewById(R.id.bucket);
         bigdrop = (ImageView) findViewById(R.id.bigdrop);
         snow = (ImageView) findViewById(R.id.snow);
+        crystal = (ImageView) findViewById(R.id.crystal);
 
         bucket.setBackgroundResource(R.drawable.bucket);
         if (bucketSize == 0) {
@@ -46,11 +48,21 @@ public class Unlock extends Activity {
             bigdropText.setTextColor(Color.GREEN);
         }
 
-        snow.setBackgroundResource(R.drawable.snow);
+        crystal.setBackgroundResource(R.drawable.cyrstal);
         if (bucketSize <= 2) {
-            snowText.setText("Score 180 or more to Unlock");
-            snowText.setTextColor(Color.RED);
+            crystalText.setText("Score 180 or more to Unlock");
+            crystalText.setTextColor(Color.RED);
         } else if (bucketSize >= 3) {
+            crystalText.setText("Unlocked");
+            crystalText.setTextColor(Color.GREEN);
+        }
+
+
+        snow.setBackgroundResource(R.drawable.snow);
+        if (bucketSize <= 3) {
+            snowText.setText("Score 200 or more to Unlock");
+            snowText.setTextColor(Color.RED);
+        } else if (bucketSize >= 4) {
             snowText.setText("Unlocked");
             snowText.setTextColor(Color.GREEN);
         }

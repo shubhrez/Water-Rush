@@ -59,11 +59,22 @@ public class GameOver extends Activity{
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
         if(score >= 180){
             if(achievementStatus == 2){
-                achievement.setText("Snow Ball Unlocked");
+                achievement.setText("Crystal Unlocked");
                 achievement.setTextSize(35);
                 achievement.setTextColor(Color.RED);
                 SharedPreferences.Editor editor = Splash.pref.edit();
                 editor.putInt(ACHIEVEMENT, 3);
+                editor.commit();
+            }
+        }
+        achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
+        if(score >= 200){
+            if(achievementStatus == 3){
+                achievement.setText("Snow Ball Unlocked");
+                achievement.setTextSize(35);
+                achievement.setTextColor(Color.RED);
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(ACHIEVEMENT, 4);
                 editor.commit();
             }
         }
