@@ -86,10 +86,10 @@ public class GameView extends SurfaceView implements Runnable {
         cloud = BitmapFactory.decodeResource(getResources(), R.drawable.cloud);
         cloudflip = BitmapFactory.decodeResource(getResources(), R.drawable.cloudflip);
         int bucketSize = Splash.pref.getInt(BUCKET,0);
-        if(bucketSize == 0){
+        if(bucketSize <= 0){
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucketsmall);
         }
-        if(bucketSize == 1) {
+        if(bucketSize >= 1) {
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
         }
 
@@ -192,8 +192,9 @@ public class GameView extends SurfaceView implements Runnable {
     public void render(Canvas canvas){
 
         canvas.drawColor(Color.BLACK);
-        Paint background = new Paint();
+        int bucketSize = Splash.pref.getInt(BUCKET,0);
 
+        Paint background = new Paint();
         Rect back = new Rect(0,0,getWidth(),getHeight());
 
         if(thunderStart == 1) {
@@ -277,12 +278,16 @@ public class GameView extends SurfaceView implements Runnable {
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
-        for (Drop drop : bigDrops) {
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+        if(bucketSize >= 2) {
+            for (Drop drop : bigDrops) {
+                drop.onDraw(canvas, (61 - timelToBeDisplayed), freezeFactor);
+            }
         }
 
-        for (Drop drop : snow) {
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+        if(bucketSize >= 3) {
+            for (Drop drop : snow) {
+                drop.onDraw(canvas, (61 - timelToBeDisplayed), freezeFactor);
+            }
         }
 
 
@@ -300,11 +305,11 @@ public class GameView extends SurfaceView implements Runnable {
 //                snowcount = 2;
 //            }
 //        }
-        int bucketSize = Splash.pref.getInt(BUCKET,0);
-        if(bucketSize == 0){
+
+        if(bucketSize <= 0){
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucketsmall);
         }
-        if(bucketSize == 1) {
+        if(bucketSize >= 1) {
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
         }
         canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
@@ -598,6 +603,19 @@ public class GameView extends SurfaceView implements Runnable {
                      editor.putInt(BUCKET, 1);
                      editor.commit();
                  }
+
+                 if(score >= 140){
+                     SharedPreferences.Editor editor = Splash.pref.edit();
+                     editor.putInt(BUCKET, 2);
+                     editor.commit();
+                 }
+
+                 if(score >= 180){
+                     SharedPreferences.Editor editor = Splash.pref.edit();
+                     editor.putInt(BUCKET, 3);
+                     editor.commit();
+                 }
+
                  gameoverActivity();
                  timeleft = 60;
                  score = 0;

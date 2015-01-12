@@ -44,6 +44,30 @@ public class GameOver extends Activity{
             }
         }
 
+        achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
+        if(score >= 140){
+            if(achievementStatus == 1){
+                achievement.setText("Big Drop Unlocked");
+                achievement.setTextSize(35);
+                achievement.setTextColor(Color.RED);
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(ACHIEVEMENT, 2);
+                editor.commit();
+            }
+        }
+
+        achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
+        if(score >= 180){
+            if(achievementStatus == 2){
+                achievement.setText("Snow Ball Unlocked");
+                achievement.setTextSize(35);
+                achievement.setTextColor(Color.RED);
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(ACHIEVEMENT, 3);
+                editor.commit();
+            }
+        }
+
         restart.setBackgroundResource(R.drawable.cloud);
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
