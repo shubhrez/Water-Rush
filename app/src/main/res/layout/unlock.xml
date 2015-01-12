@@ -7,8 +7,8 @@
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="15"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
         android:text="Goals"
         android:textSize="40dp"
         android:gravity="center"
@@ -16,7 +16,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="15"
         >
@@ -42,7 +42,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="15"
         >
@@ -69,7 +69,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="15"
         >
@@ -96,7 +96,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="15"
         >
@@ -122,20 +122,46 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="15"
         >
 
         <ImageView
-
+            android:id="@+id/multiplier"
             android:layout_width="300dp"
             android:layout_height="70dp"
             android:layout_weight="3"
             />
 
         <TextView
+            android:id="@+id/multiplierText"
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:text="1"
+            android:padding="10dp"
+            android:layout_weight="1" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="15"
+        >
+
+        <ImageView
+            android:id="@+id/endless"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_weight="3"
+            />
+
+        <TextView
+            android:id="@+id/endlessText"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
             android:textSize="25dp"

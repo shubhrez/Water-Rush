@@ -31,6 +31,9 @@ public class GameOver extends Activity{
         Bundle bundle = getIntent().getExtras();
         //Extract the data…
         score = bundle.getInt("SCORE");
+//        if(achievementStatus >= 5){
+//            score = score*2;
+//        }
         scoreText.setText(new StringBuilder().append("Score : ").append(score).toString());
 
         if(score >= 100){
@@ -75,6 +78,30 @@ public class GameOver extends Activity{
                 achievement.setTextColor(Color.RED);
                 SharedPreferences.Editor editor = Splash.pref.edit();
                 editor.putInt(ACHIEVEMENT, 4);
+                editor.commit();
+            }
+        }
+
+        achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
+        if(score >= 250){
+            if(achievementStatus == 4){
+                achievement.setText("x2 Multiplier");
+                achievement.setTextSize(35);
+                achievement.setTextColor(Color.RED);
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(ACHIEVEMENT, 5);
+                editor.commit();
+            }
+        }
+
+        achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
+        if(score >= 400){
+            if(achievementStatus == 5){
+                achievement.setText("Congratulations,Endless Unlocked");
+                achievement.setTextSize(35);
+                achievement.setTextColor(Color.RED);
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(ACHIEVEMENT, 6);
                 editor.commit();
             }
         }

@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class Unlock extends Activity {
 
-    ImageView bucket,bigdrop,snow,crystal;
-    TextView bucketText,bigdropText,snowText,crystalText;
+    ImageView bucket,bigdrop,snow,crystal,multiplier,endless;
+    TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText;
     public static final String BUCKET = "bucket";
 
     @Override
@@ -24,11 +24,15 @@ public class Unlock extends Activity {
         bigdropText = (TextView) findViewById(R.id.bigdropText);
         snowText = (TextView) findViewById(R.id.snowText);
         crystalText = (TextView) findViewById(R.id.crystalText);
+        multiplierText = (TextView) findViewById(R.id.multiplierText);
+        endlessText = (TextView) findViewById(R.id.endlessText);
 
         bucket = (ImageView) findViewById(R.id.bucket);
         bigdrop = (ImageView) findViewById(R.id.bigdrop);
         snow = (ImageView) findViewById(R.id.snow);
         crystal = (ImageView) findViewById(R.id.crystal);
+        multiplier = (ImageView) findViewById(R.id.multiplier);
+        endless = (ImageView) findViewById(R.id.endless);
 
         bucket.setBackgroundResource(R.drawable.bucket);
         if (bucketSize == 0) {
@@ -65,6 +69,24 @@ public class Unlock extends Activity {
         } else if (bucketSize >= 4) {
             snowText.setText("Unlocked");
             snowText.setTextColor(Color.GREEN);
+        }
+
+  //      multiplier.setBackgroundResource(R.drawable.snow);
+        if (bucketSize <= 4) {
+            multiplierText.setText("Score 250 or more to Unlock");
+            multiplierText.setTextColor(Color.RED);
+        } else if (bucketSize >= 5) {
+            multiplierText.setText("Unlocked");
+            multiplierText.setTextColor(Color.GREEN);
+        }
+
+    //          endless.setBackgroundResource(R.drawable.snow);
+        if (bucketSize <= 5) {
+            endlessText.setText("Score 400 or more to Unlock");
+            endlessText.setTextColor(Color.RED);
+        } else if (bucketSize >= 6) {
+            endlessText.setText("Unlocked");
+            endlessText.setTextColor(Color.GREEN);
         }
 
     }

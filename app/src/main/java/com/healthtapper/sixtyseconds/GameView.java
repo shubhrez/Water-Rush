@@ -594,7 +594,14 @@ public class GameView extends SurfaceView implements Runnable {
 
 
              if(timelToBeDisplayed  <= 0) {
+                 scoretext = String.valueOf(score);
+                 textPaint.setTextSize(70);
+                 canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 60, textPaint);
                  int highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
+                 bucketSize = Splash.pref.getInt(BUCKET, 0);
+                 if(bucketSize >= 5){
+                     score = score*2;
+                 }
                  if(highestscore < score){
                      SharedPreferences.Editor editor = Splash.pref.edit();
                      editor.putInt(HIGHESTSCORE, score);
@@ -635,6 +642,26 @@ public class GameView extends SurfaceView implements Runnable {
                          editor.commit();
                      }
                  }
+
+                 if(score >= 250) {
+                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+                     if (bucketSize == 4) {
+                         SharedPreferences.Editor editor = Splash.pref.edit();
+                         editor.putInt(BUCKET, 5);
+                         editor.commit();
+                     }
+                 }
+
+
+                 if(score >= 400) {
+                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+                     if (bucketSize == 5) {
+                         SharedPreferences.Editor editor = Splash.pref.edit();
+                         editor.putInt(BUCKET, 6);
+                         editor.commit();
+                     }
+                 }
+
 
                  gameoverActivity();
                  timeleft = 60;
