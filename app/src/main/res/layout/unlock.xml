@@ -13,7 +13,7 @@
         android:textSize="40dp"
         android:gravity="center"
         />
-    
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -23,15 +23,15 @@
 
         <ImageView
             android:id="@+id/bucket"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
             android:layout_weight="3"
             />
 
         <TextView
             android:id="@+id/bucketText"
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:textSize="25dp"
             android:gravity="center"
             android:text="1"
@@ -49,15 +49,15 @@
 
         <ImageView
             android:id="@+id/bigdrop"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
             android:layout_weight="3"
             />
 
         <TextView
             android:id="@+id/bigdropText"
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:textSize="25dp"
             android:gravity="center"
             android:text="1"
@@ -75,15 +75,15 @@
 
         <ImageView
             android:id="@+id/snow"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
             android:layout_weight="3"
             />
 
         <TextView
             android:id="@+id/snowText"
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:textSize="25dp"
             android:gravity="center"
             android:text="1"
@@ -101,15 +101,15 @@
 
         <ImageView
 
-            android:layout_width="400dp"
-            android:layout_height="100dp"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
             android:layout_weight="3"
             />
 
         <TextView
 
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:textSize="25dp"
             android:gravity="center"
             android:text="1"
@@ -127,15 +127,15 @@
 
         <ImageView
 
-            android:layout_width="400dp"
-            android:layout_height="100dp"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
             android:layout_weight="3"
             />
 
         <TextView
 
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:textSize="25dp"
             android:gravity="center"
             android:text="1"
