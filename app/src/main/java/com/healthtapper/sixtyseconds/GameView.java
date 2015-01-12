@@ -624,13 +624,11 @@ public class GameView extends SurfaceView implements Runnable {
                      Drop drop = snowSelected.get(i);
                          snowSelected.remove(drop);
                      }
-                 createsnowSelected();
 
                  for (int i = bigDropsSelected.size() - 1; i >= 0; i--) {
                      Drop drop = bigDropsSelected.get(i);
                          bigDropsSelected.remove(drop);
                      }
-                 createbigDropsSelected();
 
 
                  for (int i = bigDrops.size() - 1; i >= 0; i--) {
