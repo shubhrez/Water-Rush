@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 public class Unlock extends Activity {
 
-    ImageView bucket,bigdrop,snow,crystal,multiplier,endless,goal1,goal2;
-    TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText,title;
+    ImageView bucket,bigdrop,snow,crystal,endless,goal1,goal2;
+    TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText,title,multiplier;
     public static final String BUCKET = "bucket";
 
     @Override
@@ -44,7 +44,7 @@ public class Unlock extends Activity {
         bigdrop = (ImageView) findViewById(R.id.bigdrop);
         snow = (ImageView) findViewById(R.id.snow);
         crystal = (ImageView) findViewById(R.id.crystal);
-        multiplier = (ImageView) findViewById(R.id.multiplier);
+        multiplier = (TextView) findViewById(R.id.multiplier);
         endless = (ImageView) findViewById(R.id.endless);
         goal1 = (ImageView) findViewById(R.id.goal1);
         goal2 = (ImageView) findViewById(R.id.goal2);
@@ -88,7 +88,7 @@ public class Unlock extends Activity {
      //       snowText.setTextColor(Color.GREEN);
         }
 
-        multiplier.setBackgroundResource(R.drawable.snow);
+//        multiplier.setBackgroundResource(R.drawable.snow);
         if (bucketSize <= 4) {
             multiplierText.setText("Score 250 or more to Unlock");
       //      multiplierText.setTextColor(Color.RED);
