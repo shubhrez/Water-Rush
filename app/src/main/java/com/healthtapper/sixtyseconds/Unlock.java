@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class Unlock extends Activity {
 
-    ImageView bucket,bigdrop,snow,crystal,multiplier,endless;
+    ImageView bucket,bigdrop,snow,crystal,multiplier,endless,goal1,goal2;
     TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText;
     public static final String BUCKET = "bucket";
 
@@ -33,7 +33,11 @@ public class Unlock extends Activity {
         crystal = (ImageView) findViewById(R.id.crystal);
         multiplier = (ImageView) findViewById(R.id.multiplier);
         endless = (ImageView) findViewById(R.id.endless);
+        goal1 = (ImageView) findViewById(R.id.goal1);
+        goal2 = (ImageView) findViewById(R.id.goal2);
 
+        goal1.setBackgroundResource(R.drawable.goal);
+        goal2.setBackgroundResource(R.drawable.goal);
         bucket.setBackgroundResource(R.drawable.bucket);
         if (bucketSize == 0) {
             bucketText.setText("Score 100 or more to Unlock");

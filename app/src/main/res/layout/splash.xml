@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00B2FF"
+
     >
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Sixty Seconds"
+        android:text="Water Rush"
         android:textStyle="italic|bold"
         android:textSize="50dp"
         android:gravity="center"
@@ -20,7 +20,7 @@
         android:layout_width="300dp"
         android:layout_height="20dp"
         android:layout_weight="10"
-        android:text="Start"
+        android:text="Start Quest"
         android:textStyle="italic|bold"
         android:textSize="35dp"
         android:layout_gravity="center"
@@ -53,7 +53,7 @@
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:layout_weight="5"
-        android:text="Unlock"
+        android:text="Quest Goals"
         android:textStyle="italic|bold"
         android:textSize="30dp"
         android:layout_gravity="center"
@@ -70,7 +70,7 @@
         android:layout_width="300dp"
         android:layout_height="20dp"
         android:layout_weight="10"
-        android:text="Free Flow"
+        android:text="Endless,Unlock to play"
         android:textStyle="italic|bold"
         android:textSize="35dp"
         android:layout_gravity="center"

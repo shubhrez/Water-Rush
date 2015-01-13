@@ -181,6 +181,7 @@ public class GameView extends SurfaceView implements Runnable {
 
     private Drop createDrop(int resource,int y) {
         Bitmap bmp = BitmapFactory.decodeResource(getResources(), resource);
+ //       int xDrop = rnd.nextInt(this.getWidth() - bmp.getWidth());
         return new Drop(this, bmp,bucket,y);
     }
 

@@ -26,6 +26,7 @@ public class Drop {
         this.y = y;
         Random rnd = new Random();
         x = rnd.nextInt(500) + 1;
+    //    this.x = x;
         ySpeed = rnd.nextInt(5) + 25;
         this.bucket = bucket;
     }
