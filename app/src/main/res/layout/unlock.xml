@@ -44,7 +44,7 @@
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="4dp"
+        android:layout_height="1dp"
         android:background="#00B2FF"/>
 
     <TextView
@@ -72,8 +72,8 @@
         <TextView
             android:id="@+id/bucketText"
             android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:textSize="20dp"
+            android:layout_height="50dp"
+            android:textSize="25dp"
             android:gravity="center"
             android:text="1"
             android:layout_gravity="center_vertical"
@@ -101,8 +101,9 @@
         <TextView
             android:id="@+id/bigdropText"
             android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:textSize="20dp"
+            android:layout_height="50dp"
+            android:textSize="25dp"
+            android:layout_gravity="center_vertical"
             android:gravity="center"
             android:text="1"
             android:layout_marginLeft="10dp"
@@ -130,8 +131,9 @@
         <TextView
             android:id="@+id/crystalText"
             android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:textSize="20dp"
+            android:layout_height="50dp"
+            android:textSize="25dp"
+            android:layout_gravity="center_vertical"
             android:gravity="center"
             android:text="1"
             android:layout_marginLeft="10dp"
@@ -159,8 +161,9 @@
         <TextView
             android:id="@+id/snowText"
             android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:textSize="20dp"
+            android:layout_height="50dp"
+            android:textSize="25dp"
+            android:layout_gravity="center_vertical"
             android:gravity="center"
             android:text="1"
             android:layout_marginLeft="10dp"
@@ -175,21 +178,24 @@
         android:layout_weight="15"
         >
 
-        <ImageView
+        <TextView
             android:id="@+id/multiplier"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_weight="3"
             android:layout_margin="5dp"
+            android:text="x2"
+            android:gravity="center"
             android:layout_gravity="center_vertical"
+            android:textSize="25dp"
             />
-
         <TextView
             android:id="@+id/multiplierText"
             android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:textSize="20dp"
+            android:layout_height="50dp"
+            android:textSize="25dp"
             android:gravity="center"
+            android:layout_gravity="center_vertical"
             android:text="1"
             android:layout_marginLeft="10dp"
             android:layout_weight="1" />
@@ -216,10 +222,11 @@
         <TextView
             android:id="@+id/endlessText"
             android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:textSize="20dp"
+            android:layout_height="50dp"
+            android:textSize="25dp"
             android:gravity="center"
             android:text="1"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="1" />
 
