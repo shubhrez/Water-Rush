@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,10 +28,15 @@ public class Splash extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "WindyRainDemo.ttf");
+
         start = (Button) findViewById(R.id.start);
         freeflow = (Button) findViewById(R.id.freeflow);
         unlock = (Button) findViewById(R.id.unlock);
         instructions = (Button) findViewById(R.id.instructions);
+
+        title = (TextView) findViewById(R.id.title);
+        title.setTypeface(custom_font);
         start.setBackgroundResource(R.drawable.cloud);
         unlock.setBackgroundResource(R.drawable.cloud);
         freeflow.setBackgroundResource(R.drawable.cloud);

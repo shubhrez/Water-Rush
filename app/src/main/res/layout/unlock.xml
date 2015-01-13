@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:background="@drawable/questbackground"
     >
 
     <LinearLayout
@@ -18,12 +19,15 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             />
+
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_weight="2"
-        android:text="Goals"
-        android:textSize="40dp"
+        android:layout_weight="5"
+        android:text="Quest"
+        android:paddingTop="5dp"
+        android:textSize="45dp"
         android:gravity="center"
         android:textStyle="italic|bold"
         />
@@ -54,14 +58,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="15"
-
-        android:background="@drawable/border"
         >
 
         <ImageView
             android:id="@+id/bucket"
-            android:layout_width="300dp"
-            android:layout_height="70dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_weight="3"
             android:layout_margin="5dp"
             android:layout_gravity="center_vertical"
@@ -71,12 +73,11 @@
             android:id="@+id/bucketText"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"
             android:text="1"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/border"
             android:layout_weight="1" />
 
         </LinearLayout>
@@ -90,19 +91,21 @@
 
         <ImageView
             android:id="@+id/bigdrop"
-            android:layout_width="300dp"
-            android:layout_height="70dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
             android:layout_weight="3"
+            android:layout_gravity="center_vertical"
             />
 
         <TextView
             android:id="@+id/bigdropText"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"
             android:text="1"
-            android:padding="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -117,19 +120,21 @@
 
         <ImageView
             android:id="@+id/crystal"
-            android:layout_width="300dp"
-            android:layout_height="70dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_weight="3"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_vertical"
             />
 
         <TextView
             android:id="@+id/crystalText"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"
             android:text="1"
-            android:padding="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -144,19 +149,21 @@
 
         <ImageView
             android:id="@+id/snow"
-            android:layout_width="300dp"
-            android:layout_height="70dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_weight="3"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_vertical"
             />
 
         <TextView
             android:id="@+id/snowText"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"
             android:text="1"
-            android:padding="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -170,19 +177,21 @@
 
         <ImageView
             android:id="@+id/multiplier"
-            android:layout_width="300dp"
-            android:layout_height="70dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_weight="3"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_vertical"
             />
 
         <TextView
             android:id="@+id/multiplierText"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"
             android:text="1"
-            android:padding="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -192,23 +201,26 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="15"
+        android:background="@drawable/border"
         >
 
         <ImageView
             android:id="@+id/endless"
-            android:layout_width="300dp"
-            android:layout_height="70dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_weight="3"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_vertical"
             />
 
         <TextView
             android:id="@+id/endlessText"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"
             android:text="1"
-            android:padding="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1" />
 
     </LinearLayout>

@@ -2,6 +2,7 @@ package com.healthtapper.sixtyseconds;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -11,14 +12,17 @@ import android.widget.TextView;
 public class Unlock extends Activity {
 
     ImageView bucket,bigdrop,snow,crystal,multiplier,endless,goal1,goal2;
-    TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText;
+    TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText,title;
     public static final String BUCKET = "bucket";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.unlock);
+
         int bucketSize = Splash.pref.getInt(BUCKET, 0);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "WindyRainDemo.ttf");
 
         bucketText = (TextView) findViewById(R.id.bucketText);
         bigdropText = (TextView) findViewById(R.id.bigdropText);
@@ -26,6 +30,15 @@ public class Unlock extends Activity {
         crystalText = (TextView) findViewById(R.id.crystalText);
         multiplierText = (TextView) findViewById(R.id.multiplierText);
         endlessText = (TextView) findViewById(R.id.endlessText);
+        title = (TextView) findViewById(R.id.title);
+
+        title.setTypeface(custom_font);
+        bucketText.setTypeface(custom_font);
+        bigdropText.setTypeface(custom_font);
+        snowText.setTypeface(custom_font);
+        crystalText.setTypeface(custom_font);
+        multiplierText.setTypeface(custom_font);
+        endlessText.setTypeface(custom_font);
 
         bucket = (ImageView) findViewById(R.id.bucket);
         bigdrop = (ImageView) findViewById(R.id.bigdrop);
@@ -75,7 +88,7 @@ public class Unlock extends Activity {
             snowText.setTextColor(Color.GREEN);
         }
 
-  //      multiplier.setBackgroundResource(R.drawable.snow);
+        multiplier.setBackgroundResource(R.drawable.snow);
         if (bucketSize <= 4) {
             multiplierText.setText("Score 250 or more to Unlock");
             multiplierText.setTextColor(Color.RED);
@@ -84,7 +97,7 @@ public class Unlock extends Activity {
             multiplierText.setTextColor(Color.GREEN);
         }
 
-    //          endless.setBackgroundResource(R.drawable.snow);
+        endless.setBackgroundResource(R.drawable.endless);
         if (bucketSize <= 5) {
             endlessText.setText("Score 400 or more to Unlock");
             endlessText.setTextColor(Color.RED);
