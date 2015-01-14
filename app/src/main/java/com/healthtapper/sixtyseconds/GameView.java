@@ -675,6 +675,15 @@ public class GameView extends SurfaceView implements Runnable {
                  SharedPreferences.Editor editor = Splash.pref.edit();
                  editor.putInt(GAMEVIEWSTATE,1);
                  editor.commit();
+//                 while (true) {
+//                     try {
+//                         thread.join();
+//                     } catch (InterruptedException e) {
+//                         e.printStackTrace();
+//                     }
+//                     break;
+//                 }
+//                 thread = null;
 
                  gameoverActivity();
                  timeleft = 60;

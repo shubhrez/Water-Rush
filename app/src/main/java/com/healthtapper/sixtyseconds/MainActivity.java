@@ -29,9 +29,10 @@ public class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         gameState = Splash.pref.getInt(GAMEVIEWSTATE, 0);
-        if(gameState == 0) {
-            gameview.pause();
-        } else if (gameState == 1){
+        gameview.pause();
+//        if(gameState == 0) {
+//            gameview.pause();
+        if (gameState == 1){
             finish();
         }
     }
