@@ -17,6 +17,8 @@ public class GameOver extends Activity{
     TextView scoreText,achievement;
     public static final String ACHIEVEMENT = "achievementNumber";
     int achievementStatus;
+    int bucketSize;
+    public static final String BUCKET = "bucket";
 
 
     @Override
@@ -27,7 +29,7 @@ public class GameOver extends Activity{
         scoreText = (TextView) findViewById(R.id.scoreText);
         achievement = (TextView) findViewById(R.id.achievement);
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-
+        bucketSize = Splash.pref.getInt(BUCKET, 0);
         Bundle bundle = getIntent().getExtras();
         //Extract the data…
         score = bundle.getInt("SCORE");

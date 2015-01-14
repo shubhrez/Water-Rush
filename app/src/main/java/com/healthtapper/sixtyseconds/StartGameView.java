@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -25,19 +26,23 @@ public class StartGameView extends SurfaceView implements Runnable {
     SurfaceHolder holder;
     Thread thread = null;
     private List<StartDrop> drops = new ArrayList<StartDrop>();
-    Bitmap bucket;
+    Bitmap ripple,lighning;
     int count = 0;
     Boolean running = false;
     private SoundPool sounds;
     private int thunder;
     int thunderCount = 0;
+    int textSize = 10;
+    Typeface font;
 
     public StartGameView(Context context) {
         super(context);
         holder = getHolder();
-        bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
+        ripple = BitmapFactory.decodeResource(getResources(), R.drawable.ripple);
         sounds = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         thunder = sounds.load(context,R.raw.thunder,1);
+        font = Typeface.createFromAsset(context.getAssets(),"WindyRainDemo.ttf");
+        lighning = BitmapFactory.decodeResource(getResources(), R.drawable.lightning);
         createDrops();
     }
 
@@ -46,12 +51,16 @@ public class StartGameView extends SurfaceView implements Runnable {
         drops.add(createDrop(R.drawable.drop,-100));
         drops.add(createDrop(R.drawable.drop,-150));
         drops.add(createDrop(R.drawable.drop,-200));
-        drops.add(createDrop(R.drawable.drop,0));
+        drops.add(createDrop(R.drawable.drop,-300));
+        drops.add(createDrop(R.drawable.drop,-350));
+        drops.add(createDrop(R.drawable.drop,-250));
         drops.add(createDrop(R.drawable.drop,-50));
-        drops.add(createDrop(R.drawable.drop,-200));
-        drops.add(createDrop(R.drawable.drop,-50));
-        drops.add(createDrop(R.drawable.drop,-200));
         drops.add(createDrop(R.drawable.drop,-80));
+        drops.add(createDrop(R.drawable.drop,-180));
+        drops.add(createDrop(R.drawable.drop,-225));
+        drops.add(createDrop(R.drawable.drop,-280));
+        drops.add(createDrop(R.drawable.drop,-380));
+        drops.add(createDrop(R.drawable.drop,-320));
     }
 
     private StartDrop createDrop(int resource,int y) {
@@ -69,8 +78,9 @@ public class StartGameView extends SurfaceView implements Runnable {
             if (thunderCount == 0) {
                 sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
                 thunderCount ++;
-                background.setColor(Color.YELLOW);
-                canvas.drawRect(back,background);
+//                background.setColor(Color.YELLOW);
+//                canvas.drawRect(back,background);
+                canvas.drawBitmap(lighning,getWidth()/4,getHeight()/4,null);
             } else if(thunderCount == 1) {
                 thunderCount ++;
                 background.setColor(Color.BLACK);
@@ -81,8 +91,9 @@ public class StartGameView extends SurfaceView implements Runnable {
                 canvas.drawRect(back,background);
             } else if(thunderCount == 3) {
                 thunderCount ++;
-                background.setColor(Color.YELLOW);
-                canvas.drawRect(back, background);
+//                background.setColor(Color.YELLOW);
+//                canvas.drawRect(back, background);
+                canvas.drawBitmap(lighning,getWidth()/4,getHeight()/4,null);
             } else if (thunderCount == 4){
                 thunderCount ++;
                 background.setColor(Color.BLACK);
@@ -93,8 +104,9 @@ public class StartGameView extends SurfaceView implements Runnable {
                 canvas.drawRect(back,background);
             } else if (thunderCount == 6){
                 thunderCount ++;
-                background.setColor(Color.YELLOW);
-                canvas.drawRect(back,background);
+//                background.setColor(Color.YELLOW);
+//                canvas.drawRect(back,background);
+                canvas.drawBitmap(lighning,getWidth()/4,getHeight()/4,null);
             }
 
 
@@ -103,10 +115,25 @@ public class StartGameView extends SurfaceView implements Runnable {
         }
 
         Paint textPaint = new Paint();
-        textPaint.setTextSize(75);
-        textPaint.setARGB(255,0,178,255);
+        textPaint.setTextSize(textSize);
+        textPaint.setARGB(255, 0, 178, 255);
+        textPaint.setTypeface(font);
         textPaint.setTextAlign(Paint.Align.CENTER);
         canvas.drawText("Water Rush", getWidth()/2, getHeight()/2, textPaint);
+        if(textSize <= 80) {
+            textSize += 2;
+        }
+
+        canvas.drawBitmap(ripple,0,getHeight() - 130,null);
+
+//        Paint water = new Paint();
+//        water.setARGB(255,0,178,255);
+//        Rect waterBody = new Rect(0,9*getHeight()/10,getWidth(),getHeight());
+//        canvas.drawCircle(getWidth()/4,9*getHeight()/10 ,10,water);
+//        canvas.drawCircle(getWidth()/2,9*getHeight()/10 ,10,water);
+//        canvas.drawCircle(3*getWidth()/4,9*getHeight()/10,10,water);
+//        canvas.drawRect(waterBody,water);
+
 
         synchronized (holder) {
 
@@ -114,11 +141,11 @@ public class StartGameView extends SurfaceView implements Runnable {
                 StartDrop drop = drops.get(i);
                 if (drop.isCollision(getHeight())) {
                     drops.remove(drop);
-                    drops.add(createDrop(R.drawable.drop, 0));
+     //               drops.add(createDrop(R.drawable.drop, 0));
                     count++;
                 }
             }
-                if(count >= 10){
+                if(count >= 14){
                     splashActivity();
                 }
 

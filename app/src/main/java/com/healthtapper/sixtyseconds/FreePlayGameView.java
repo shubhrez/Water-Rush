@@ -299,17 +299,13 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         canvas.drawBitmap(cloud,getWidth()/4-cloud.getWidth()/2,-100,null);
         canvas.drawBitmap(cloud,3*getWidth()/4-cloud.getWidth()/2 + 50,-100,null);
         textPaint.setARGB(255,0,178,255);
-//        canvas.drawText(new StringBuilder().append("Score : ").append(scoretext).toString(), getWidth() / 2, 80, textPaint);
-//        bucketsupport.setARGB(255,0,0,0);
-//        canvas.drawCircle(getWidth()-80,60,50,bucketsupport);
+
         canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 80, textPaint);
         canvas.drawBitmap(drop,getWidth() - 175 - drop.getWidth()/2,25,null);
         textPaint.setTextSize(60);
-//        if(timelToBeDisplayed >= 10) {
-//            canvas.drawText(new StringBuilder().append("0:").append(timeLeftText).toString(), 80, 80, textPaint);
-//        } else {
-            canvas.drawText(new StringBuilder().append(life).toString(), 80, 80, textPaint);
- //       }
+
+        canvas.drawText(new StringBuilder().append(life).toString(), 80, 80, textPaint);
+
         if(splash == 1) {
             if (splashcount <= 10) {
                 canvas.drawBitmap(splash1, x + bucket.getWidth() / 2 + 5, getHeight() - 200, null);
