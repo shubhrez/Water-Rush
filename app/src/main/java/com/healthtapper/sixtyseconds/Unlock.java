@@ -1,10 +1,13 @@
 package com.healthtapper.sixtyseconds;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +17,7 @@ public class Unlock extends Activity {
     ImageView bucket,bigdrop,snow,crystal,endless,goal1,goal2;
     TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText,title,multiplier;
     public static final String BUCKET = "bucket";
+    Button start,back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,9 @@ public class Unlock extends Activity {
         int bucketSize = Splash.pref.getInt(BUCKET, 0);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "WindyRainDemo.ttf");
+
+        start = (Button) findViewById(R.id.start);
+        back = (Button) findViewById(R.id.back);
 
         bucketText = (TextView) findViewById(R.id.bucketText);
         bigdropText = (TextView) findViewById(R.id.bigdropText);
@@ -106,5 +113,28 @@ public class Unlock extends Activity {
      //       endlessText.setTextColor(Color.GREEN);
         }
 
+        start.setBackgroundResource(R.drawable.cloud);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.healthtapper.sixtyseconds.MAINACTIVITY");
+                startActivity(intent);
+            }
+        });
+
+        back.setBackgroundResource(R.drawable.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.healthtapper.sixtyseconds.SPLASH");
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }

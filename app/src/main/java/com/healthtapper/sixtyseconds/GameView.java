@@ -275,14 +275,14 @@ public class GameView extends SurfaceView implements Runnable {
 
         for (Drop drop : bigDropsSelected) {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
-                drop.x = getWidth()/2;
+                drop.x = getWidth()/4;
             }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         for (Drop drop : snowSelected) {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
-                drop.x = getWidth()/2;
+                drop.x = 3*getWidth()/4;
             }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
@@ -304,7 +304,7 @@ public class GameView extends SurfaceView implements Runnable {
 
         for (Drop drop : drops5) {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
-                drop.x = getWidth()/2;
+                drop.x = getWidth()/4;
             }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
@@ -321,7 +321,7 @@ public class GameView extends SurfaceView implements Runnable {
         if(bucketSize >= 2) {
             for (Drop drop : bigDrops) {
                 if(drop.x  > getWidth()-(drop.bmp).getWidth()){
-                    drop.x = getWidth()/2;
+                    drop.x = 3*getWidth()/4;
                 }
                 drop.onDraw(canvas, (61 - timelToBeDisplayed), freezeFactor);
             }
@@ -330,7 +330,7 @@ public class GameView extends SurfaceView implements Runnable {
         if(bucketSize >= 4) {
             for (Drop drop : snow) {
                 if(drop.x  > getWidth()-(drop.bmp).getWidth()){
-                    drop.x = getWidth()/2;
+                    drop.x = getWidth()/4;
                 }
                 drop.onDraw(canvas, (61 - timelToBeDisplayed), freezeFactor);
             }
