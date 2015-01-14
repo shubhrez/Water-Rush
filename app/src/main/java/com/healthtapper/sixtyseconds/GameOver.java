@@ -14,11 +14,13 @@ public class GameOver extends Activity{
 
     Button restart;
     int score;
-    TextView scoreText,achievement;
+    TextView scoreText,achievement,finalScoreText,multiplierText;
     public static final String ACHIEVEMENT = "achievementNumber";
     int achievementStatus;
     int bucketSize;
     public static final String BUCKET = "bucket";
+    public static final String HIGHESTSCORE = "highestscore";
+    int multiplier,finalScore;
 
 
     @Override
@@ -27,6 +29,8 @@ public class GameOver extends Activity{
         setContentView(R.layout.gameover);
         restart = (Button) findViewById(R.id.playagain);
         scoreText = (TextView) findViewById(R.id.scoreText);
+        finalScoreText = (TextView) findViewById(R.id.finalScoreText);
+        multiplierText = (TextView) findViewById(R.id.multiplierText);
         achievement = (TextView) findViewById(R.id.achievement);
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
         bucketSize = Splash.pref.getInt(BUCKET, 0);
@@ -36,9 +40,28 @@ public class GameOver extends Activity{
 //        if(achievementStatus >= 5){
 //            score = score*2;
 //        }
-        scoreText.setText(new StringBuilder().append("Score : ").append(score).toString());
 
-        if(score >= 100){
+        int highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
+        if(bucketSize <= 4){
+            multiplier = 1;
+        } else if (bucketSize >= 5){
+            multiplier = 2;
+        }
+
+        finalScore = multiplier * score ;
+
+        if(highestscore < finalScore){
+            SharedPreferences.Editor editor = Splash.pref.edit();
+            editor.putInt(HIGHESTSCORE, finalScore);
+            editor.commit();
+        }
+
+        scoreText.setText(new StringBuilder().append(score).toString());
+        multiplierText.setText(new StringBuilder().append(multiplier).toString());
+        finalScoreText.setText(new StringBuilder().append(finalScore).toString());
+
+
+        if(finalScore >= 100){
             if(achievementStatus == 0){
                 achievement.setText("Bucket Unlocked");
                 achievement.setTextSize(35);
@@ -50,7 +73,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(score >= 140){
+        if(finalScore >= 140){
             if(achievementStatus == 1){
                 achievement.setText("Big Drop Unlocked");
                 achievement.setTextSize(35);
@@ -62,7 +85,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(score >= 180){
+        if(finalScore >= 180){
             if(achievementStatus == 2){
                 achievement.setText("Crystal Unlocked");
                 achievement.setTextSize(35);
@@ -73,7 +96,7 @@ public class GameOver extends Activity{
             }
         }
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(score >= 200){
+        if(finalScore >= 200){
             if(achievementStatus == 3){
                 achievement.setText("Snow Ball Unlocked");
                 achievement.setTextSize(35);
@@ -85,7 +108,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(score >= 250){
+        if(finalScore >= 250){
             if(achievementStatus == 4){
                 achievement.setText("x2 Multiplier");
                 achievement.setTextSize(35);
@@ -97,7 +120,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(score >= 400){
+        if(finalScore >= 400){
             if(achievementStatus == 5){
                 achievement.setText("Congratulations,Endless Unlocked");
                 achievement.setTextSize(35);

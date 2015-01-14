@@ -124,7 +124,7 @@ public class StartGameView extends SurfaceView implements Runnable {
             textSize += 2;
         }
 
-        canvas.drawBitmap(ripple,0,getHeight() - 130,null);
+     //   canvas.drawBitmap(ripple,0,getHeight() - 130,null);
 
 //        Paint water = new Paint();
 //        water.setARGB(255,0,178,255);

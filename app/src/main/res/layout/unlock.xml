@@ -209,7 +209,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="15"
-        android:background="@drawable/border"
         >
 
         <ImageView

@@ -604,16 +604,17 @@ public class GameView extends SurfaceView implements Runnable {
                  scoretext = String.valueOf(score);
                  textPaint.setTextSize(70);
                  canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 60, textPaint);
-                 int highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
-                 bucketSize = Splash.pref.getInt(BUCKET, 0);
+    //             int highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
+  //               bucketSize = Splash.pref.getInt(BUCKET, 0);
 //                 if(bucketSize >= 5){
 //                     score = score*2;
 //                 }
-                 if(highestscore < score){
-                     SharedPreferences.Editor editor = Splash.pref.edit();
-                     editor.putInt(HIGHESTSCORE, score);
-                     editor.commit();
-                 }
+//                 if(highestscore < score){
+//                     SharedPreferences.Editor editor = Splash.pref.edit();
+//                     editor.putInt(HIGHESTSCORE, score);
+//                     editor.commit();
+//                 }
+
                  if(score >= 100){
                      bucketSize = Splash.pref.getInt(BUCKET, 0);
                      if(bucketSize == 0) {
