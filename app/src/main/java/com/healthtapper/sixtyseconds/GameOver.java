@@ -126,11 +126,16 @@ public class GameOver extends Activity{
             }
         }
 
+        if(highestscore < finalScore){
+                     SharedPreferences.Editor editor = Splash.pref.edit();
+                     editor.putInt(HIGHESTSCORE, finalScore);
+                     editor.commit();
+                 }
+
+
         SharedPreferences.Editor editor = Splash.pref.edit();
         editor.putInt(GAMEVIEWSTATE,0);
         editor.commit();
-
-
 
 
         restart.setBackgroundResource(R.drawable.cloud);
@@ -141,5 +146,12 @@ public class GameOver extends Activity{
                 startActivity(intent);
             }
         });
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }
