@@ -288,7 +288,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 //            }
 //        }
 
-        canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
+        canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-175,null);
         Paint bucketsupport = new Paint();
         bucketsupport.setARGB(150,0,178,255);
         //     Rect bucketsupportRect = new Rect((int) (x - bucket.getWidth()/2) + 10,getHeight() - 60,(int) (x + bucket.getWidth()/2) - 10,getHeight());

@@ -315,7 +315,7 @@ public class GameView extends SurfaceView implements Runnable {
         if(bucketSize >= 1) {
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
         }
-        canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-200,null);
+        canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-175,null);
         Paint bucketsupport = new Paint();
         bucketsupport.setARGB(150,0,178,255);
    //     Rect bucketsupportRect = new Rect((int) (x - bucket.getWidth()/2) + 10,getHeight() - 60,(int) (x + bucket.getWidth()/2) - 10,getHeight());

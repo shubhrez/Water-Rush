@@ -71,27 +71,31 @@ public class StartGameView extends SurfaceView implements Runnable {
                 thunderCount ++;
                 background.setColor(Color.YELLOW);
                 canvas.drawRect(back,background);
-            }
-            if(thunderCount == 1) {
+            } else if(thunderCount == 1) {
                 thunderCount ++;
                 background.setColor(Color.BLACK);
                 canvas.drawRect(back, background);
-            }
-            if (thunderCount == 2){
+            } else if (thunderCount == 2){
+                thunderCount ++;
+                background.setColor(Color.BLACK);
+                canvas.drawRect(back,background);
+            } else if(thunderCount == 3) {
+                thunderCount ++;
+                background.setColor(Color.YELLOW);
+                canvas.drawRect(back, background);
+            } else if (thunderCount == 4){
+                thunderCount ++;
+                background.setColor(Color.BLACK);
+                canvas.drawRect(back,background);
+            } else if (thunderCount == 5){
+                thunderCount ++;
+                background.setColor(Color.BLACK);
+                canvas.drawRect(back,background);
+            } else if (thunderCount == 6){
                 thunderCount ++;
                 background.setColor(Color.YELLOW);
                 canvas.drawRect(back,background);
             }
-        if(thunderCount == 3) {
-            thunderCount ++;
-            background.setColor(Color.BLACK);
-            canvas.drawRect(back, background);
-        }
-        if (thunderCount == 4){
-            thunderCount ++;
-            background.setColor(Color.YELLOW);
-            canvas.drawRect(back,background);
-        }
 
 
         for (StartDrop drop : drops) {
