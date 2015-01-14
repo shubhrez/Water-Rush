@@ -43,6 +43,7 @@ public class GameView extends SurfaceView implements Runnable {
 
     public static final String HIGHESTSCORE = "highestscore";
     public static final String BUCKET = "bucket";
+    public static final String GAMEVIEWSTATE = "gameviewstate";
 
     float x = 250;
     static final long FPS = 20;
@@ -615,12 +616,13 @@ public class GameView extends SurfaceView implements Runnable {
 //                     editor.commit();
 //                 }
 
+
                  if(score >= 100){
                      bucketSize = Splash.pref.getInt(BUCKET, 0);
                      if(bucketSize == 0) {
-                         SharedPreferences.Editor editor = Splash.pref.edit();
-                         editor.putInt(BUCKET, 1);
-                         editor.commit();
+                         SharedPreferences.Editor editor1 = Splash.pref.edit();
+                         editor1.putInt(BUCKET, 1);
+                         editor1.commit();
                      }
                  }
 
@@ -670,6 +672,9 @@ public class GameView extends SurfaceView implements Runnable {
                      }
                  }
 
+                 SharedPreferences.Editor editor = Splash.pref.edit();
+                 editor.putInt(GAMEVIEWSTATE,1);
+                 editor.commit();
 
                  gameoverActivity();
                  timeleft = 60;

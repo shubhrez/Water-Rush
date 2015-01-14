@@ -7,9 +7,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
+        android:textColor="#00B2FF"
         android:layout_gravity="center"
-        android:textSize="35dp"
+        android:textSize="40dp"
         android:text="Score"
         android:gravity="bottom"
         android:layout_weight="20"/>
@@ -25,11 +25,11 @@
         android:id="@+id/scoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
+        android:textColor="#00B2FF"
         android:layout_gravity="center"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:layout_weight="1"
-        android:gravity="center_vertical"
+        android:gravity="center"
         />
 
 
@@ -37,11 +37,11 @@
             android:id="@+id/multiplierText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
+            android:textColor="#00B2FF"
             android:layout_gravity="center"
-            android:textSize="25dp"
+            android:textSize="30dp"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             />
 
 
@@ -49,10 +49,10 @@
             android:id="@+id/finalScoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
+            android:textColor="#00B2FF"
             android:layout_gravity="center"
-            android:textSize="25dp"
-            android:gravity="center_vertical"
+            android:textSize="30dp"
+            android:gravity="center"
             android:layout_weight="1"
             />
 

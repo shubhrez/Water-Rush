@@ -20,6 +20,7 @@ public class GameOver extends Activity{
     int bucketSize;
     public static final String BUCKET = "bucket";
     public static final String HIGHESTSCORE = "highestscore";
+    public static final String GAMEVIEWSTATE = "gameviewstate";
     int multiplier,finalScore;
 
 
@@ -41,6 +42,7 @@ public class GameOver extends Activity{
 //            score = score*2;
 //        }
 
+
         int highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
         if(bucketSize <= 4){
             multiplier = 1;
@@ -50,14 +52,8 @@ public class GameOver extends Activity{
 
         finalScore = multiplier * score ;
 
-        if(highestscore < finalScore){
-            SharedPreferences.Editor editor = Splash.pref.edit();
-            editor.putInt(HIGHESTSCORE, finalScore);
-            editor.commit();
-        }
-
         scoreText.setText(new StringBuilder().append(score).toString());
-        multiplierText.setText(new StringBuilder().append(multiplier).toString());
+        multiplierText.setText(new StringBuilder().append("x").append(multiplier).toString());
         finalScoreText.setText(new StringBuilder().append(finalScore).toString());
 
 
@@ -71,7 +67,6 @@ public class GameOver extends Activity{
                 editor.commit();
             }
         }
-
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
         if(finalScore >= 140){
             if(achievementStatus == 1){
@@ -130,6 +125,13 @@ public class GameOver extends Activity{
                 editor.commit();
             }
         }
+
+        SharedPreferences.Editor editor = Splash.pref.edit();
+        editor.putInt(GAMEVIEWSTATE,0);
+        editor.commit();
+
+
+
 
         restart.setBackgroundResource(R.drawable.cloud);
         restart.setOnClickListener(new View.OnClickListener() {

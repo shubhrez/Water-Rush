@@ -12,6 +12,8 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
     GameView gameview;
+    int gameState;
+    public static final String GAMEVIEWSTATE = "gameviewstate";
 
 
     @Override
@@ -20,12 +22,18 @@ public class MainActivity extends Activity {
         gameview = new GameView(this);
         setContentView(gameview);
 
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        gameview.pause();
+        gameState = Splash.pref.getInt(GAMEVIEWSTATE, 0);
+        if(gameState == 0) {
+            gameview.pause();
+        } else if (gameState == 1){
+            finish();
+        }
     }
 
     @Override
