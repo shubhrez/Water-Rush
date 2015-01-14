@@ -28,7 +28,7 @@ public class Splash extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "WindyRainDemo.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "Water Park.ttf");
 
         start = (Button) findViewById(R.id.start);
         freeflow = (Button) findViewById(R.id.freeflow);

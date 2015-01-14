@@ -817,6 +817,7 @@ public class GameView extends SurfaceView implements Runnable {
 
 public void pause() {
         running = false;
+        
         while (true) {
             try {
                 thread.join();

@@ -26,20 +26,6 @@ public class Start extends Activity {
 //        bar.hide();
         gameView = new StartGameView(this);
         setContentView(gameView);
-
-//        Thread timer = new Thread() {
-//            public void run() {
-//                try {
-//                    sleep(2000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                } finally {
-//                    Intent mainActivity = new Intent("com.healthtapper.sixtyseconds.SPLASH");
-//                    startActivity(mainActivity);
-//                }
-//            }
-//        };
-//        timer.start();
       }
 
     @Override
@@ -51,12 +37,6 @@ public class Start extends Activity {
     protected void onPause() {
         super.onPause();
         gameView.pause();
-//        try {
-//            gameView.thread.join();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-    //    gameView.thread = null;
         finish();
     }
 }
