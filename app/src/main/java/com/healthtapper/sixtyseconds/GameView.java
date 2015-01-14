@@ -82,6 +82,24 @@ public class GameView extends SurfaceView implements Runnable {
     public GameView(Context context) {
         super(context);
         holder = getHolder();
+//        holder.addCallback((new SurfaceHolder.Callback() {
+//            @Override
+//            public void surfaceCreated(SurfaceHolder holder) {
+//
+//            }
+//
+//            @Override
+//            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+//
+//            }
+//
+//            @Override
+//            public void surfaceDestroyed(SurfaceHolder holder) {
+//
+//            }
+//        })
+//        );
+
         drop = BitmapFactory.decodeResource(getResources(), R.drawable.drop);
         drop5 = BitmapFactory.decodeResource(getResources(), R.drawable.drop5);
         cloud = BitmapFactory.decodeResource(getResources(), R.drawable.cloud);
@@ -249,19 +267,31 @@ public class GameView extends SurfaceView implements Runnable {
         textPaint.setTextSize(70);
 
         for (Drop drop : drops) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = getWidth()/2;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         for (Drop drop : bigDropsSelected) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = getWidth()/2;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         for (Drop drop : snowSelected) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = getWidth()/2;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         if(timelToBeDisplayed <= 55) {
             for (Drop drop : stones) {
+                if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                    drop.x = getWidth()/2;
+                }
                 drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
             }
         }
@@ -273,23 +303,35 @@ public class GameView extends SurfaceView implements Runnable {
 
 
         for (Drop drop : drops5) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = getWidth()/2;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         if(bucketSize >= 3) {
             for (Drop drop : crystal) {
+                if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                    drop.x = getWidth()/2;
+                }
                 drop.onDraw(canvas, (61 - timelToBeDisplayed), freezeFactor);
             }
         }
 
         if(bucketSize >= 2) {
             for (Drop drop : bigDrops) {
+                if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                    drop.x = getWidth()/2;
+                }
                 drop.onDraw(canvas, (61 - timelToBeDisplayed), freezeFactor);
             }
         }
 
         if(bucketSize >= 4) {
             for (Drop drop : snow) {
+                if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                    drop.x = getWidth()/2;
+                }
                 drop.onDraw(canvas, (61 - timelToBeDisplayed), freezeFactor);
             }
         }
