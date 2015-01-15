@@ -331,11 +331,14 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 
         canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 80, textPaint);
         canvas.drawBitmap(drop,getWidth() - 175 - drop.getWidth()/2,25,null);
-        textPaint.setTextSize(60);
 
-        canvas.drawText(new StringBuilder().append(life).toString(), 80, 80, textPaint);
+        Paint textPaint1 = new Paint();
+        textPaint1.setTextSize(60);
+        textPaint1.setARGB(255,0,178,255);
+        canvas.drawText(new StringBuilder().append(life).toString(), 10, 50, textPaint1);
         endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
-        canvas.drawText(new StringBuilder().append("Best:").append(endlesshighestscore).toString(), 10, 120, textPaint);
+        textPaint1.setTextSize(40);
+        canvas.drawText(new StringBuilder().append("Best:").append(endlesshighestscore).toString(), 10, 120, textPaint1);
 
 
         if(splash == 1) {
