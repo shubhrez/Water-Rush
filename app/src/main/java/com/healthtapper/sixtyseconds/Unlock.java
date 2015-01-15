@@ -16,6 +16,7 @@ public class Unlock extends Activity {
 
     ImageView bucket,bigdrop,snow,crystal,endless,goal1,goal2;
     TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText,title,multiplier;
+
     public static final String BUCKET = "bucket";
     Button start,back;
 
@@ -40,12 +41,12 @@ public class Unlock extends Activity {
         title = (TextView) findViewById(R.id.title);
 
         title.setTypeface(custom_font);
-        bucketText.setTypeface(custom_font);
-        bigdropText.setTypeface(custom_font);
-        snowText.setTypeface(custom_font);
-        crystalText.setTypeface(custom_font);
-        multiplierText.setTypeface(custom_font);
-        endlessText.setTypeface(custom_font);
+//        bucketText.setTypeface(custom_font);
+//        bigdropText.setTypeface(custom_font);
+//        snowText.setTypeface(custom_font);
+//        crystalText.setTypeface(custom_font);
+//        multiplierText.setTypeface(custom_font);
+//        endlessText.setTypeface(custom_font);
 
         bucket = (ImageView) findViewById(R.id.bucket);
         bigdrop = (ImageView) findViewById(R.id.bigdrop);
@@ -135,6 +136,6 @@ public class Unlock extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        finish();
+  //      finish();
     }
 }

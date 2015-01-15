@@ -4,5 +4,15 @@
     <string name="app_name">Sixty Seconds</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="bucketdesc">Settings</string>
+    <string name="bigdropdesc">Settings</string>
+    <string name="crystaldesc">Settings</string>
+    <string name="snowdesc">Settings</string>
+    <string name="multiplierdesc">Settings</string>
+    <string name="endlessdesc">Settings</string>
+
+
+
+
 
 </resources>
