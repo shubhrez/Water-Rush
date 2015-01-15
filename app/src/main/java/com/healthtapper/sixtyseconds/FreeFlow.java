@@ -7,6 +7,8 @@ import android.os.Bundle;
 public class FreeFlow extends Activity {
 
     FreePlayGameView gameview;
+    int endlessgamestate;
+    public static final String ENDLESSGAMEVIEWSTATE = "endlessgameviewstate";
 
 
     @Override
@@ -20,7 +22,11 @@ public class FreeFlow extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
+        endlessgamestate = Splash.pref.getInt(ENDLESSGAMEVIEWSTATE, 0);
         gameview.pause();
+        if (endlessgamestate == 1){
+            finish();
+        }
     }
 
     @Override

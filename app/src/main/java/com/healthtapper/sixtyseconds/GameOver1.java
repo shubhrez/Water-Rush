@@ -2,6 +2,7 @@ package com.healthtapper.sixtyseconds;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ public class GameOver1 extends Activity {
 
     Button restart;
     int score;
+    public static final String ENDLESSGAMEVIEWSTATE = "endlessgameviewstate";
     TextView scoreText;
 
     @Override
@@ -32,5 +34,15 @@ public class GameOver1 extends Activity {
         //Extract the data…
         score = bundle.getInt("SCORE");
         scoreText.setText(new StringBuilder().append("Best:").append(score).toString());
+
+        SharedPreferences.Editor editor = Splash.pref.edit();
+        editor.putInt(ENDLESSGAMEVIEWSTATE,0);
+        editor.commit();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }

@@ -43,6 +43,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 
     public static final String ENDLESSHIGHESTSCORE = "endlesshighestscore";
     int endlesshighestscore;
+    public static final String ENDLESSGAMEVIEWSTATE = "endlessgameviewstate";
 
     float x = 250;
     static final long FPS = 20;
@@ -606,6 +607,11 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 editor.putInt(ENDLESSHIGHESTSCORE, score);
                 editor.commit();
             }
+
+            SharedPreferences.Editor editor = Splash.pref.edit();
+            editor.putInt(ENDLESSGAMEVIEWSTATE,1);
+            editor.commit();
+
             gameoverActivity();
             timeleft = 60;
             score = 0;
@@ -680,15 +686,15 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         x = event.getX();
         return true;
     }
-
-    public void startSplash(long time) {
-
-        while (System.currentTimeMillis() <= time + 1000) {
-            splash = 1;
-        }
-        splash = 0;
-    }
-
+//
+//    public void startSplash(long time) {
+//
+//        while (System.currentTimeMillis() <= time + 1000) {
+//            splash = 1;
+//        }
+//        splash = 0;
+//    }
+//
 
 
 
@@ -703,8 +709,8 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
             break;
         }
         thread = null;
-        if(timelToBeDisplayed != 0)
-            timeleft = timelToBeDisplayed;
+//        if(timelToBeDisplayed != 0)
+//            timeleft = timelToBeDisplayed;
     }
 
     public void resume() {
