@@ -96,7 +96,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         freeze = sounds.load(context,R.raw.freeze,1);
         thunder = sounds.load(context,R.raw.thunder,1);
         createDrops();
-        createDrops5();
+  //      createDrops5();
         createStones();
         createTaps();
         createCrystal();
@@ -156,9 +156,9 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 //        return new Power(this, bmp,bucket,y);
 //    }
 
-    private void createDrops5() {
-        drops5.add(createDrop(R.drawable.drop5,-25000));
-    }
+//    private void createDrops5() {
+  //      drops5.add(createDrop(R.drawable.drop5,-25000));
+ //   }
 
     private void createCrystal() {
         crystal.add(createDrop(R.drawable.cyrstal,-20000));
@@ -214,9 +214,9 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         }
 //        centerRect.set(0, getHeight() - 300, getWidth(), getHeight() - 290);
 //        canvas.drawRect(back, background);
-        int timeElapsed = (int) ((System.currentTimeMillis() - clockStart)/1000);
-        //      if(timeleft >= 1)
-        timelToBeDisplayed = timeleft - timeElapsed;
+//        int timeElapsed = (int) ((System.currentTimeMillis() - clockStart)/1000);
+//        //      if(timeleft >= 1)
+//        timelToBeDisplayed = timeleft - timeElapsed;
 //
 //        canvas.drawBitmap(lightning,x1,0,null);
 //        canvas.drawBitmap(lightning,x2,0,null);
@@ -274,12 +274,12 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 
 
 
-        for (Drop1 drop : drops5) {
-            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
-                drop.x = getWidth()/4;
-            }
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
-        }
+//        for (Drop1 drop : drops5) {
+//            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+//                drop.x = getWidth()/4;
+//            }
+//            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+//        }
 
         for (Drop1 drop : crystal) {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
@@ -355,16 +355,16 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
             }
         }
 
-        if(displayfiveseconds == 1) {
-            if (displayfivesecondscount <= 20) {
-                textPaint.setTextSize(50);
-                canvas.drawText("+ 5 sec",getWidth()/2,getHeight()/2 -200,textPaint);
-                displayfivesecondscount ++;
-            } else {
-                displayfiveseconds = 0;
-                displayfivesecondscount = 0;
-            }
-        }
+//        if(displayfiveseconds == 1) {
+//            if (displayfivesecondscount <= 20) {
+//                textPaint.setTextSize(50);
+//                canvas.drawText("+ 5 sec",getWidth()/2,getHeight()/2 -200,textPaint);
+//                displayfivesecondscount ++;
+//            } else {
+//                displayfiveseconds = 0;
+//                displayfivesecondscount = 0;
+//            }
+//        }
 
         if(freezeFactor == 2) {
             if (freezecount <= 200) {
@@ -435,26 +435,26 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 }
             }
 
-            for (int i = drops5.size() - 1; i >= 0; i--) {
-                Drop1 drop = drops5.get(i);
-                if (drop.isCollision(getHeight())) {
-                    drops5.remove(drop);
-                    createDrops5();
-                }
-            }
-
-            for (int i = drops5.size() - 1; i >= 0; i--) {
-                Drop1 drop = drops5.get(i);
-                if (drop.isCollected(x - bucket.getWidth() / 2)) {
-                    drops5.remove(drop);
-                    createDrops5();
-                    timeleft += 5;
-                    sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
-                    displayfiveseconds = 1;
-
-                }
-
-            }
+//            for (int i = drops5.size() - 1; i >= 0; i--) {
+//                Drop1 drop = drops5.get(i);
+//                if (drop.isCollision(getHeight())) {
+//                    drops5.remove(drop);
+//                    createDrops5();
+//                }
+//            }
+//
+//            for (int i = drops5.size() - 1; i >= 0; i--) {
+//                Drop1 drop = drops5.get(i);
+//                if (drop.isCollected(x - bucket.getWidth() / 2)) {
+//                    drops5.remove(drop);
+//                    createDrops5();
+//                    timeleft += 5;
+//                    sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+//                    displayfiveseconds = 1;
+//
+//                }
+//
+//            }
 
             for (int i = bigDrops.size() - 1; i >= 0; i--) {
                 Drop1 drop = bigDrops.get(i);
@@ -671,11 +671,11 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 createbigDrops();
             }
 
-            for (int i = drops5.size() - 1; i >= 0; i--) {
-                Drop1 drop = drops5.get(i);
-                drops5.remove(drop);
-                createDrops5();
-            }
+//            for (int i = drops5.size() - 1; i >= 0; i--) {
+//                Drop1 drop = drops5.get(i);
+//                drops5.remove(drop);
+//                createDrops5();
+//            }
         }
 
     }
