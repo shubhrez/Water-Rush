@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.flurry.android.FlurryAgent;
+
 
 public class Splash extends Activity {
 
@@ -28,6 +30,9 @@ public class Splash extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
+
+   //     FlurryAgent.init(this,"Q3ZZS4K4S7RTF9BXZX9M");
+
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "Water Park.ttf");
 
         start = (Button) findViewById(R.id.start);
@@ -96,5 +101,18 @@ public class Splash extends Activity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FlurryAgent.init(this,"Q3ZZS4K4S7RTF9BXZX9M");
+        FlurryAgent.onStartSession(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        FlurryAgent.onEndSession(this);
     }
 }

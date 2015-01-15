@@ -245,24 +245,12 @@ public class GameView extends SurfaceView implements Runnable {
         int timeElapsed = (int) ((System.currentTimeMillis() - clockStart)/1000);
   //      if(timeleft >= 1)
         timelToBeDisplayed = timeleft - timeElapsed;
-//
-//        canvas.drawBitmap(lightning,x1,0,null);
-//        canvas.drawBitmap(lightning,x2,0,null);
-//        if(x1 >= getWidth() - lightning.getWidth() || x1 <= 0) {
-//            x1speed = -x1speed;
-//        }
-//
-//        if(x2 >= getWidth() - lightning.getWidth() || x2 <= 0) {
-//            x2speed = -x2speed;
-//        }
-//        x1 = x1 + 4*x1speed;
-//        x2 = x2 + 4*x2speed;
 
         Paint textPaint = new Paint();
         textPaint.setTextSize(150);
         textPaint.setColor(Color.RED);
         String timeLeftText = String.valueOf(timelToBeDisplayed);
-        textPaint.setTextAlign(Paint.Align.CENTER);
+//        textPaint.setTextAlign(Paint.Align.CENTER);
         String scoretext = String.valueOf(score);
         textPaint.setTextSize(70);
 
@@ -372,25 +360,35 @@ public class GameView extends SurfaceView implements Runnable {
 //        canvas.drawText(new StringBuilder().append("Score : ").append(scoretext).toString(), getWidth() / 2, 80, textPaint);
 //        bucketsupport.setARGB(255,0,0,0);
 //        canvas.drawCircle(getWidth()-80,60,50,bucketsupport);
-        canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 60, textPaint);
+        textPaint.setTextSize(60);
+        canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 120, 60, textPaint);
         canvas.drawBitmap(drop,getWidth() - 175 - drop.getWidth()/2,5,null);
+//
+//        if(bucketSize <= 4) {
+//            canvas.drawText("x1", getWidth()/2, 60, textPaint);
+//        } else if (bucketSize >= 5){
+//            canvas.drawText("x2", getWidth()/2, 60, textPaint);
+//        }
 
-        if(bucketSize <= 4) {
-            canvas.drawText("x1", getWidth()/2, 60, textPaint);
-        } else if (bucketSize >= 5){
-            canvas.drawText("x2", getWidth()/2, 60, textPaint);
-        }
 
         textPaint.setTextSize(45);
+
+        if(bucketSize <= 4) {
+            canvas.drawText("x1", getWidth() - 120, 120, textPaint);
+        } else if (bucketSize >= 5){
+            canvas.drawText("x2", getWidth() - 120, 120, textPaint);
+        }
+
         highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
         String highestscoreText = String.valueOf(highestscore);
-        canvas.drawText(new StringBuilder().append("Best:").append(highestscoreText).toString(), getWidth() - 120, 110, textPaint);
+//        canvas.drawText(new StringBuilder().append("Best:").append(highestscoreText).toString(), getWidth() - 120, 110, textPaint);
+        canvas.drawText(new StringBuilder().append("Best:").append(highestscoreText).toString(), 10, 120, textPaint);
 
         textPaint.setTextSize(60);
         if(timelToBeDisplayed >= 10) {
-            canvas.drawText(new StringBuilder().append("0:").append(timeLeftText).toString(), 80, 60, textPaint);
+            canvas.drawText(new StringBuilder().append("0:").append(timeLeftText).toString(), 10, 60, textPaint);
         } else {
-            canvas.drawText(new StringBuilder().append("0:0").append(timeLeftText).toString(), 80, 60, textPaint);
+            canvas.drawText(new StringBuilder().append("0:0").append(timeLeftText).toString(), 10, 60, textPaint);
         }
         if(splash == 1) {
             if (splashcount <= 10) {
@@ -817,7 +815,7 @@ public class GameView extends SurfaceView implements Runnable {
 
 public void pause() {
         running = false;
-        
+
         while (true) {
             try {
                 thread.join();
