@@ -642,9 +642,9 @@ public class GameView extends SurfaceView implements Runnable {
 
 
              if(timelToBeDisplayed  <= 0) {
-                 scoretext = String.valueOf(score);
-                 textPaint.setTextSize(70);
-                 canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 60, textPaint);
+//                 scoretext = String.valueOf(score);
+//                 textPaint.setTextSize(70);
+//                 canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 60, textPaint);
     //             int highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
   //               bucketSize = Splash.pref.getInt(BUCKET, 0);
 //                 if(bucketSize >= 5){
@@ -657,60 +657,60 @@ public class GameView extends SurfaceView implements Runnable {
 //                 }
 
 
-                 if(score >= 100){
-                     bucketSize = Splash.pref.getInt(BUCKET, 0);
-                     if(bucketSize == 0) {
-                         SharedPreferences.Editor editor1 = Splash.pref.edit();
-                         editor1.putInt(BUCKET, 1);
-                         editor1.commit();
-                     }
-                 }
-
-                 if(score >= 140){
-                     bucketSize = Splash.pref.getInt(BUCKET, 0);
-                     if(bucketSize == 1) {
-                         SharedPreferences.Editor editor = Splash.pref.edit();
-                         editor.putInt(BUCKET, 2);
-                         editor.commit();
-                     }
-                 }
-
-                 if(score >= 180) {
-                     bucketSize = Splash.pref.getInt(BUCKET, 0);
-                     if (bucketSize == 2) {
-                         SharedPreferences.Editor editor = Splash.pref.edit();
-                         editor.putInt(BUCKET, 3);
-                         editor.commit();
-                     }
-                 }
-
-                 if(score >= 200) {
-                     bucketSize = Splash.pref.getInt(BUCKET, 0);
-                     if (bucketSize == 3) {
-                         SharedPreferences.Editor editor = Splash.pref.edit();
-                         editor.putInt(BUCKET, 4);
-                         editor.commit();
-                     }
-                 }
-
-                 if(score >= 250) {
-                     bucketSize = Splash.pref.getInt(BUCKET, 0);
-                     if (bucketSize == 4) {
-                         SharedPreferences.Editor editor = Splash.pref.edit();
-                         editor.putInt(BUCKET, 5);
-                         editor.commit();
-                     }
-                 }
-
-
-                 if(score >= 400) {
-                     bucketSize = Splash.pref.getInt(BUCKET, 0);
-                     if (bucketSize == 5) {
-                         SharedPreferences.Editor editor = Splash.pref.edit();
-                         editor.putInt(BUCKET, 6);
-                         editor.commit();
-                     }
-                 }
+//                 if(score >= 100){
+//                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+//                     if(bucketSize == 0) {
+//                         SharedPreferences.Editor editor1 = Splash.pref.edit();
+//                         editor1.putInt(BUCKET, 1);
+//                         editor1.commit();
+//                     }
+//                 }
+//
+//                 if(score >= 140){
+//                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+//                     if(bucketSize == 1) {
+//                         SharedPreferences.Editor editor = Splash.pref.edit();
+//                         editor.putInt(BUCKET, 2);
+//                         editor.commit();
+//                     }
+//                 }
+//
+//                 if(score >= 180) {
+//                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+//                     if (bucketSize == 2) {
+//                         SharedPreferences.Editor editor = Splash.pref.edit();
+//                         editor.putInt(BUCKET, 3);
+//                         editor.commit();
+//                     }
+//                 }
+//
+//                 if(score >= 200) {
+//                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+//                     if (bucketSize == 3) {
+//                         SharedPreferences.Editor editor = Splash.pref.edit();
+//                         editor.putInt(BUCKET, 4);
+//                         editor.commit();
+//                     }
+//                 }
+//
+//                 if(score >= 250) {
+//                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+//                     if (bucketSize == 4) {
+//                         SharedPreferences.Editor editor = Splash.pref.edit();
+//                         editor.putInt(BUCKET, 5);
+//                         editor.commit();
+//                     }
+//                 }
+//
+//
+//                 if(score >= 400) {
+//                     bucketSize = Splash.pref.getInt(BUCKET, 0);
+//                     if (bucketSize == 5) {
+//                         SharedPreferences.Editor editor = Splash.pref.edit();
+//                         editor.putInt(BUCKET, 6);
+//                         editor.commit();
+//                     }
+//                 }
 
                  SharedPreferences.Editor editor = Splash.pref.edit();
                  editor.putInt(GAMEVIEWSTATE,1);
@@ -801,16 +801,16 @@ public class GameView extends SurfaceView implements Runnable {
         x = event.getX();
         return true;
     }
-
-    public void startSplash(long time) {
-
-        while (System.currentTimeMillis() <= time + 1000) {
-            splash = 1;
-        }
-         splash = 0;
-        }
-
-
+//
+//    public void startSplash(long time) {
+//
+//        while (System.currentTimeMillis() <= time + 1000) {
+//            splash = 1;
+//        }
+//         splash = 0;
+//        }
+//
+//
 
 
 public void pause() {

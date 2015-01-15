@@ -126,6 +126,61 @@ public class GameOver extends Activity{
             }
         }
 
+        if(finalScore >= 100){
+            bucketSize = Splash.pref.getInt(BUCKET, 0);
+            if(bucketSize == 0) {
+                SharedPreferences.Editor editor1 = Splash.pref.edit();
+                editor1.putInt(BUCKET, 1);
+                editor1.commit();
+            }
+        }
+
+        if(finalScore >= 140){
+            bucketSize = Splash.pref.getInt(BUCKET, 0);
+            if(bucketSize == 1) {
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(BUCKET, 2);
+                editor.commit();
+            }
+        }
+
+        if(finalScore >= 180) {
+            bucketSize = Splash.pref.getInt(BUCKET, 0);
+            if (bucketSize == 2) {
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(BUCKET, 3);
+                editor.commit();
+            }
+        }
+
+        if(finalScore >= 200) {
+            bucketSize = Splash.pref.getInt(BUCKET, 0);
+            if (bucketSize == 3) {
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(BUCKET, 4);
+                editor.commit();
+            }
+        }
+
+        if(finalScore >= 250) {
+            bucketSize = Splash.pref.getInt(BUCKET, 0);
+            if (bucketSize == 4) {
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(BUCKET, 5);
+                editor.commit();
+            }
+        }
+
+
+        if(finalScore >= 400) {
+            bucketSize = Splash.pref.getInt(BUCKET, 0);
+            if (bucketSize == 5) {
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(BUCKET, 6);
+                editor.commit();
+            }
+        }
+
         if(highestscore < finalScore){
                      SharedPreferences.Editor editor = Splash.pref.edit();
                      editor.putInt(HIGHESTSCORE, finalScore);
@@ -136,6 +191,8 @@ public class GameOver extends Activity{
         SharedPreferences.Editor editor = Splash.pref.edit();
         editor.putInt(GAMEVIEWSTATE,0);
         editor.commit();
+
+
 
 
         restart.setBackgroundResource(R.drawable.cloud);
