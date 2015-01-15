@@ -106,7 +106,7 @@ public class Splash extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-        FlurryAgent.init(this,"Q3ZZS4K4S7RTF9BXZX9M");
+        FlurryAgent.init(Splash.this,"Q3ZZS4K4S7RTF9BXZX9M");
         FlurryAgent.onStartSession(this);
     }
 

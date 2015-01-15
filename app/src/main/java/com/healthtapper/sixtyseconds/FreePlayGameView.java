@@ -3,6 +3,7 @@ package com.healthtapper.sixtyseconds;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -39,6 +40,10 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     private List<Drop1> bigDropsSelected = new ArrayList<Drop1>();
     private List<Drop1> snowSelected = new ArrayList<Drop1>();
     private List<Tap1> taps = new ArrayList<Tap1>();
+
+    public static final String ENDLESSHIGHESTSCORE = "endlesshighestscore";
+    int endlesshighestscore;
+
     float x = 250;
     static final long FPS = 20;
     int score = 0;
@@ -233,19 +238,31 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         textPaint.setTextSize(70);
 
         for (Drop1 drop : drops) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = getWidth()/2;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         for (Drop1 drop : bigDropsSelected) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = getWidth()/4;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         for (Drop1 drop : snowSelected) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = 3*getWidth()/4;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         if(timelToBeDisplayed <= 55) {
             for (Drop1 drop : stones) {
+                if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                    drop.x = getWidth()/2;
+                }
                 drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
             }
         }
@@ -257,18 +274,30 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 
 
         for (Drop1 drop : drops5) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = getWidth()/4;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         for (Drop1 drop : crystal) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = getWidth()/2;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         for (Drop1 drop : bigDrops) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = 3*getWidth()/4;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
         for (Drop1 drop : snow) {
+            if(drop.x  > getWidth()-(drop.bmp).getWidth()){
+                drop.x = getWidth()/4;
+            }
             drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
         }
 
@@ -305,6 +334,9 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         textPaint.setTextSize(60);
 
         canvas.drawText(new StringBuilder().append(life).toString(), 80, 80, textPaint);
+        endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
+        canvas.drawText(new StringBuilder().append("Best:").append(endlesshighestscore).toString(), 10, 120, textPaint);
+
 
         if(splash == 1) {
             if (splashcount <= 10) {
@@ -565,6 +597,12 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 
 
         if(life >= 3) {
+            endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
+            if(score > endlesshighestscore){
+                SharedPreferences.Editor editor = Splash.pref.edit();
+                editor.putInt(ENDLESSHIGHESTSCORE, score);
+                editor.commit();
+            }
             gameoverActivity();
             timeleft = 60;
             score = 0;
@@ -675,11 +713,11 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     public void gameoverActivity(){
         Context context = getContext();
         Intent intent = new Intent("com.healthtapper.sixtyseconds.GAMEOVER1");
-//        Bundle bundle = new Bundle();
-////Add your data from getFactualResults method to bundle
-//        bundle.putInt("SCORE", score);
-////Add the bundle to the intent
-//        intent.putExtras(bundle);
+        Bundle bundle = new Bundle();
+//Add your data from getFactualResults method to bundle
+        bundle.putInt("SCORE", score);
+//Add the bundle to the intent
+        intent.putExtras(bundle);
         context.startActivity(intent);
     }
 
