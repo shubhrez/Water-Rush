@@ -48,7 +48,7 @@ public class GameView extends SurfaceView implements Runnable {
     int pauseState = 0;
 
     float x = 250;
-    static final long FPS = 20;
+    static final long FPS = 15;
     int score = 0;
     long clockStart;
     int secondCollected = 0;

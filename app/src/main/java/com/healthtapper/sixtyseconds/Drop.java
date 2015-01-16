@@ -56,6 +56,6 @@ public class Drop {
 //                && y + bmp.getHeight() >= gameView.getHeight() - 190 && y + bmp.getHeight() <= gameView.getHeight() - 160 );
 
         return (x + bmp.getWidth()/2 >= x1  && x + bmp.getWidth()/2 <= x1 + bucket.getWidth()
-                && y + bmp.getHeight() >= gameView.getHeight() - 180 && y + bmp.getHeight() <= gameView.getHeight() - 150 );
+                && y + bmp.getHeight() >= gameView.getHeight() - 180 && y + bmp.getHeight() <= gameView.getHeight() - 130 );
     }
 }
