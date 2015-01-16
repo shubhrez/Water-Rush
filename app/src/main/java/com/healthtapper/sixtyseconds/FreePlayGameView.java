@@ -332,18 +332,34 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         canvas.drawBitmap(cloud,3*getWidth()/4-cloud.getWidth()/2 + 50,-100,null);
         textPaint.setARGB(255,0,178,255);
 
-        canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 80, textPaint);
-        canvas.drawBitmap(drop,getWidth() - 175 - drop.getWidth()/2,25,null);
+//        canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 80, 80, textPaint);
+//        canvas.drawBitmap(drop,getWidth() - 175 - drop.getWidth()/2,25,null);
 
         Paint textPaint1 = new Paint();
-        textPaint1.setTextSize(60);
+    //    textPaint1.setTextSize(60);
         textPaint1.setARGB(255,0,178,255);
-        canvas.drawText(new StringBuilder().append(life).toString(), 10, 50, textPaint1);
+  //      canvas.drawText(new StringBuilder().append(life).toString(), 10, 50, textPaint1);
         endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
         textPaint1.setTextSize(40);
-        canvas.drawText(new StringBuilder().append("Best:").append(endlesshighestscore).toString(), 10, 120, textPaint1);
+        canvas.drawText(new StringBuilder().append("Best:").append(endlesshighestscore).toString(), 10, 60, textPaint1);
 
-        canvas.drawBitmap(pause,getWidth()/2-pause.getWidth()/2,5,null);
+        textPaint1.setTextSize(60);
+        if(score < 0){
+            canvas.drawText("000",getWidth() - 120, 60, textPaint1);
+        }
+        if(score >= 0 && score <= 9){
+            canvas.drawText(new StringBuilder().append("00").append(score).toString(), getWidth() - 120, 60, textPaint1);
+        } else if(score >= 10 && score <= 99){
+            canvas.drawText(new StringBuilder().append("0").append(score).toString(), getWidth() - 120, 60, textPaint1);
+        } else if(score >= 99){
+            canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 120, 60, textPaint1);
+        }
+        //     canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 120, 60, textPaint);
+        canvas.drawBitmap(drop,getWidth() - 150 - drop.getWidth()/2,5,null);
+//
+        canvas.drawBitmap(pause,getWidth() - pause.getWidth() - 10,120 - pause.getHeight()/2 - 10,null);
+
+  //      canvas.drawBitmap(pause,getWidth()/2-pause.getWidth()/2,5,null);
 
         if(splash == 1) {
             if (splashcount <= 10) {
@@ -574,6 +590,9 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     stones.add(createDrop(R.drawable.stone,0));
                     life ++;
                     score -= 5;
+                    if(score < 0){
+                        score = 0;
+                    }
                     sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
                     splash = 1;
                     //               startSplash(System.currentTimeMillis());
@@ -603,7 +622,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         }
 
 
-        if(life >= 3) {
+        if(life >= 100) {
             endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
             if(score > endlesshighestscore){
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -695,7 +714,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         pauseX = event.getX();
         pauseY = event.getY();
 
-        if (pauseX >= getWidth()/2 - pause.getWidth()/2 - 5 && pauseX <= getWidth()/2 + pause.getWidth()/2 + 5 && pauseY >= 0 && pauseY <= pause.getHeight() + 5) {
+        if (pauseX >= getWidth() - pause.getWidth() - 10 && pauseX <= getWidth() && pauseY >= 120 - pause.getHeight()/2 - 10 && pauseY <= 120 + pause.getHeight()/2 - 10) {
             //               setPausedView();
             //       gameLoopThread.setPaused(true);
             pauseActivity();
