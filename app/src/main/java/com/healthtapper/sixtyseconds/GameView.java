@@ -70,7 +70,7 @@ public class GameView extends SurfaceView implements Runnable {
     int x1speed = 20;
     int x2speed = 20;
     private SoundPool sounds;
-    private int waterdrip,watersplash,freeze,thunder;
+    private int waterdrip,watersplash,freeze,thunder,power;
     int bigDropCollected = 0;
  //   int bigDropTime = 0;
     int snowCollected = 0;
@@ -104,6 +104,7 @@ public class GameView extends SurfaceView implements Runnable {
         lightning = BitmapFactory.decodeResource(getResources(), R.drawable.lightning);
         sounds = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         waterdrip = sounds.load(context,R.raw.waterdrip,1);
+        power = sounds.load(context,R.raw.power,1);
         watersplash = sounds.load(context,R.raw.watersplash,1);
         freeze = sounds.load(context,R.raw.freeze,1);
         thunder = sounds.load(context,R.raw.thunder,1);
@@ -399,7 +400,7 @@ public class GameView extends SurfaceView implements Runnable {
 
         if(displayfiveseconds == 1) {
             if (displayfivesecondscount <= 20) {
-                textPaint.setTextSize(50);
+                textPaint.setTextSize(75);
                 canvas.drawText("+ 5 sec",getWidth()/2,getHeight()/2 -200,textPaint);
                 displayfivesecondscount ++;
             } else {
@@ -492,6 +493,7 @@ public class GameView extends SurfaceView implements Runnable {
                     createDrops5();
                     timeleft += 5;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+                    sounds.play(power, 0.2f, 0.2f, 0, 0, 1.5f);
                     displayfiveseconds = 1;
 
                 }
