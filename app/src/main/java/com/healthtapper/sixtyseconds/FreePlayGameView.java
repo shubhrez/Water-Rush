@@ -30,7 +30,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     Boolean running = false;
     Thread thread = null;
     int timeleft = 60;
-    Bitmap drop,bucket,drop5,cloud,splash1,splash2,lightning;
+    Bitmap drop,bucket,drop5,cloud,splash1,splash2,lightning,pause;
     private List<Drop1> drops = new ArrayList<Drop1>();
     private List<Drop1> crystal = new ArrayList<Drop1>();
     private List<Drop1> drops5 = new ArrayList<Drop1>();
@@ -78,12 +78,14 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     int crystalCount = 0;
     int xtap;
     int life = 0;
+    float pauseX,pauseY;
 
 
     public FreePlayGameView(Context context) {
         super(context);
         holder = getHolder();
         drop = BitmapFactory.decodeResource(getResources(), R.drawable.drop);
+        pause = BitmapFactory.decodeResource(getResources(), R.drawable.pause);
         drop5 = BitmapFactory.decodeResource(getResources(), R.drawable.drop5);
         cloud = BitmapFactory.decodeResource(getResources(), R.drawable.cloud);
         bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
@@ -341,6 +343,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         textPaint1.setTextSize(40);
         canvas.drawText(new StringBuilder().append("Best:").append(endlesshighestscore).toString(), 10, 120, textPaint1);
 
+        canvas.drawBitmap(pause,getWidth()/2-pause.getWidth()/2,5,null);
 
         if(splash == 1) {
             if (splashcount <= 10) {
@@ -683,7 +686,21 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        x = event.getX();
+
+        float check = event.getY();
+        if(check >= getHeight()/2) {
+            x = event.getX();
+        }
+
+        pauseX = event.getX();
+        pauseY = event.getY();
+
+        if (pauseX >= getWidth()/2 - pause.getWidth()/2 - 5 && pauseX <= getWidth()/2 + pause.getWidth()/2 + 5 && pauseY >= 0 && pauseY <= pause.getHeight() + 5) {
+            //               setPausedView();
+            //       gameLoopThread.setPaused(true);
+            pauseActivity();
+        }
+
         return true;
     }
 //
@@ -711,12 +728,23 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         thread = null;
 //        if(timelToBeDisplayed != 0)
 //            timeleft = timelToBeDisplayed;
+
+        int endlessgamestate = Splash.pref.getInt(ENDLESSGAMEVIEWSTATE, 0);
+        if(endlessgamestate == 0) {
+            pauseActivity();
+        }
     }
 
     public void resume() {
         running = true;
         thread = new Thread(this);
         thread.start();
+    }
+
+    public void pauseActivity(){
+        Context context = getContext();
+        Intent intent = new Intent("com.healthtapper.sixtyseconds.PAUSEACTIVITYENDLESS");
+        context.startActivity(intent);
     }
 
     public void gameoverActivity(){

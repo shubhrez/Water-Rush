@@ -93,7 +93,7 @@
                         android:layout_height="50dp"
                         android:textSize="25dp"
                         android:gravity="center"
-                        android:text="1"
+                        android:text="Magic Bucket"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
@@ -151,7 +151,7 @@
                         android:textSize="25dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
-                        android:text="1"
+                        android:text="Thunder Drops "
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
 
@@ -209,7 +209,7 @@
                         android:textSize="25dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
-                        android:text="1"
+                        android:text="Freeze Crystal"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
 
@@ -269,7 +269,7 @@
                         android:textSize="25dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
-                        android:text="1"
+                        android:text="Snow Ball"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
 
@@ -330,7 +330,7 @@
                         android:textSize="25dp"
                         android:gravity="center"
                         android:layout_gravity="center_vertical"
-                        android:text="1"
+                        android:text="Double"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
 
@@ -388,7 +388,7 @@
                         android:layout_height="50dp"
                         android:textSize="25dp"
                         android:gravity="center"
-                        android:text="1"
+                        android:text="Endless"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />

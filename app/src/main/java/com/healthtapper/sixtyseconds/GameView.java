@@ -30,7 +30,7 @@ public class GameView extends SurfaceView implements Runnable {
     Boolean running = false;
     Thread thread = null;
     int timeleft = 60;
-    Bitmap drop,bucket,drop5,cloud,cloudflip,splash1,splash2,lightning;
+    Bitmap drop,bucket,drop5,cloud,cloudflip,splash1,splash2,lightning,pause;
     private List<Drop> drops = new ArrayList<Drop>();
     private List<Drop> crystal = new ArrayList<Drop>();
     private List<Drop> drops5 = new ArrayList<Drop>();
@@ -44,6 +44,8 @@ public class GameView extends SurfaceView implements Runnable {
     public static final String HIGHESTSCORE = "highestscore";
     public static final String BUCKET = "bucket";
     public static final String GAMEVIEWSTATE = "gameviewstate";
+    public static final String PAUSESTATE = "pausestate";
+    int pauseState = 0;
 
     float x = 250;
     static final long FPS = 20;
@@ -78,29 +80,14 @@ public class GameView extends SurfaceView implements Runnable {
     int crystalCount = 0;
     int xtap = rnd.nextInt(200) + 50;;
     int highestscore;
+    float pauseX,pauseY;
 
     public GameView(Context context) {
         super(context);
         holder = getHolder();
-//        holder.addCallback((new SurfaceHolder.Callback() {
-//            @Override
-//            public void surfaceCreated(SurfaceHolder holder) {
-//
-//            }
-//
-//            @Override
-//            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-//
-//            }
-//
-//            @Override
-//            public void surfaceDestroyed(SurfaceHolder holder) {
-//
-//            }
-//        })
-//        );
 
         drop = BitmapFactory.decodeResource(getResources(), R.drawable.drop);
+        pause = BitmapFactory.decodeResource(getResources(), R.drawable.pause);
         drop5 = BitmapFactory.decodeResource(getResources(), R.drawable.drop5);
         cloud = BitmapFactory.decodeResource(getResources(), R.drawable.cloud);
         cloudflip = BitmapFactory.decodeResource(getResources(), R.drawable.cloudflip);
@@ -364,6 +351,7 @@ public class GameView extends SurfaceView implements Runnable {
         canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 120, 60, textPaint);
         canvas.drawBitmap(drop,getWidth() - 175 - drop.getWidth()/2,5,null);
 //
+        canvas.drawBitmap(pause,getWidth()/2-pause.getWidth()/2,5,null);
 //        if(bucketSize <= 4) {
 //            canvas.drawText("x1", getWidth()/2, 60, textPaint);
 //        } else if (bucketSize >= 5){
@@ -390,6 +378,12 @@ public class GameView extends SurfaceView implements Runnable {
         } else {
             canvas.drawText(new StringBuilder().append("0:0").append(timeLeftText).toString(), 10, 60, textPaint);
         }
+
+//        if(pauseState == 1){
+//            canvas.drawText("Resume",getWidth()/2,getHeight()/2,textPaint);
+//        }
+
+
         if(splash == 1) {
             if (splashcount <= 10) {
                 canvas.drawBitmap(splash1, x + bucket.getWidth() / 2 + 5, getHeight() - 200, null);
@@ -798,7 +792,20 @@ public class GameView extends SurfaceView implements Runnable {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        x = event.getX();
+        float check = event.getY();
+        if(check >= getHeight()/2) {
+            x = event.getX();
+        }
+
+        pauseX = event.getX();
+        pauseY = event.getY();
+
+        if (pauseX >= getWidth()/2 - pause.getWidth()/2 - 5 && pauseX <= getWidth()/2 + pause.getWidth()/2 + 5 && pauseY >= 0 && pauseY <= pause.getHeight() + 5) {
+            //               setPausedView();
+            //       gameLoopThread.setPaused(true);
+            pauseActivity();
+        }
+
         return true;
     }
 //
@@ -827,12 +834,23 @@ public void pause() {
         thread = null;
         if(timelToBeDisplayed != 0)
             timeleft = timelToBeDisplayed;
+
+    int gameState = Splash.pref.getInt(GAMEVIEWSTATE, 0);
+    if(gameState == 0) {
+        pauseActivity();
+    }
     }
 
     public void resume() {
-        running = true;
-        thread = new Thread(this);
-        thread.start();
+            running = true;
+            thread = new Thread(this);
+            thread.start();
+    }
+
+    public void pauseActivity(){
+        Context context = getContext();
+        Intent intent = new Intent("com.healthtapper.sixtyseconds.PAUSEACTIVITY");
+        context.startActivity(intent);
     }
 
     public void gameoverActivity(){

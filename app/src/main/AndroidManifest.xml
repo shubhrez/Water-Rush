@@ -86,6 +86,35 @@
         </activity>
 
         <activity
+            android:name=".PauseActivity"
+            android:theme="@style/Theme.Transparent"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="com.healthtapper.sixtyseconds.PAUSEACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".PauseActivityEndless"
+            android:theme="@style/Theme.Transparent"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="com.healthtapper.sixtyseconds.PAUSEACTIVITYENDLESS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".GameOver1"
             android:label="@string/app_name"
             android:launchMode="singleTask"
