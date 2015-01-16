@@ -729,10 +729,10 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 //        if(timelToBeDisplayed != 0)
 //            timeleft = timelToBeDisplayed;
 
-        int endlessgamestate = Splash.pref.getInt(ENDLESSGAMEVIEWSTATE, 0);
-        if(endlessgamestate == 0) {
-            pauseActivity();
-        }
+//        int endlessgamestate = Splash.pref.getInt(ENDLESSGAMEVIEWSTATE, 0);
+//        if(endlessgamestate == 0) {
+//            pauseActivity();
+//        }
     }
 
     public void resume() {

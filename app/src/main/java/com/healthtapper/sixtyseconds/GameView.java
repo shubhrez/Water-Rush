@@ -808,16 +808,7 @@ public class GameView extends SurfaceView implements Runnable {
 
         return true;
     }
-//
-//    public void startSplash(long time) {
-//
-//        while (System.currentTimeMillis() <= time + 1000) {
-//            splash = 1;
-//        }
-//         splash = 0;
-//        }
-//
-//
+
 
 
 public void pause() {
@@ -835,10 +826,10 @@ public void pause() {
         if(timelToBeDisplayed != 0)
             timeleft = timelToBeDisplayed;
 
-    int gameState = Splash.pref.getInt(GAMEVIEWSTATE, 0);
-    if(gameState == 0) {
-        pauseActivity();
-    }
+//    int gameState = Splash.pref.getInt(GAMEVIEWSTATE, 0);
+//    if(gameState == 0) {
+//        pauseActivity();
+//    }
     }
 
     public void resume() {

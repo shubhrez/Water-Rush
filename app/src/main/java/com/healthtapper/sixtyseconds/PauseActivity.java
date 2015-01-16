@@ -24,4 +24,5 @@ public class PauseActivity extends Activity {
             }
         });
     }
+
 }
