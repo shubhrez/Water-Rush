@@ -414,8 +414,11 @@ public class GameView extends SurfaceView implements Runnable {
 
         if(displayfiveseconds == 1) {
             if (displayfivesecondscount <= 20) {
-                textPaint.setTextSize(75);
-                canvas.drawText("+ 5 sec",getWidth()/2,getHeight()/2 -200,textPaint);
+                Paint five = new Paint();
+                five.setTextSize(75);
+                five.setARGB(255,0,178,255);
+                five.setTextAlign(Paint.Align.CENTER);
+                canvas.drawText("+ 5 sec",getWidth()/2,getHeight()/2 -200,five);
                 displayfivesecondscount ++;
             } else {
                 displayfiveseconds = 0;

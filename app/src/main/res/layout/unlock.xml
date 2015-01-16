@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_weight="10"
         android:padding="5dp"
         android:orientation="horizontal"
@@ -24,7 +24,7 @@
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="5"
             android:text="Quest"
             android:padding="5dp"
@@ -58,14 +58,13 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="20dp"
-        android:layout_weight="10"
+        android:layout_weight="5"
         />
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="50"
-        android:background="@drawable/border"
+        android:layout_weight="55"
         >
 
         <LinearLayout
@@ -79,7 +78,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="#B2C248"
+
                 >
 
                 <ImageView
@@ -109,7 +108,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:background="#728C00"
+
                         />
 
                     <TextView
@@ -123,7 +122,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:background="#728C00"
+
                         />
 
                 </LinearLayout>
@@ -259,6 +258,7 @@
                 android:text="1"
                 android:textSize="20dp"
                 android:gravity="center"
+                android:background="#C04000"
                 />
 
 
@@ -318,6 +318,7 @@
                 android:layout_height="wrap_content"
                 android:text="1"
                 android:textSize="20dp"
+                android:background="#C04000"
                 android:gravity="center"
                 />
 
@@ -383,6 +384,7 @@
                 android:layout_height="wrap_content"
                 android:text="1"
                 android:textSize="20dp"
+                android:background="#C04000"
                 android:gravity="center"
                 />
 
@@ -445,6 +447,7 @@
                 android:layout_height="wrap_content"
                 android:text="1"
                 android:textSize="20dp"
+                android:background="#C04000"
                 android:gravity="center"
                 />
 
@@ -454,7 +457,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="20dp"
-        android:layout_weight="10"
+        android:layout_weight="5"
         />
 
 
@@ -467,14 +470,14 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:padding="10dp"
-        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_weight="5"
         >
         <Button
             android:id="@+id/start"
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:textSize="20dp"
             android:text="Start Game"
@@ -484,7 +487,7 @@
         <Button
             android:id="@+id/back"
             android:layout_width="200dp"
-            android:layout_height="80dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
