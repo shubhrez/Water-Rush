@@ -70,7 +70,7 @@ public class GameView extends SurfaceView implements Runnable {
     int x1speed = 20;
     int x2speed = 20;
     private SoundPool sounds;
-    private int waterdrip,watersplash,freeze,thunder,power;
+    private int waterdrip,watersplash,freeze,thunder,power,emptydrop;
     int bigDropCollected = 0;
  //   int bigDropTime = 0;
     int snowCollected = 0;
@@ -108,6 +108,7 @@ public class GameView extends SurfaceView implements Runnable {
         watersplash = sounds.load(context,R.raw.watersplash,1);
         freeze = sounds.load(context,R.raw.freeze,1);
         thunder = sounds.load(context,R.raw.thunder,1);
+//        emptydrop = sounds.load(context,R.raw.emptydrop,1);
 
         createDrops();
         createDrops5();
@@ -375,9 +376,9 @@ public class GameView extends SurfaceView implements Runnable {
         textPaint.setTextSize(45);
 
         if(bucketSize <= 4) {
-            canvas.drawText("x1", getWidth() - 200 - drop.getWidth()/2, 50, textPaint);
+            canvas.drawText("x1", getWidth() - 230 - drop.getWidth()/2, 50, textPaint);
         } else if (bucketSize >= 5){
-            canvas.drawText("x2", getWidth() - 200 - drop.getWidth()/2, 50, textPaint);
+            canvas.drawText("x2", getWidth() - 230 - drop.getWidth()/2, 50, textPaint);
         }
 
         highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
@@ -622,12 +623,15 @@ public class GameView extends SurfaceView implements Runnable {
                 if (drop.isCollected(x - bucket.getWidth() / 2)) {
                     stones.remove(drop);
                     stones.add(createDrop(R.drawable.stone,0));
+                    if(score > 0) {
+                        sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
+                        splash = 1;
+                    }
                     score -= 5;
                     if(score < 0){
                         score = 0;
                     }
-                    sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
-                    splash = 1;
+
      //               startSplash(System.currentTimeMillis());
                 }
             }

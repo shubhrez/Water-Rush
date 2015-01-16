@@ -592,12 +592,16 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     stones.remove(drop);
                     stones.add(createDrop(R.drawable.stone,0));
                     life ++;
+                    if(score > 0) {
+                        sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
+                        splash = 1;
+                    }
                     score -= 5;
                     if(score < 0){
                         score = 0;
                     }
-                    sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
-                    splash = 1;
+//                    sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
+//                    splash = 1;
                     //               startSplash(System.currentTimeMillis());
                 }
             }
