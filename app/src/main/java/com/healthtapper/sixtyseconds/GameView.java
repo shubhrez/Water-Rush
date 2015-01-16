@@ -546,7 +546,7 @@ public class GameView extends SurfaceView implements Runnable {
                 Drop drop = bigDropsSelected.get(i);
                 if (drop.isCollected(x - bucket.getWidth() / 2)) {
                     bigDropsSelected.remove(drop);
-                    score += 10;
+                    score += 5;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                 }
             }
@@ -562,7 +562,7 @@ public class GameView extends SurfaceView implements Runnable {
                 Drop drop = snowSelected.get(i);
                 if (drop.isCollected(x - bucket.getWidth() / 2)) {
                     snowSelected.remove(drop);
-                    score += 5;
+                    score += 10;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                 }
             }
