@@ -68,7 +68,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 //    int x1speed = 20;
 //    int x2speed = 20;
     private SoundPool sounds;
-    private int waterdrip,watersplash,freeze,thunder;
+    private int waterdrip,watersplash,freeze,thunder,emptydrop;
     int bigDropCollected = 0;
     //   int bigDropTime = 0;
     int snowCollected = 0;
@@ -98,6 +98,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         watersplash = sounds.load(context,R.raw.watersplash,1);
         freeze = sounds.load(context,R.raw.freeze,1);
         thunder = sounds.load(context,R.raw.thunder,1);
+        emptydrop = sounds.load(context,R.raw.emptydrop,1);
         createDrops();
   //      createDrops5();
         createStones();
@@ -592,6 +593,9 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     stones.remove(drop);
                     stones.add(createDrop(R.drawable.stone,0));
                     life ++;
+                    if(score == 0) {
+                        sounds.play(emptydrop, 1.0f, 1.0f, 0, 0, 1.5f);
+                    }
                     if(score > 0) {
                         sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
                         splash = 1;

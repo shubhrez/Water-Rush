@@ -108,7 +108,7 @@ public class GameView extends SurfaceView implements Runnable {
         watersplash = sounds.load(context,R.raw.watersplash,1);
         freeze = sounds.load(context,R.raw.freeze,1);
         thunder = sounds.load(context,R.raw.thunder,1);
-//        emptydrop = sounds.load(context,R.raw.emptydrop,1);
+        emptydrop = sounds.load(context,R.raw.emptydrop,1);
 
         createDrops();
         createDrops5();
@@ -623,6 +623,9 @@ public class GameView extends SurfaceView implements Runnable {
                 if (drop.isCollected(x - bucket.getWidth() / 2)) {
                     stones.remove(drop);
                     stones.add(createDrop(R.drawable.stone,0));
+                    if(score == 0) {
+                        sounds.play(emptydrop, 1.0f, 1.0f, 0, 0, 1.5f);
+                    }
                     if(score > 0) {
                         sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
                         splash = 1;
