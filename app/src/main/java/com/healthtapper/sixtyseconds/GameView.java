@@ -349,7 +349,17 @@ public class GameView extends SurfaceView implements Runnable {
 //        bucketsupport.setARGB(255,0,0,0);
 //        canvas.drawCircle(getWidth()-80,60,50,bucketsupport);
         textPaint.setTextSize(60);
-        canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 120, 60, textPaint);
+        if(score < 0){
+            canvas.drawText("000",getWidth() - 120, 60, textPaint);
+        }
+        if(score >= 0 && score <= 9){
+            canvas.drawText(new StringBuilder().append("00").append(score).toString(), getWidth() - 120, 60, textPaint);
+        } else if(score >= 10 && score <= 99){
+            canvas.drawText(new StringBuilder().append("0").append(score).toString(), getWidth() - 120, 60, textPaint);
+        } else if(score >= 99){
+            canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 120, 60, textPaint);
+        }
+   //     canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 120, 60, textPaint);
         canvas.drawBitmap(drop,getWidth() - 150 - drop.getWidth()/2,5,null);
 //
         canvas.drawBitmap(pause,getWidth() - pause.getWidth() - 10,120 - pause.getHeight()/2 - 10,null);
@@ -611,6 +621,9 @@ public class GameView extends SurfaceView implements Runnable {
                     stones.remove(drop);
                     stones.add(createDrop(R.drawable.stone,0));
                     score -= 5;
+                    if(score < 0){
+                        score = 0;
+                    }
                     sounds.play(watersplash, 0.05f, 0.05f, 0, 0, 1.5f);
                     splash = 1;
      //               startSplash(System.currentTimeMillis());
