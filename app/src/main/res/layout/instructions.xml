@@ -2,23 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     >
-
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        />
-
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_weight="10"
-        android:layout_gravity="center"
-        />
 
     <TextView
         android:layout_width="fill_parent"
@@ -35,7 +19,7 @@
         android:gravity="center"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="Tap on screen to launch fireball"
+        android:text="Collect water Avoid stones"
         android:layout_gravity="center_horizontal"
         />
 
@@ -48,7 +32,7 @@
         android:layout_weight="10"
         android:textSize="22dp"
         android:gravity="center"
-        android:text="Vary the speed of fireball by tapping higher or lower"
+        android:text="Tap on the bucket to move it horizontally"
         android:layout_gravity="center_horizontal"
         />
 
@@ -61,7 +45,7 @@
         android:gravity="center"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="Kill the demons and avoid angels"
+        android:text="You loose water if you collect stone"
         android:layout_gravity="center_horizontal"
         />
 
@@ -74,7 +58,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:gravity="center"
-        android:text="You have 4 lives, you lose 1 for killing an angel"
+        android:text="Unlock various powers specified in quest by scoring higher"
         android:layout_gravity="center_horizontal"
         />
 
@@ -87,7 +71,7 @@
         android:paddingRight="5dp"
         android:textSize="22dp"
         android:gravity="center"
-        android:text="You get 10 points for killing a demon and loose 5 points for killing a angel"
+        android:text="Gives you extra 5 seconds"
         android:layout_gravity="center_horizontal"
         />
 

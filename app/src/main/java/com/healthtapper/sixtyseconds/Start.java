@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.flurry.android.FlurryAgent;
+
 public class Start extends Activity {
 
     StartGameView gameView;
@@ -26,6 +28,7 @@ public class Start extends Activity {
 //        bar.hide();
         gameView = new StartGameView(this);
         setContentView(gameView);
+        FlurryAgent.init(Start.this, "Q3ZZS4K4S7RTF9BXZX9M");
       }
 
     @Override

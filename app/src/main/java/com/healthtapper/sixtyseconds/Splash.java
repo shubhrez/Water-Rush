@@ -103,16 +103,16 @@ public class Splash extends Activity {
         });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FlurryAgent.init(Splash.this,"Q3ZZS4K4S7RTF9BXZX9M");
-        FlurryAgent.onStartSession(this);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        FlurryAgent.onEndSession(this);
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        FlurryAgent.init(Splash.this,"Q3ZZS4K4S7RTF9BXZX9M");
+//        FlurryAgent.onStartSession(this);
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        FlurryAgent.onEndSession(this);
+//    }
 }

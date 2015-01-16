@@ -8,8 +8,9 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_weight="10"
+        android:padding="5dp"
         android:orientation="horizontal"
         >
 
@@ -50,31 +51,35 @@
     <ImageView
         android:background="@drawable/top"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-
+        android:layout_height="65dp"
+        android:layout_weight="10"
         />
+
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="20"
+        android:layout_height="20dp"
+        android:layout_weight="10"
         />
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="50"
+        android:background="@drawable/border"
         >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical"
+            android:padding="5dp"
             >
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:background="#B2C248"
                 >
 
                 <ImageView
@@ -88,35 +93,40 @@
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
                     >
-                    <TextView
 
+                    <TextView
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:gravity="center"
                         android:text="Magic Bucket"
+                        android:padding="5dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:background="#728C00"
+                        />
 
                     <TextView
                         android:id="@+id/bucketDesc"
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:gravity="center"
                         android:text="@string/bucketdesc"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:background="#728C00"
+                        />
 
                 </LinearLayout>
-
             </LinearLayout>
 
             <TextView
@@ -126,7 +136,9 @@
                 android:text="1"
                 android:textSize="20dp"
                 android:gravity="center"
+                android:background="#C04000"
                 />
+
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -145,7 +157,7 @@
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
@@ -153,10 +165,11 @@
                     <TextView
 
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:text="Thunder Drops "
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
@@ -164,8 +177,9 @@
                     <TextView
                         android:id="@+id/bigdropDesc"
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="20dp"
+                        android:padding="5dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:text="@string/bigdropdesc"
@@ -183,6 +197,7 @@
                 android:text="1"
                 android:textSize="20dp"
                 android:gravity="center"
+                android:background="#C04000"
                 />
 
             <LinearLayout
@@ -202,7 +217,7 @@
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
@@ -211,11 +226,12 @@
                     <TextView
 
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:text="Freeze Crystal"
+                        android:padding="5dp"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
 
@@ -223,10 +239,11 @@
                     <TextView
                         android:id="@+id/crystalDesc"
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:text="@string/crystaldesc"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
@@ -262,7 +279,7 @@
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
@@ -271,10 +288,11 @@
                     <TextView
 
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:text="Snow Ball"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
@@ -282,10 +300,11 @@
                     <TextView
                         android:id="@+id/snowDesc"
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:text="@string/snowdesc"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
@@ -323,7 +342,7 @@
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
@@ -332,20 +351,22 @@
                     <TextView
 
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:gravity="center"
                         android:layout_gravity="center_vertical"
                         android:text="Double"
+                        android:padding="5dp"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
 
                     <TextView
                         android:id="@+id/multiplierDesc"
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:layout_gravity="center_vertical"
                         android:text="@string/multiplierdesc"
                         android:layout_marginLeft="10dp"
@@ -382,8 +403,9 @@
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:padding="5dp"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
                     >
@@ -391,10 +413,11 @@
                     <TextView
 
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:gravity="center"
                         android:text="Endless"
+                        android:padding="5dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1" />
@@ -402,12 +425,13 @@
                     <TextView
                         android:id="@+id/endlessDesc"
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:gravity="center"
                         android:text="@string/endlessdesc"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
+                        android:padding="5dp"
                         android:layout_weight="1" />
 
 
@@ -429,7 +453,7 @@
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_weight="10"
         />
 
@@ -437,12 +461,13 @@
     <ImageView
         android:background="@drawable/bottom"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_height="65dp"
+        android:layout_weight="10"
         />
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:padding="10dp"
         android:layout_weight="10"
         >
@@ -459,7 +484,7 @@
         <Button
             android:id="@+id/back"
             android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
