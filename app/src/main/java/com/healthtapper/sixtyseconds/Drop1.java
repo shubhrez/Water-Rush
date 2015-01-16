@@ -26,12 +26,12 @@ public class Drop1 {
         Random rnd = new Random();
         x = rnd.nextInt(500) + 1;
         this.y = y;
-        ySpeed = rnd.nextInt(5) + 25;
+        ySpeed = rnd.nextInt(5) + 30;
         this.bucket = bucket;
     }
 
     private void update(int a,int b) {
-        y = (y + (ySpeed)/b + a/50);
+        y = (y + (ySpeed)/b + a/40);
 
     }
 

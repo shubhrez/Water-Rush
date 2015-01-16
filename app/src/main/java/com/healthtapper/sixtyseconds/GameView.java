@@ -350,9 +350,9 @@ public class GameView extends SurfaceView implements Runnable {
 //        canvas.drawCircle(getWidth()-80,60,50,bucketsupport);
         textPaint.setTextSize(60);
         canvas.drawText(new StringBuilder().append(scoretext).toString(), getWidth() - 120, 60, textPaint);
-        canvas.drawBitmap(drop,getWidth() - 175 - drop.getWidth()/2,5,null);
+        canvas.drawBitmap(drop,getWidth() - 150 - drop.getWidth()/2,5,null);
 //
-        canvas.drawBitmap(pause,getWidth()/2-pause.getWidth()/2,5,null);
+        canvas.drawBitmap(pause,getWidth() - pause.getWidth() - 10,120 - pause.getHeight()/2 - 10,null);
 //        if(bucketSize <= 4) {
 //            canvas.drawText("x1", getWidth()/2, 60, textPaint);
 //        } else if (bucketSize >= 5){
@@ -363,14 +363,15 @@ public class GameView extends SurfaceView implements Runnable {
         textPaint.setTextSize(45);
 
         if(bucketSize <= 4) {
-            canvas.drawText("x1", getWidth() - 120, 120, textPaint);
+            canvas.drawText("x1", getWidth() - 200 - drop.getWidth()/2, 50, textPaint);
         } else if (bucketSize >= 5){
-            canvas.drawText("x2", getWidth() - 120, 120, textPaint);
+            canvas.drawText("x2", getWidth() - 200 - drop.getWidth()/2, 50, textPaint);
         }
 
         highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
         String highestscoreText = String.valueOf(highestscore);
 //        canvas.drawText(new StringBuilder().append("Best:").append(highestscoreText).toString(), getWidth() - 120, 110, textPaint);
+        textPaint.setTextSize(40);
         canvas.drawText(new StringBuilder().append("Best:").append(highestscoreText).toString(), 10, 120, textPaint);
 
         textPaint.setTextSize(60);
@@ -802,7 +803,7 @@ public class GameView extends SurfaceView implements Runnable {
         pauseX = event.getX();
         pauseY = event.getY();
 
-        if (pauseX >= getWidth()/2 - pause.getWidth()/2 - 5 && pauseX <= getWidth()/2 + pause.getWidth()/2 + 5 && pauseY >= 0 && pauseY <= pause.getHeight() + 5) {
+        if (pauseX >= getWidth() - pause.getWidth() - 10 && pauseX <= getWidth() && pauseY >= 120 - pause.getHeight()/2 - 10 && pauseY <= 120 + pause.getHeight()/2 - 10) {
             //               setPausedView();
             //       gameLoopThread.setPaused(true);
             pauseActivity();

@@ -16,6 +16,7 @@ public class PauseActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pause);
         resume = (Button) findViewById(R.id.resume);
+        resume.setBackgroundResource(R.drawable.cloud);
         resume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
