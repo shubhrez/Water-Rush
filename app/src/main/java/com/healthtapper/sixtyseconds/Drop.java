@@ -25,10 +25,10 @@ public class Drop {
         this.bmp = bmp;
         this.y = y;
         Random rnd = new Random();
-        x = rnd.nextInt(500) + 1;
+        x = rnd.nextInt(600) + 1;
   //      x = rnd.nextInt(gameView.getWidth());
     //    this.x = x;
-        ySpeed = rnd.nextInt(5) + 30;
+        ySpeed = rnd.nextInt(5) + 26;
         this.bucket = bucket;
     }
 

@@ -171,7 +171,7 @@ public class GameView extends SurfaceView implements Runnable {
     private void createStones() {
         stones.add(createDrop(R.drawable.stone,0));
         stones.add(createDrop(R.drawable.stone,0));
-        stones.add(createDrop(R.drawable.stone,0));
+   //     stones.add(createDrop(R.drawable.stone,0));
     }
 
 //    private Power createPower(int resource,int y) {
@@ -572,7 +572,7 @@ public class GameView extends SurfaceView implements Runnable {
 
             for (int i = bigDrops.size() - 1; i >= 0; i--) {
                 Drop drop = bigDrops.get(i);
-                if (drop.isCollision(getHeight())) {
+                if (drop.isCollision(getHeight() + 2000)) {
                     bigDrops.remove(drop);
                     createbigDrops();
                     //             drops5.add(createDrop(R.drawable.drop5));
@@ -636,7 +636,7 @@ public class GameView extends SurfaceView implements Runnable {
 
             for (int i = crystal.size() - 1; i >= 0; i--) {
                 Drop drop = crystal.get(i);
-                if (drop.isCollision(getHeight())) {
+                if (drop.isCollision(getHeight() + 3000)) {
                     crystal.remove(drop);
                     createCrystal();
                 }
@@ -656,7 +656,7 @@ public class GameView extends SurfaceView implements Runnable {
 
             for (int i = snow.size() - 1; i >= 0; i--) {
                 Drop drop = snow.get(i);
-                if (drop.isCollision(getHeight())) {
+                if (drop.isCollision(getHeight() + 4000)) {
                     snow.remove(drop);
                     createSnow();
                 }
