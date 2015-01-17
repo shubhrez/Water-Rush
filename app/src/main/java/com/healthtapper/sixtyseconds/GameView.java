@@ -81,6 +81,10 @@ public class GameView extends SurfaceView implements Runnable {
     int xtap = rnd.nextInt(200) + 50;;
     int highestscore;
     float pauseX,pauseY;
+    int bigNumber = 0;
+    int bigScore = 0;
+    int bigScoreDisplay = 0;
+    int bigScoreCount = 0;
 
     public GameView(Context context) {
         super(context);
@@ -134,7 +138,6 @@ public class GameView extends SurfaceView implements Runnable {
         bigDropsSelected.add(createDrop(R.drawable.bigdropselected,-275));
         bigDropsSelected.add(createDrop(R.drawable.bigdropselected,-500));
         bigDropsSelected.add(createDrop(R.drawable.bigdropselected,-400));
-
     }
 
     private void createsnowSelected() {
@@ -412,6 +415,26 @@ public class GameView extends SurfaceView implements Runnable {
             }
         }
 
+        if(bigNumber >=7 ){
+            bigScoreDisplay = 1;
+        }
+
+        if(bigScoreDisplay == 1) {
+            if (bigScoreCount <= 40) {
+                Paint five = new Paint();
+                five.setTextSize(75);
+                five.setARGB(255,0,178,255);
+                five.setTextAlign(Paint.Align.CENTER);
+                canvas.drawText(new StringBuilder().append("+ ").append(bigScore).toString(),getWidth()/2,getHeight()/2 -200,five);
+                bigScoreCount ++;
+            } else {
+                bigScoreDisplay = 0;
+                bigNumber = 0;
+                bigScoreCount = 0;
+                bigScore = 0;
+            }
+        }
+
         if(displayfiveseconds == 1) {
             if (displayfivesecondscount <= 20) {
                 Paint five = new Paint();
@@ -545,6 +568,7 @@ public class GameView extends SurfaceView implements Runnable {
                 Drop drop = bigDropsSelected.get(i);
                 if (drop.isCollision(getHeight())) {
                     bigDropsSelected.remove(drop);
+                    bigNumber ++;
                 }
             }
 
@@ -554,6 +578,9 @@ public class GameView extends SurfaceView implements Runnable {
                     bigDropsSelected.remove(drop);
                     score += 5;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+                    bigNumber ++;
+                    bigScore += 5;
+                    bigScoreDisplay = 1;
                 }
             }
 
