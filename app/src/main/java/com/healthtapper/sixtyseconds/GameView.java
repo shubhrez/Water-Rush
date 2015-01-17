@@ -89,6 +89,7 @@ public class GameView extends SurfaceView implements Runnable {
     int snowScore = 0;
     int snowScoreDisplay = 0;
     int snowScoreCount = 0;
+    int bonusCount = 0;
 
     public GameView(Context context) {
         super(context);
@@ -564,7 +565,7 @@ public class GameView extends SurfaceView implements Runnable {
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                     sounds.play(power, 0.2f, 0.2f, 0, 0, 1.5f);
                     displayfiveseconds = 1;
-
+                    bonusCount ++;
                 }
 
             }
@@ -588,7 +589,7 @@ public class GameView extends SurfaceView implements Runnable {
                     thunderStart = 1;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                     sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
-
+                    bonusCount ++;
                 }
 
             }
@@ -648,6 +649,7 @@ public class GameView extends SurfaceView implements Runnable {
                     createCrystal();
                     freezeFactor = 2;
                     sounds.play(freeze, 0.2f, 0.2f, 0, 0, 1.5f);
+                    bonusCount ++;
                 }
 
             }
@@ -670,6 +672,7 @@ public class GameView extends SurfaceView implements Runnable {
                     thunderStart = 1;
                     sounds.play(freeze, 1.0f, 1.0f, 0, 0, 1.5f);
                     sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
+                    bonusCount ++;
                 }
             }
 
@@ -819,6 +822,8 @@ public class GameView extends SurfaceView implements Runnable {
                  crystalCount = 0;
                  snowCollected = 0;
                  bigDropCollected = 0;
+                 bonusCount = 0;
+
                  for (int i = drops.size() - 1; i >= 0; i--) {
                      Drop drop = drops.get(i);
                      drops.remove(drop);
@@ -938,6 +943,7 @@ public void pause() {
         Bundle bundle = new Bundle();
 //Add your data from getFactualResults method to bundle
         bundle.putInt("SCORE", score);
+        bundle.putInt("BONUS", bonusCount);
 //Add the bundle to the intent
         intent.putExtras(bundle);
         context.startActivity(intent);

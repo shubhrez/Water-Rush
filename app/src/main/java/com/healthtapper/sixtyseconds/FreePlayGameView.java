@@ -87,7 +87,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     int snowScore = 0;
     int snowScoreDisplay = 0;
     int snowScoreCount = 0;
-
+    int bonusCount = 0;
 
     public FreePlayGameView(Context context) {
         super(context);
@@ -554,7 +554,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     thunderStart = 1;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                     sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
-
+                    bonusCount ++;
                 }
 
             }
@@ -614,6 +614,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     createCrystal();
                     freezeFactor = 2;
                     sounds.play(freeze, 0.2f, 0.2f, 0, 0, 1.5f);
+                    bonusCount ++;
                 }
 
             }
@@ -636,6 +637,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     thunderStart = 1;
                     sounds.play(freeze, 1.0f, 1.0f, 0, 0, 1.5f);
                     sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
+                    bonusCount ++;
                 }
             }
 
@@ -693,13 +695,13 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         }
 
 
-        if(life >= 100) {
-            endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
-            if(score > endlesshighestscore){
-                SharedPreferences.Editor editor = Splash.pref.edit();
-                editor.putInt(ENDLESSHIGHESTSCORE, score);
-                editor.commit();
-            }
+        if(life >= 10) {
+//            endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
+//            if(score > endlesshighestscore){
+//                SharedPreferences.Editor editor = Splash.pref.edit();
+//                editor.putInt(ENDLESSHIGHESTSCORE, score);
+//                editor.commit();
+//            }
 
             SharedPreferences.Editor editor = Splash.pref.edit();
             editor.putInt(ENDLESSGAMEVIEWSTATE,1);
@@ -716,6 +718,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
             snowCollected = 0;
             bigDropCollected = 0;
             life = 0;
+            bonusCount = 0;
             for (int i = drops.size() - 1; i >= 0; i--) {
                 Drop1 drop = drops.get(i);
                 drops.remove(drop);
@@ -843,6 +846,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         Bundle bundle = new Bundle();
 //Add your data from getFactualResults method to bundle
         bundle.putInt("SCORE", score);
+        bundle.putInt("BONUS", bonusCount);
 //Add the bundle to the intent
         intent.putExtras(bundle);
         context.startActivity(intent);

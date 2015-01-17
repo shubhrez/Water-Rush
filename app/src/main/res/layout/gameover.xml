@@ -3,7 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="10"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,18 +16,38 @@
         android:layout_gravity="center"
         android:textSize="40dp"
         android:text="Score"
+        android:gravity="center"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/finalscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#00B2FF"
+        android:layout_gravity="center"
+        android:textSize="40dp"
+        android:text="Score"
         android:gravity="bottom"
-        android:layout_weight="20"/>
+        android:layout_weight="1"/>
+
+</LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
+        android:layout_weight="20"
+        android:orientation="vertical"
+        >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="horizontal"
         >
 
         <TextView
-            android:id="@+id/scoreText"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#00B2FF"
@@ -31,24 +55,10 @@
             android:textSize="30dp"
             android:layout_weight="1"
             android:gravity="right"
-
             />
 
-
         <TextView
-            android:id="@+id/multiplierText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#00B2FF"
-            android:layout_gravity="center"
-            android:textSize="30dp"
-            android:layout_weight="1"
-            android:gravity="left"
-            />
-
-
-        <TextView
-            android:id="@+id/finalScoreText"
+            android:id="@+id/scoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#00B2FF"
@@ -58,8 +68,65 @@
             android:layout_weight="2"
             />
 
+        <TextView
+            android:id="@+id/scoreValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#00B2FF"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            />
+
+
     </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#00B2FF"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                />
+
+            <TextView
+                android:id="@+id/bonusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#00B2FF"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:text="Bonus"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/bonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#00B2FF"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:gravity="left"
+                android:layout_weight="2"
+                />
+
+            </LinearLayout>
+
+    </LinearLayout>
     <TextView
         android:id="@+id/achievement"
         android:layout_width="wrap_content"

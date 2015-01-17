@@ -13,8 +13,8 @@ import android.widget.TextView;
 public class GameOver extends Activity{
 
     Button restart;
-    int score;
-    TextView scoreText,achievement,finalScoreText,multiplierText;
+    int score,bonus;
+    TextView scoreText,achievement,scorevalue,bonusvalue,finalscore;
     public static final String ACHIEVEMENT = "achievementNumber";
     int achievementStatus;
     int bucketSize;
@@ -30,14 +30,16 @@ public class GameOver extends Activity{
         setContentView(R.layout.gameover);
         restart = (Button) findViewById(R.id.playagain);
         scoreText = (TextView) findViewById(R.id.scoreText);
-        finalScoreText = (TextView) findViewById(R.id.finalScoreText);
-        multiplierText = (TextView) findViewById(R.id.multiplierText);
+        finalscore = (TextView) findViewById(R.id.finalscore);
+        bonusvalue = (TextView) findViewById(R.id.bonus);
+        scorevalue = (TextView) findViewById(R.id.scoreValue);
         achievement = (TextView) findViewById(R.id.achievement);
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
         bucketSize = Splash.pref.getInt(BUCKET, 0);
         Bundle bundle = getIntent().getExtras();
         //Extract the data…
         score = bundle.getInt("SCORE");
+        bonus = bundle.getInt("BONUS");
 //        if(achievementStatus >= 5){
 //            score = score*2;
 //        }
@@ -50,12 +52,17 @@ public class GameOver extends Activity{
             multiplier = 2;
         }
 
-        finalScore = multiplier * score ;
+        finalScore = multiplier*score + bonus*5;
 
-        scoreText.setText(new StringBuilder().append(score).toString());
-        multiplierText.setText(new StringBuilder().append("x").append(multiplier).toString());
-        finalScoreText.setText(new StringBuilder().append(finalScore).toString());
+      //  scoreText.setText(new StringBuilder().append(score).toString());
+//        multiplierText.setText(new StringBuilder().append("x").append(multiplier).toString());
+//        finalScoreText.setText(new StringBuilder().append(finalScore).toString());
 
+
+        scoreText.setText("Water Collected");
+        scorevalue.setText(new StringBuilder().append(score).append(" x").append(multiplier).toString());
+        bonusvalue.setText(new StringBuilder().append(bonus*5).toString());
+        finalscore.setText(new StringBuilder().append(finalScore).toString());
 
         if(finalScore >= 100){
             if(achievementStatus == 0){
