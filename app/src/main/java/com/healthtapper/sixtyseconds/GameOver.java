@@ -62,7 +62,7 @@ public class GameOver extends Activity{
         scoreText.setText("Water Collected");
         scorevalue.setText(new StringBuilder().append(score).append(" x").append(multiplier).toString());
         bonusvalue.setText(new StringBuilder().append(bonus*5).toString());
-        finalscore.setText(new StringBuilder().append(finalScore).toString());
+        finalscore.setText(new StringBuilder().append(" : ").append(finalScore).toString());
 
         if(finalScore >= 100){
             if(achievementStatus == 0){

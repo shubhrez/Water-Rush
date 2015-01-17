@@ -48,7 +48,7 @@ public class GameOver1 extends Activity {
         bonusText.setText(new StringBuilder().append("Bonus").toString());
         scoreValue.setText(new StringBuilder().append(score).toString());
         bonusValue.setText(new StringBuilder().append(bonus*5).toString());
-        finalScore.setText(new StringBuilder().append(totalScore).toString());
+        finalScore.setText(new StringBuilder().append(" : ").append(totalScore).toString());
 
         int endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
         if(totalScore > endlesshighestscore){

@@ -16,7 +16,7 @@
         android:layout_gravity="center"
         android:textSize="40dp"
         android:text="Score"
-        android:gravity="center"
+        android:gravity="right"
         android:layout_weight="1"/>
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_gravity="center"
         android:textSize="40dp"
         android:text="Score"
-        android:gravity="bottom"
+        android:gravity="left"
         android:layout_weight="1"/>
 
 </LinearLayout>
