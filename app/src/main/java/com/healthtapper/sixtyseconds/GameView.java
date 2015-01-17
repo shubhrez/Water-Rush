@@ -85,6 +85,10 @@ public class GameView extends SurfaceView implements Runnable {
     int bigScore = 0;
     int bigScoreDisplay = 0;
     int bigScoreCount = 0;
+    int snowNumber = 0;
+    int snowScore = 0;
+    int snowScoreDisplay = 0;
+    int snowScoreCount = 0;
 
     public GameView(Context context) {
         super(context);
@@ -408,6 +412,11 @@ public class GameView extends SurfaceView implements Runnable {
                 canvas.drawBitmap(splash2, x - bucket.getWidth() / 2 - 65, getHeight() - 200, null);
                 canvas.drawBitmap(splash1, x + bucket.getWidth() / 2 + 45, getHeight() - 160, null);
                 canvas.drawBitmap(splash2, x - bucket.getWidth() / 2 - 105, getHeight() - 160, null);
+                Paint five = new Paint();
+                five.setTextSize(75);
+                five.setARGB(255,0,178,255);
+                five.setTextAlign(Paint.Align.CENTER);
+                canvas.drawText("-5",getWidth()/2,getHeight()/2 + 100,five);
                 splashcount++;
             } else {
                 splash = 0;
@@ -415,7 +424,7 @@ public class GameView extends SurfaceView implements Runnable {
             }
         }
 
-        if(bigNumber >=7 ){
+        if(bigNumber >= 7 ){
             bigScoreDisplay = 1;
         }
 
@@ -425,13 +434,33 @@ public class GameView extends SurfaceView implements Runnable {
                 five.setTextSize(75);
                 five.setARGB(255,0,178,255);
                 five.setTextAlign(Paint.Align.CENTER);
-                canvas.drawText(new StringBuilder().append("+ ").append(bigScore).toString(),getWidth()/2,getHeight()/2 -200,five);
+                canvas.drawText(new StringBuilder().append("+ ").append(bigScore).toString(),getWidth()/2 - 100,getHeight() -250,five);
                 bigScoreCount ++;
             } else {
                 bigScoreDisplay = 0;
                 bigNumber = 0;
                 bigScoreCount = 0;
                 bigScore = 0;
+            }
+        }
+
+        if(snowNumber >= 8 ){
+            snowScoreDisplay = 1;
+        }
+
+        if(snowScoreDisplay == 1) {
+            if (snowScoreCount <= 40) {
+                Paint five = new Paint();
+                five.setTextSize(75);
+                five.setARGB(255,0,178,255);
+                five.setTextAlign(Paint.Align.CENTER);
+                canvas.drawText(new StringBuilder().append("+ ").append(snowScore).toString(),getWidth()/2 + 100,getHeight() -250,five);
+                snowScoreCount ++;
+            } else {
+                snowScoreDisplay = 0;
+                snowNumber = 0;
+                snowScoreCount = 0;
+                snowScore = 0;
             }
         }
 
@@ -580,7 +609,7 @@ public class GameView extends SurfaceView implements Runnable {
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
                     bigNumber ++;
                     bigScore += 5;
-                    bigScoreDisplay = 1;
+             //       bigScoreDisplay = 1;
                 }
             }
 
@@ -588,6 +617,7 @@ public class GameView extends SurfaceView implements Runnable {
                 Drop drop = snowSelected.get(i);
                 if (drop.isCollision(getHeight())) {
                     snowSelected.remove(drop);
+                    snowNumber ++;
                 }
             }
 
@@ -597,6 +627,9 @@ public class GameView extends SurfaceView implements Runnable {
                     snowSelected.remove(drop);
                     score += 10;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+                    snowNumber ++;
+                    snowScore += 10;
+               //     snowScoreDisplay = 1;
                 }
             }
 

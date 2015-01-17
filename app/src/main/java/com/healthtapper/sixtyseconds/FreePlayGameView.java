@@ -79,6 +79,14 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     int xtap;
     int life = 0;
     float pauseX,pauseY;
+    int bigNumber = 0;
+    int bigScore = 0;
+    int bigScoreDisplay = 0;
+    int bigScoreCount = 0;
+    int snowNumber = 0;
+    int snowScore = 0;
+    int snowScoreDisplay = 0;
+    int snowScoreCount = 0;
 
 
     public FreePlayGameView(Context context) {
@@ -371,6 +379,11 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 canvas.drawBitmap(splash2, x - bucket.getWidth() / 2 - 65, getHeight() - 200, null);
                 canvas.drawBitmap(splash1, x + bucket.getWidth() / 2 + 45, getHeight() - 160, null);
                 canvas.drawBitmap(splash2, x - bucket.getWidth() / 2 - 105, getHeight() - 160, null);
+                Paint five = new Paint();
+                five.setTextSize(75);
+                five.setARGB(255,0,178,255);
+                five.setTextAlign(Paint.Align.CENTER);
+                canvas.drawText("-5",getWidth()/2,getHeight()/2 + 100,five);
                 splashcount++;
             } else {
                 splash = 0;
@@ -388,6 +401,47 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 //                displayfivesecondscount = 0;
 //            }
 //        }
+
+        if(bigNumber >= 7 ){
+            bigScoreDisplay = 1;
+        }
+
+        if(bigScoreDisplay == 1) {
+            if (bigScoreCount <= 40) {
+                Paint five = new Paint();
+                five.setTextSize(75);
+                five.setARGB(255,0,178,255);
+                five.setTextAlign(Paint.Align.CENTER);
+                canvas.drawText(new StringBuilder().append("+ ").append(bigScore).toString(),getWidth()/2 - 100,getHeight() -250,five);
+                bigScoreCount ++;
+            } else {
+                bigScoreDisplay = 0;
+                bigNumber = 0;
+                bigScoreCount = 0;
+                bigScore = 0;
+            }
+        }
+
+        if(snowNumber >= 8 ){
+            snowScoreDisplay = 1;
+        }
+
+        if(snowScoreDisplay == 1) {
+            if (snowScoreCount <= 40) {
+                Paint five = new Paint();
+                five.setTextSize(75);
+                five.setARGB(255,0,178,255);
+                five.setTextAlign(Paint.Align.CENTER);
+                canvas.drawText(new StringBuilder().append("+ ").append(snowScore).toString(),getWidth()/2 + 100,getHeight() -250,five);
+                snowScoreCount ++;
+            } else {
+                snowScoreDisplay = 0;
+                snowNumber = 0;
+                snowScoreCount = 0;
+                snowScore = 0;
+            }
+        }
+
 
         if(freezeFactor == 2) {
             if (freezecount <= 200) {
@@ -509,6 +563,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 Drop1 drop = bigDropsSelected.get(i);
                 if (drop.isCollision(getHeight())) {
                     bigDropsSelected.remove(drop);
+                    bigNumber ++;
                 }
             }
 
@@ -518,6 +573,8 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     bigDropsSelected.remove(drop);
                     score += 5;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+                    bigNumber ++;
+                    bigScore += 5;
                 }
             }
 
@@ -525,6 +582,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 Drop1 drop = snowSelected.get(i);
                 if (drop.isCollision(getHeight())) {
                     snowSelected.remove(drop);
+                    snowNumber ++;
                 }
             }
 
@@ -534,6 +592,8 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     snowSelected.remove(drop);
                     score += 10;
                     sounds.play(waterdrip, 0.2f, 0.2f, 0, 0, 1.5f);
+                    snowNumber ++;
+                    snowScore += 10;
                 }
             }
 
