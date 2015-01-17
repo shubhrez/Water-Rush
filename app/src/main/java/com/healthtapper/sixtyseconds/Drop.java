@@ -28,7 +28,7 @@ public class Drop {
         x = rnd.nextInt(600) + 1;
   //      x = rnd.nextInt(gameView.getWidth());
     //    this.x = x;
-        ySpeed = rnd.nextInt(5) + 26;
+        ySpeed = rnd.nextInt(5) + 30;
         this.bucket = bucket;
     }
 
