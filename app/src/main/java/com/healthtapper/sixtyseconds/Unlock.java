@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class Unlock extends Activity {
 
-    ImageView bucket,bigdrop,snow,crystal,endless,goal1,goal2;
+    ImageView bucket,bigdrop,snow,crystal,endless,goal1,goal2,superbucket;
     TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText,title,multiplier;
 
     public static final String BUCKET = "bucket";
@@ -52,14 +52,16 @@ public class Unlock extends Activity {
         bigdrop = (ImageView) findViewById(R.id.bigdrop);
         snow = (ImageView) findViewById(R.id.snow);
         crystal = (ImageView) findViewById(R.id.crystal);
-        multiplier = (TextView) findViewById(R.id.multiplier);
+    //    multiplier = (TextView) findViewById(R.id.multiplier);
         endless = (ImageView) findViewById(R.id.endless);
         goal1 = (ImageView) findViewById(R.id.goal1);
         goal2 = (ImageView) findViewById(R.id.goal2);
+        superbucket = (ImageView) findViewById(R.id.superbucket);
 
         goal1.setBackgroundResource(R.drawable.goal);
         goal2.setBackgroundResource(R.drawable.goal);
         bucket.setBackgroundResource(R.drawable.bucket);
+        superbucket.setBackgroundResource(R.drawable.superbucket);
         if (bucketSize == 0) {
             bucketText.setText("Score 100 or more to Unlock");
         //    bucketText.setTextColor(Color.RED);
