@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class GameOver extends Activity{
@@ -15,6 +16,7 @@ public class GameOver extends Activity{
     Button restart;
     int score,bonus;
     TextView scoreText,achievement,scorevalue,bonusvalue,finalscore;
+    ImageView achievementImage;
     public static final String ACHIEVEMENT = "achievementNumber";
     int achievementStatus;
     int bucketSize;
@@ -34,6 +36,10 @@ public class GameOver extends Activity{
         bonusvalue = (TextView) findViewById(R.id.bonus);
         scorevalue = (TextView) findViewById(R.id.scoreValue);
         achievement = (TextView) findViewById(R.id.achievement);
+
+        achievementImage = (ImageView) findViewById(R.id.achievementImage);
+
+
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
         bucketSize = Splash.pref.getInt(BUCKET, 0);
         Bundle bundle = getIntent().getExtras();
@@ -70,7 +76,8 @@ public class GameOver extends Activity{
             if(achievementStatus == 0){
                 achievement.setText("Bucket Unlocked");
                 achievement.setTextSize(35);
-                achievement.setTextColor(Color.RED);
+      //          achievement.setTextColor(Color.RED);
+                achievementImage.setBackgroundResource(R.drawable.bucket);
                 SharedPreferences.Editor editor = Splash.pref.edit();
                 editor.putInt(ACHIEVEMENT, 1);
                 editor.commit();
@@ -81,7 +88,8 @@ public class GameOver extends Activity{
             if(achievementStatus == 1){
                 achievement.setText("Big Drop Unlocked");
                 achievement.setTextSize(35);
-                achievement.setTextColor(Color.RED);
+                //achievement.setTextColor(Color.RED);
+                achievementImage.setBackgroundResource(R.drawable.bigdrop);
                 SharedPreferences.Editor editor = Splash.pref.edit();
                 editor.putInt(ACHIEVEMENT, 2);
                 editor.commit();
@@ -93,7 +101,8 @@ public class GameOver extends Activity{
             if(achievementStatus == 2){
                 achievement.setText("Crystal Unlocked");
                 achievement.setTextSize(35);
-                achievement.setTextColor(Color.RED);
+               // achievement.setTextColor(Color.RED);
+                achievementImage.setBackgroundResource(R.drawable.cyrstal);
                 SharedPreferences.Editor editor = Splash.pref.edit();
                 editor.putInt(ACHIEVEMENT, 3);
                 editor.commit();
@@ -104,7 +113,8 @@ public class GameOver extends Activity{
             if(achievementStatus == 3){
                 achievement.setText("Snow Ball Unlocked");
                 achievement.setTextSize(35);
-                achievement.setTextColor(Color.RED);
+               // achievement.setTextColor(Color.RED);
+                achievementImage.setBackgroundResource(R.drawable.snow);
                 SharedPreferences.Editor editor = Splash.pref.edit();
                 editor.putInt(ACHIEVEMENT, 4);
                 editor.commit();
@@ -114,9 +124,10 @@ public class GameOver extends Activity{
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
         if(finalScore >= 250){
             if(achievementStatus == 4){
-                achievement.setText("x2 Multiplier");
+                achievement.setText("Super Bucket Unlocked");
                 achievement.setTextSize(35);
-                achievement.setTextColor(Color.RED);
+                //achievement.setTextColor(Color.RED);
+                achievementImage.setBackgroundResource(R.drawable.superbucket);
                 SharedPreferences.Editor editor = Splash.pref.edit();
                 editor.putInt(ACHIEVEMENT, 5);
                 editor.commit();
@@ -128,7 +139,8 @@ public class GameOver extends Activity{
             if(achievementStatus == 5){
                 achievement.setText("Congratulations,Endless Unlocked");
                 achievement.setTextSize(35);
-                achievement.setTextColor(Color.RED);
+                //achievement.setTextColor(Color.RED);
+                achievementImage.setBackgroundResource(R.drawable.endless);
                 SharedPreferences.Editor editor = Splash.pref.edit();
                 editor.putInt(ACHIEVEMENT, 6);
                 editor.commit();

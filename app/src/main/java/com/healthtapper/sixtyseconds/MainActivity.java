@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 
@@ -21,7 +22,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         gameview = new GameView(this);
         setContentView(gameview);
-
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     }
 

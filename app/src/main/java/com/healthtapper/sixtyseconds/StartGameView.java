@@ -38,7 +38,7 @@ public class StartGameView extends SurfaceView implements Runnable {
     public StartGameView(Context context) {
         super(context);
         holder = getHolder();
-        ripple = BitmapFactory.decodeResource(getResources(), R.drawable.ripple);
+   //     ripple = BitmapFactory.decodeResource(getResources(), R.drawable.ripple);
         sounds = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         thunder = sounds.load(context,R.raw.thunder,1);
         font = Typeface.createFromAsset(context.getAssets(),"WindyRainDemo.ttf");
