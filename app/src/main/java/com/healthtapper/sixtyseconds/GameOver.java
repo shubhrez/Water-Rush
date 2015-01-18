@@ -46,10 +46,12 @@ public class GameOver extends Activity{
 
 
         int highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);
-        if(bucketSize <= 4){
+        if(bucketSize == 0){
             multiplier = 1;
-        } else if (bucketSize >= 5){
+        } else if(bucketSize >= 1 && bucketSize <= 4){
             multiplier = 2;
+        } else if (bucketSize >= 5){
+            multiplier = 3;
         }
 
         finalScore = multiplier*score + bonus*5;

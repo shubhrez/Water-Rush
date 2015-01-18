@@ -160,7 +160,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     private void createStones() {
         stones.add(createDrop(R.drawable.stone,0));
         stones.add(createDrop(R.drawable.stone,0));
-        stones.add(createDrop(R.drawable.stone,0));
+   //     stones.add(createDrop(R.drawable.stone,0));
     }
 
 //    private Power createPower(int resource,int y) {

@@ -383,10 +383,12 @@ public class GameView extends SurfaceView implements Runnable {
 
         textPaint.setTextSize(45);
 
-        if(bucketSize <= 4) {
+        if (bucketSize == 0){
             canvas.drawText("x1", getWidth() - 230 - drop.getWidth()/2, 50, textPaint);
-        } else if (bucketSize >= 5){
+        } else if(bucketSize >= 1 && bucketSize <= 4) {
             canvas.drawText("x2", getWidth() - 230 - drop.getWidth()/2, 50, textPaint);
+        } else if (bucketSize >= 5){
+            canvas.drawText("x3", getWidth() - 230 - drop.getWidth()/2, 50, textPaint);
         }
 
         highestscore = Splash.pref.getInt(HIGHESTSCORE, 0);

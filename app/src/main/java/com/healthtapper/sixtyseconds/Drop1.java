@@ -24,7 +24,7 @@ public class Drop1 {
         this.gameView = gameView;
         this.bmp = bmp;
         Random rnd = new Random();
-        x = rnd.nextInt(500) + 1;
+        x = rnd.nextInt(700) + 1;
         this.y = y;
         ySpeed = rnd.nextInt(5) + 30;
         this.bucket = bucket;
