@@ -75,7 +75,7 @@ public class GameOver extends Activity{
         if(finalScore >= 100){
             if(achievementStatus == 0){
                 achievement.setText("Bucket Unlocked");
-                achievement.setTextSize(35);
+          //      achievement.setTextSize(35);
       //          achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.bucket);
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -87,7 +87,7 @@ public class GameOver extends Activity{
         if(finalScore >= 140){
             if(achievementStatus == 1){
                 achievement.setText("Big Drop Unlocked");
-                achievement.setTextSize(35);
+            //    achievement.setTextSize(35);
                 //achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.bigdrop);
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -100,7 +100,7 @@ public class GameOver extends Activity{
         if(finalScore >= 180){
             if(achievementStatus == 2){
                 achievement.setText("Crystal Unlocked");
-                achievement.setTextSize(35);
+              //  achievement.setTextSize(35);
                // achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.cyrstal);
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -112,7 +112,7 @@ public class GameOver extends Activity{
         if(finalScore >= 200){
             if(achievementStatus == 3){
                 achievement.setText("Snow Ball Unlocked");
-                achievement.setTextSize(35);
+         //       achievement.setTextSize(35);
                // achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.snow);
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -125,7 +125,7 @@ public class GameOver extends Activity{
         if(finalScore >= 250){
             if(achievementStatus == 4){
                 achievement.setText("Super Bucket Unlocked");
-                achievement.setTextSize(35);
+          //      achievement.setTextSize(35);
                 //achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.superbucket);
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -138,7 +138,7 @@ public class GameOver extends Activity{
         if(finalScore >= 400){
             if(achievementStatus == 5){
                 achievement.setText("Congratulations,Endless Unlocked");
-                achievement.setTextSize(35);
+          //      achievement.setTextSize(35);
                 //achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.endless);
                 SharedPreferences.Editor editor = Splash.pref.edit();
