@@ -96,7 +96,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         pause = BitmapFactory.decodeResource(getResources(), R.drawable.pause);
         drop5 = BitmapFactory.decodeResource(getResources(), R.drawable.drop5);
         cloud = BitmapFactory.decodeResource(getResources(), R.drawable.cloud);
-        bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
+        bucket = BitmapFactory.decodeResource(getResources(), R.drawable.superbucket);
         splash1 = BitmapFactory.decodeResource(getResources(), R.drawable.splash1);
         splash2 = BitmapFactory.decodeResource(getResources(), R.drawable.splash2);
         lightning = BitmapFactory.decodeResource(getResources(), R.drawable.lightning);

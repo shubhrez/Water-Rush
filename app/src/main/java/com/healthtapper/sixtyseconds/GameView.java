@@ -104,8 +104,11 @@ public class GameView extends SurfaceView implements Runnable {
         if(bucketSize <= 0){
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucketsmall);
         }
-        if(bucketSize >= 1) {
+        if(bucketSize >= 1 && bucketSize <= 4){
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
+        }
+        if(bucketSize >= 5) {
+            bucket = BitmapFactory.decodeResource(getResources(), R.drawable.superbucket);
         }
 
         splash1 = BitmapFactory.decodeResource(getResources(), R.drawable.splash1);
@@ -340,8 +343,12 @@ public class GameView extends SurfaceView implements Runnable {
         if(bucketSize <= 0){
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucketsmall);
         }
-        if(bucketSize >= 1) {
+
+        if( bucketSize >=1 && bucketSize <= 4){
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucket);
+        }
+        if(bucketSize >= 5) {
+            bucket = BitmapFactory.decodeResource(getResources(), R.drawable.superbucket);
         }
         canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-175,null);
         Paint bucketsupport = new Paint();
