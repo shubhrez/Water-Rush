@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     >
 
     <TextView
@@ -19,6 +20,7 @@
         android:gravity="center"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
+        android:textColor="#ffffff"
         android:text="Collect water Avoid stones"
         android:layout_gravity="center_horizontal"
         />
@@ -33,6 +35,7 @@
         android:textSize="22dp"
         android:gravity="center"
         android:text="Tap on the bucket to move it horizontally"
+        android:textColor="#ffffff"
         android:layout_gravity="center_horizontal"
         />
 
@@ -46,6 +49,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="You loose water if you collect stone"
+        android:textColor="#ffffff"
         android:layout_gravity="center_horizontal"
         />
 
@@ -59,6 +63,7 @@
         android:paddingRight="5dp"
         android:gravity="center"
         android:text="Unlock various powers specified in quest by scoring higher"
+        android:textColor="#ffffff"
         android:layout_gravity="center_horizontal"
         />
 
@@ -71,6 +76,7 @@
         android:paddingRight="5dp"
         android:textSize="22dp"
         android:gravity="center"
+        android:textColor="#ffffff"
         android:text="Gives you extra 5 seconds"
         android:layout_gravity="center_horizontal"
         />
