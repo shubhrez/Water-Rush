@@ -12,12 +12,12 @@
         android:textColor="#E09D00"
         android:layout_gravity="center"
         android:gravity="center_vertical"
-        android:layout_weight="10"/>
+        android:layout_weight="30"/>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="30"
+        android:layout_weight="10"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="vertical"
@@ -27,15 +27,14 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_margin="10dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#00B2FF"
-            android:layout_gravity="center"
+            android:layout_gravity="right"
             android:textSize="40dp"
             android:text="Score"
             android:gravity="center"
@@ -46,9 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#00B2FF"
-            android:layout_gravity="center"
+            android:layout_gravity="left"
             android:textSize="40dp"
-            android:text="Score"
             android:gravity="bottom"
             android:layout_weight="1"/>
 
@@ -66,39 +64,40 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="10dp"
             android:orientation="horizontal"
             >
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <ImageView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#00B2FF"
+                android:background="@drawable/drop"
+                android:layout_weight="5"
                 android:layout_gravity="center"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                android:gravity="right"
                 />
 
             <TextView
                 android:id="@+id/scoreText"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#00B2FF"
                 android:layout_gravity="center"
                 android:textSize="20dp"
-                android:gravity="left"
-                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Water Collected"
+                android:layout_weight="3"
                 />
 
             <TextView
                 android:id="@+id/scoreValue"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#00B2FF"
                 android:layout_gravity="center"
                 android:textSize="30dp"
-                android:layout_weight="1"
-                android:gravity="left"
+                android:layout_weight="4"
+                android:gravity="center"
                 />
 
 
@@ -112,38 +111,37 @@
             android:orientation="horizontal"
             >
 
-            <TextView
 
-                android:layout_width="wrap_content"
+
+            <ImageView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#00B2FF"
+                android:background="@drawable/bonus"
+                android:layout_weight="5"
                 android:layout_gravity="center"
-                android:textSize="20dp"
-                android:layout_weight="1"
-                android:gravity="right"
                 />
 
             <TextView
                 android:id="@+id/bonusText"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#00B2FF"
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:text="Bonus"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:gravity="center"
                 />
 
             <TextView
                 android:id="@+id/bonusValue"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#00B2FF"
                 android:layout_gravity="center"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:gravity="left"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 />
 
         </LinearLayout>

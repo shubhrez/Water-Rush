@@ -39,7 +39,6 @@ public class GameOver extends Activity{
 
         achievementImage = (ImageView) findViewById(R.id.achievementImage);
 
-
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
         bucketSize = Splash.pref.getInt(BUCKET, 0);
         Bundle bundle = getIntent().getExtras();
@@ -67,7 +66,7 @@ public class GameOver extends Activity{
 //        finalScoreText.setText(new StringBuilder().append(finalScore).toString());
 
 
-        scoreText.setText("Water Collected");
+ //       scoreText.setText("Water Collected");
         scorevalue.setText(new StringBuilder().append(score).append(" x").append(multiplier).toString());
         bonusvalue.setText(new StringBuilder().append(bonus*5).toString());
         finalscore.setText(new StringBuilder().append(" : ").append(finalScore).toString());
