@@ -36,7 +36,9 @@
         android:textSize="40dp"
         android:text="Score"
         android:gravity="right"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+
+        />
 
     <TextView
         android:id="@+id/finalscore"
@@ -76,7 +78,7 @@
             android:layout_gravity="center"
             android:textSize="30dp"
             android:layout_weight="1"
-            android:gravity="right"
+            android:gravity="center"
             />
 
         <TextView
@@ -86,7 +88,7 @@
             android:textColor="#00B2FF"
             android:layout_gravity="center"
             android:textSize="20dp"
-            android:gravity="left"
+            android:gravity="center"
             android:layout_weight="2"
             />
 
@@ -98,7 +100,7 @@
             android:layout_gravity="center"
             android:textSize="30dp"
             android:layout_weight="1"
-            android:gravity="left"
+            android:gravity="center"
             />
 
 
@@ -120,7 +122,7 @@
                 android:layout_gravity="center"
                 android:textSize="30dp"
                 android:layout_weight="1"
-                android:gravity="right"
+
                 />
 
             <TextView
@@ -131,8 +133,9 @@
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:text="Bonus"
-                android:layout_weight="2"
                 android:gravity="center"
+                android:layout_weight="2"
+
                 />
 
             <TextView
@@ -142,7 +145,7 @@
                 android:textColor="#00B2FF"
                 android:layout_gravity="center"
                 android:textSize="30dp"
-                android:gravity="left"
+                android:gravity="center"
                 android:layout_weight="1"
                 />
 
@@ -163,6 +166,7 @@
          android:layout_width="80dp"
          android:layout_height="wrap_content"
          android:padding="5dp"
+         android:layout_gravity="center"
          android:layout_weight="1"
          />
 
@@ -172,6 +176,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="#00B2FF"
+        android:gravity="center"
         android:textSize="25dp"
         android:layout_marginLeft="10dp"
         android:layout_weight="4"
