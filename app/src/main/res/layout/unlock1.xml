@@ -519,6 +519,7 @@
             android:layout_weight="1"
             android:textSize="20dp"
             android:text="Start Game"
+            android:textColor="#C04000"
             android:layout_gravity="center"
             />
 

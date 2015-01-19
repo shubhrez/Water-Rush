@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class Unlock extends Activity {
 
     ImageView bucket,bigdrop,snow,crystal,endless,goal1,goal2,superbucket;
-    TextView bucketText,bigdropText,snowText,crystalText,magicbucketText,endlessText,title,multiplier;
+    TextView bucketText,bigdropText,snowText,crystalText,magicbucketText,endlessText,title;
     TextView quest1,quest2,quest3,quest4,quest5,quest6;
 
     public static final String BUCKET = "bucket";
@@ -37,7 +37,7 @@ public class Unlock extends Activity {
         bigdropText = (TextView) findViewById(R.id.bigdropText);
         snowText = (TextView) findViewById(R.id.snowText);
         crystalText = (TextView) findViewById(R.id.crystalText);
-        magicbucketText = (TextView) findViewById(R.id.multiplierText);
+        magicbucketText = (TextView) findViewById(R.id.magicbucketText);
         endlessText = (TextView) findViewById(R.id.endlessText);
         title = (TextView) findViewById(R.id.title);
         quest1 = (TextView) findViewById(R.id.quest1);
@@ -143,6 +143,7 @@ public class Unlock extends Activity {
         }
 
         start.setBackgroundResource(R.drawable.cloud);
+        start.setTypeface(font);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
