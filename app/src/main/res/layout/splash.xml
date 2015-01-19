@@ -40,7 +40,7 @@
         android:layout_width="300dp"
         android:layout_height="20dp"
         android:layout_weight="10"
-        android:text="Endless,Locked"
+        android:text="Endless Game"
         android:textStyle="italic|bold"
         android:textSize="25dp"
         android:textColor="#00B2FF"

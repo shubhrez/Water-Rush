@@ -27,7 +27,7 @@ public class Unlock extends Activity {
 
         int bucketSize = Splash.pref.getInt(BUCKET, 0);
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "WindyRainDemo.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "Toxia_FRE.ttf");
 
         start = (Button) findViewById(R.id.start);
   //      back = (Button) findViewById(R.id.back);
@@ -138,6 +138,6 @@ public class Unlock extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-  //      finish();
+        finish();
     }
 }

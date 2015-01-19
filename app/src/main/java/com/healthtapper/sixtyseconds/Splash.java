@@ -1,7 +1,9 @@
 package com.healthtapper.sixtyseconds;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -39,6 +41,11 @@ public class Splash extends Activity {
         freeflow = (Button) findViewById(R.id.freeflow);
         unlock = (Button) findViewById(R.id.unlock);
         instructions = (Button) findViewById(R.id.instructions);
+
+        start.setTypeface(custom_font);
+        freeflow.setTypeface(custom_font);
+        unlock.setTypeface(custom_font);
+        instructions.setTypeface(custom_font);
 
         title = (TextView) findViewById(R.id.title);
         title.setTypeface(custom_font);
@@ -97,16 +104,41 @@ public class Splash extends Activity {
                 if(bucketSize >= 6) {
                     startActivity(intent);
                 } else {
-                    Toast.makeText(Splash.this,"Unlock to play",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(Splash.this,"Unlock to play",Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(
+                            Splash.this);
+                    builder.setMessage("Unlock to play Endless");
+                    builder.setCancelable(true);
+         //           TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+
+                    builder.setNegativeButton("Check Quest",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    Intent intent = new Intent("com.healthtapper.sixtyseconds.UNLOCK");
+                                    startActivity(intent);
+
+                                }
+                            });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+       //             builder.show();
+                    TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+                    textView.setTextSize(25);
+
                 }
             }
         });
 
-        if(bucketSize >= 6){
-            freeflow.setText("Play Endless");
-        } else {
-            freeflow.setText("Unlock to Play Endless");
-        }
+//        if(bucketSize >= 6){
+//            freeflow.setText("Play Endless");
+//            freeflow.setTextSize(25);
+//        } else {
+//            freeflow.setText("Unlock to Play Endless");
+//            freeflow.setTextSize(20);
+//        }
     }
 
 //    @Override
