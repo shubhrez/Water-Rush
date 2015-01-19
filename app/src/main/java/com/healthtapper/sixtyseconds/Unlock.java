@@ -23,14 +23,14 @@ public class Unlock extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.unlock);
+        setContentView(R.layout.unlock1);
 
         int bucketSize = Splash.pref.getInt(BUCKET, 0);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "WindyRainDemo.ttf");
 
         start = (Button) findViewById(R.id.start);
-        back = (Button) findViewById(R.id.back);
+  //      back = (Button) findViewById(R.id.back);
 
         bucketText = (TextView) findViewById(R.id.bucketText);
         bigdropText = (TextView) findViewById(R.id.bigdropText);
@@ -125,14 +125,14 @@ public class Unlock extends Activity {
             }
         });
 
-        back.setBackgroundResource(R.drawable.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent("com.healthtapper.sixtyseconds.SPLASH");
-                startActivity(intent);
-            }
-        });
+    //    back.setBackgroundResource(R.drawable.back);
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent("com.healthtapper.sixtyseconds.SPLASH");
+//                startActivity(intent);
+//            }
+//        });
     }
 
     @Override

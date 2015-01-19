@@ -3,6 +3,7 @@ package com.healthtapper.sixtyseconds;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 public class FreeFlow extends Activity {
 
@@ -16,7 +17,7 @@ public class FreeFlow extends Activity {
         super.onCreate(savedInstanceState);
         gameview = new FreePlayGameView(this);
         setContentView(gameview);
-
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override

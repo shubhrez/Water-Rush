@@ -31,6 +31,8 @@ public class Drop1 {
     }
 
     private void update(int a,int b) {
+        if( a >= 600)
+            a = 600;
         y = (y + (ySpeed)/b + a/40);
 
     }

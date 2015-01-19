@@ -5,23 +5,29 @@
     android:background="#000000"
     >
 
+
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
+        android:text="Instructtions to Play"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#00B2FF"
+        android:layout_weight="10"
         />
+
 
     <TextView
         android:id="@+id/guide1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="10"
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:textColor="#ffffff"
-        android:text="Collect water Avoid stones"
+        android:textColor="#00B2ff"
+        android:text="The God's of rain are angry.The rain is coming down heavily with thunderstorm"
         android:layout_gravity="center_horizontal"
         />
 
@@ -32,10 +38,24 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:layout_weight="10"
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:gravity="center"
-        android:text="Tap on the bucket to move it horizontally"
-        android:textColor="#ffffff"
+        android:text="Collect the falling water drops and avoid stones"
+        android:textColor="#00B2FF"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/guide2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_weight="10"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:text="Tap and move the bucket horizontally to collect water"
+        android:textColor="#00B2FF"
         android:layout_gravity="center_horizontal"
         />
 
@@ -44,12 +64,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="10"
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="You loose water if you collect stone"
-        android:textColor="#ffffff"
+        android:text="Don't loose water by collecting stones "
+        android:textColor="#00B2FF"
         android:layout_gravity="center_horizontal"
         />
 
@@ -58,28 +78,99 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="10"
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:gravity="center"
-        android:text="Unlock various powers specified in quest by scoring higher"
-        android:textColor="#ffffff"
+        android:text="Follow the quest and unlock various powers to open the endless rain quest"
+        android:textColor="#00B2FF"
         android:layout_gravity="center_horizontal"
         />
 
-    <TextView
-        android:id="@+id/guide5"
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_weight="5"
+
+      >
+
+      <ImageView
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:background="@drawable/drop"
+          android:layout_gravity="center"
+          />
+
+      <TextView
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Collect 1 point"
+          android:textSize="20dp"
+          android:textColor="#00B2FF"
+          android:layout_gravity="center"
+          android:gravity="center"
+          />
+
+      </LinearLayout>
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textSize="22dp"
-        android:gravity="center"
-        android:textColor="#ffffff"
-        android:text="Gives you extra 5 seconds"
-        android:layout_gravity="center_horizontal"
-        />
+        android:orientation="horizontal"
+        android:layout_weight="5"
+
+        >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/stone"
+
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Loose 5 points"
+            android:textSize="20dp"
+            android:textColor="#00B2FF"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="5"
+        >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/drop5"
+
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Extra 5 seconds"
+            android:textSize="20dp"
+            android:textColor="#00B2FF"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="fill_parent"
@@ -103,13 +194,12 @@
         />
 
         <Button
-            android:id="@+id/back"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:id="@+id/quest"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:textSize="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
+            android:text="Quest"
             android:layout_gravity="center"
             />
 

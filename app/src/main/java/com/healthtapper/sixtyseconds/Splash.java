@@ -33,7 +33,7 @@ public class Splash extends Activity {
 
    //     FlurryAgent.init(this,"Q3ZZS4K4S7RTF9BXZX9M");
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "Water Park.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "Toxia_FRE.ttf");
 
         start = (Button) findViewById(R.id.start);
         freeflow = (Button) findViewById(R.id.freeflow);

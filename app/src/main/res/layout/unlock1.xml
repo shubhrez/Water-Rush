@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:background="@drawable/questbackground"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/goal1"
+            android:layout_width="20dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="Quest"
+            android:padding="5dp"
+            android:textSize="45dp"
+            android:gravity="center"
+            android:textStyle="italic|bold"
+            />
+
+
+        <ImageView
+            android:id="@+id/goal2"
+            android:layout_width="20dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#C04000"/>
+
+    <ImageView
+        android:background="@drawable/top"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_weight="5"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        />
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#C04000"/>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                >
+
+                <ImageView
+                    android:id="@+id/bucket"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:gravity="center"
+                        android:text="Magic Bucket"
+                        android:padding="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
+
+                    <TextView
+                        android:id="@+id/bucketDesc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:text="@string/bucketdesc"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/bucketText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="#00B2FF"
+                />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:id="@+id/bigdrop"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="3"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Thunder Drops "
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
+
+                    <TextView
+                        android:id="@+id/bigdropDesc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:padding="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="@string/bigdropdesc"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/bigdropText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="#C04000"
+                />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:id="@+id/crystal"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="Freeze Crystal"
+                        android:padding="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/crystalDesc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/crystaldesc"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/crystalText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="#C04000"
+                />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:id="@+id/snow"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Snow Ball"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
+
+                    <TextView
+                        android:id="@+id/snowDesc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/snowdesc"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/snowText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="20dp"
+                android:background="#C04000"
+                android:gravity="center"
+                />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:id="@+id/superbucket"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="3"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical"
+                        android:text="Super Bucket"
+                        android:padding="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
+
+                    <TextView
+                        android:id="@+id/multiplierDesc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/multiplierdesc"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/multiplierText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="20dp"
+                android:background="#C04000"
+                android:gravity="center"
+                />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:id="@+id/endless"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:gravity="center"
+                        android:text="Endless"
+                        android:padding="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
+
+                    <TextView
+                        android:id="@+id/endlessDesc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:text="@string/endlessdesc"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/endlessText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="20dp"
+                android:background="#C04000"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#C04000"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        />
+
+
+    <ImageView
+        android:background="@drawable/bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_weight="5"
+        />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#C04000"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:padding="5dp"
+        >
+        <Button
+            android:id="@+id/start"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="Start Game"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>

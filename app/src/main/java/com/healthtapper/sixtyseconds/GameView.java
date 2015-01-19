@@ -10,6 +10,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -90,6 +91,7 @@ public class GameView extends SurfaceView implements Runnable {
     int snowScoreDisplay = 0;
     int snowScoreCount = 0;
     int bonusCount = 0;
+    Typeface font,font1;
 
     public GameView(Context context) {
         super(context);
@@ -121,6 +123,8 @@ public class GameView extends SurfaceView implements Runnable {
         freeze = sounds.load(context,R.raw.freeze,1);
         thunder = sounds.load(context,R.raw.thunder,1);
         emptydrop = sounds.load(context,R.raw.emptydrop,1);
+        font = Typeface.createFromAsset(context.getAssets(), "Buffied.ttf");
+   //     font1 = Typeface.createFromAsset(context.getAssets(), "WindyRainDemo.ttf");
 
         createDrops();
         createDrops5();
@@ -388,13 +392,16 @@ public class GameView extends SurfaceView implements Runnable {
 //        }
 
 
-        textPaint.setTextSize(45);
+        textPaint.setTextSize(50);
 
         if (bucketSize == 0){
+
             canvas.drawText("x1", getWidth() - 230 - drop.getWidth()/2, 50, textPaint);
         } else if(bucketSize >= 1 && bucketSize <= 4) {
+
             canvas.drawText("x2", getWidth() - 230 - drop.getWidth()/2, 50, textPaint);
         } else if (bucketSize >= 5){
+
             canvas.drawText("x3", getWidth() - 230 - drop.getWidth()/2, 50, textPaint);
         }
 
@@ -426,6 +433,7 @@ public class GameView extends SurfaceView implements Runnable {
                 five.setTextSize(75);
                 five.setARGB(255,0,178,255);
                 five.setTextAlign(Paint.Align.CENTER);
+                five.setTypeface(font);
                 canvas.drawText("-5",getWidth()/2,getHeight()/2 + 100,five);
                 splashcount++;
             } else {
@@ -444,6 +452,7 @@ public class GameView extends SurfaceView implements Runnable {
                 five.setTextSize(75);
                 five.setARGB(255,0,178,255);
                 five.setTextAlign(Paint.Align.CENTER);
+                five.setTypeface(font);
                 canvas.drawText(new StringBuilder().append("+ ").append(bigScore).toString(),getWidth()/2 - 100,getHeight() -250,five);
                 bigScoreCount ++;
             } else {
@@ -464,6 +473,7 @@ public class GameView extends SurfaceView implements Runnable {
                 five.setTextSize(75);
                 five.setARGB(255,0,178,255);
                 five.setTextAlign(Paint.Align.CENTER);
+                five.setTypeface(font);
                 canvas.drawText(new StringBuilder().append("+ ").append(snowScore).toString(),getWidth()/2 + 100,getHeight() -250,five);
                 snowScoreCount ++;
             } else {
@@ -480,6 +490,7 @@ public class GameView extends SurfaceView implements Runnable {
                 five.setTextSize(75);
                 five.setARGB(255,0,178,255);
                 five.setTextAlign(Paint.Align.CENTER);
+                five.setTypeface(font);
                 canvas.drawText("+ 5 sec",getWidth()/2,getHeight()/2 -200,five);
                 displayfivesecondscount ++;
             } else {

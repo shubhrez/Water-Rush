@@ -254,21 +254,21 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
                 drop.x = getWidth()/2;
             }
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+            drop.onDraw(canvas,score,freezeFactor);
         }
 
         for (Drop1 drop : bigDropsSelected) {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
                 drop.x = getWidth()/4;
             }
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+            drop.onDraw(canvas,score,freezeFactor);
         }
 
         for (Drop1 drop : snowSelected) {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
                 drop.x = 3*getWidth()/4;
             }
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+            drop.onDraw(canvas,score,freezeFactor);
         }
 
         if(timelToBeDisplayed <= 55) {
@@ -276,12 +276,12 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 if(drop.x  > getWidth()-(drop.bmp).getWidth()){
                     drop.x = getWidth()/2;
                 }
-                drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+                drop.onDraw(canvas,score,freezeFactor);
             }
         }
 
         for (Tap1 tap : taps) {
-            tap.onDraw(canvas,(61-timelToBeDisplayed));
+            tap.onDraw(canvas,score);
         }
 
 
@@ -297,21 +297,21 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
                 drop.x = getWidth()/2;
             }
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+            drop.onDraw(canvas,score,freezeFactor);
         }
 
         for (Drop1 drop : bigDrops) {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
                 drop.x = 3*getWidth()/4;
             }
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+            drop.onDraw(canvas,score,freezeFactor);
         }
 
         for (Drop1 drop : snow) {
             if(drop.x  > getWidth()-(drop.bmp).getWidth()){
                 drop.x = getWidth()/4;
             }
-            drop.onDraw(canvas,(61-timelToBeDisplayed),freezeFactor);
+            drop.onDraw(canvas,score,freezeFactor);
         }
 
 
