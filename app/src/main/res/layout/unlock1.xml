@@ -109,6 +109,7 @@
                     >
 
                     <TextView
+                        android:id="@+id/quest1"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
@@ -175,6 +176,7 @@
                     >
 
                     <TextView
+                        android:id="@+id/quest2"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
@@ -239,6 +241,7 @@
                     >
 
                     <TextView
+                        android:id="@+id/quest3"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
@@ -305,6 +308,7 @@
                     >
 
                     <TextView
+                        android:id="@+id/quest4"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
@@ -367,6 +371,7 @@
                     >
 
                     <TextView
+                        android:id="@+id/quest5"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
@@ -398,7 +403,7 @@
 
 
             <TextView
-                android:id="@+id/multiplierText"
+                android:id="@+id/magicbucketText"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="1"
@@ -433,6 +438,7 @@
                     >
 
                     <TextView
+                        android:id="@+id/quest6"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"

@@ -15,7 +15,8 @@ import android.widget.TextView;
 public class Unlock extends Activity {
 
     ImageView bucket,bigdrop,snow,crystal,endless,goal1,goal2,superbucket;
-    TextView bucketText,bigdropText,snowText,crystalText,multiplierText,endlessText,title,multiplier;
+    TextView bucketText,bigdropText,snowText,crystalText,magicbucketText,endlessText,title,multiplier;
+    TextView quest1,quest2,quest3,quest4,quest5,quest6;
 
     public static final String BUCKET = "bucket";
     Button start,back;
@@ -36,17 +37,29 @@ public class Unlock extends Activity {
         bigdropText = (TextView) findViewById(R.id.bigdropText);
         snowText = (TextView) findViewById(R.id.snowText);
         crystalText = (TextView) findViewById(R.id.crystalText);
-        multiplierText = (TextView) findViewById(R.id.multiplierText);
+        magicbucketText = (TextView) findViewById(R.id.multiplierText);
         endlessText = (TextView) findViewById(R.id.endlessText);
         title = (TextView) findViewById(R.id.title);
+        quest1 = (TextView) findViewById(R.id.quest1);
+        quest2 = (TextView) findViewById(R.id.quest2);
+        quest3 = (TextView) findViewById(R.id.quest3);
+        quest4 = (TextView) findViewById(R.id.quest4);
+        quest5 = (TextView) findViewById(R.id.quest5);
+        quest6 = (TextView) findViewById(R.id.quest6);
 
         title.setTypeface(font);
-//        bucketText.setTypeface(custom_font);
-//        bigdropText.setTypeface(custom_font);
-//        snowText.setTypeface(custom_font);
-//        crystalText.setTypeface(custom_font);
-//        multiplierText.setTypeface(custom_font);
-//        endlessText.setTypeface(custom_font);
+        bucketText.setTypeface(font);
+        bigdropText.setTypeface(font);
+        snowText.setTypeface(font);
+        crystalText.setTypeface(font);
+        magicbucketText.setTypeface(font);
+        endlessText.setTypeface(font);
+        quest1.setTypeface(font);
+        quest2.setTypeface(font);
+        quest3.setTypeface(font);
+        quest4.setTypeface(font);
+        quest5.setTypeface(font);
+        quest6.setTypeface(font);
 
         bucket = (ImageView) findViewById(R.id.bucket);
         bigdrop = (ImageView) findViewById(R.id.bigdrop);
@@ -62,35 +75,36 @@ public class Unlock extends Activity {
         goal2.setBackgroundResource(R.drawable.goal);
         bucket.setBackgroundResource(R.drawable.bucket);
         superbucket.setBackgroundResource(R.drawable.superbucket);
+
         if (bucketSize == 0) {
             bucketText.setText("Unlocks at score above 100");
-            bucketText.setTypeface(font);
+     //       bucketText.setTypeface(font);
         //    bucketText.setTextColor(Color.RED);
         } else if (bucketSize >= 1) {
             bucketText.setText("Unlocked");
-            bucketText.setTypeface(font);
+      //      bucketText.setTypeface(font);
          //   bucketText.setTextColor(Color.GREEN);
         }
 
         bigdrop.setBackgroundResource(R.drawable.bigdrop);
         if (bucketSize <= 1) {
             bigdropText.setText("Unlocks at score above 140");
-            bigdropText.setTypeface(font);
+       //     bigdropText.setTypeface(font);
    //         bigdropText.setTextColor(Color.RED);
         } else if (bucketSize >= 2) {
             bigdropText.setText("Unlocked");
-            bigdropText.setTypeface(font);
+     //       bigdropText.setTypeface(font);
      //       bigdropText.setTextColor(Color.GREEN);
         }
 
         crystal.setBackgroundResource(R.drawable.cyrstal);
         if (bucketSize <= 2) {
             crystalText.setText("Unlocks at score above 180");
-            crystalText.setTypeface(font);
+       //     crystalText.setTypeface(font);
       //      crystalText.setTextColor(Color.RED);
         } else if (bucketSize >= 3) {
             crystalText.setText("Unlocked");
-            crystalText.setTypeface(font);
+     //       crystalText.setTypeface(font);
        //     crystalText.setTextColor(Color.GREEN);
         }
 
@@ -98,33 +112,33 @@ public class Unlock extends Activity {
         snow.setBackgroundResource(R.drawable.snow);
         if (bucketSize <= 3) {
             snowText.setText("Unlocks at score above 200");
-            snowText.setTypeface(font);
+         //   snowText.setTypeface(font);
        //     snowText.setTextColor(Color.RED);
         } else if (bucketSize >= 4) {
             snowText.setText("Unlocked");
-            snowText.setTypeface(font);
+       //     snowText.setTypeface(font);
      //       snowText.setTextColor(Color.GREEN);
         }
 
 //        multiplier.setBackgroundResource(R.drawable.snow);
         if (bucketSize <= 4) {
-            multiplierText.setText("Unlocks at score above 250");
-            multiplierText.setTypeface(font);
+            magicbucketText.setText("Unlocks at score above 250");
+        //    multiplierText.setTypeface(font);
       //      multiplierText.setTextColor(Color.RED);
         } else if (bucketSize >= 5) {
-            multiplierText.setText("Unlocked");
-            multiplierText.setTypeface(font);
+            magicbucketText.setText("Unlocked");
+      //      multiplierText.setTypeface(font);
      //       multiplierText.setTextColor(Color.GREEN);
         }
 
         endless.setBackgroundResource(R.drawable.endless);
         if (bucketSize <= 5) {
             endlessText.setText("Unlocks at score above 400");
-            endlessText.setTypeface(font);
+   //         endlessText.setTypeface(font);
     //        endlessText.setTextColor(Color.RED);
         } else if (bucketSize >= 6) {
             endlessText.setText("Unlocked");
-            endlessText.setTypeface(font);
+     //       endlessText.setTypeface(font);
      //       endlessText.setTextColor(Color.GREEN);
         }
 
