@@ -15,7 +15,7 @@ public class GameOver extends Activity{
 
     Button restart;
     int score,bonus;
-    TextView scoreText,achievement,scorevalue,bonusvalue,finalscore;
+    TextView scoreText,achievement,scorevalue,bonusvalue,finalscore,congrate;
     ImageView achievementImage;
     public static final String ACHIEVEMENT = "achievementNumber";
     int achievementStatus;
@@ -36,6 +36,7 @@ public class GameOver extends Activity{
         bonusvalue = (TextView) findViewById(R.id.bonus);
         scorevalue = (TextView) findViewById(R.id.scoreValue);
         achievement = (TextView) findViewById(R.id.achievement);
+        congrate = (TextView) findViewById(R.id.congrate);
 
         achievementImage = (ImageView) findViewById(R.id.achievementImage);
 
@@ -74,6 +75,7 @@ public class GameOver extends Activity{
         if(finalScore >= 100){
             if(achievementStatus == 0){
                 achievement.setText("Bucket Unlocked");
+                congrate.setText("Congratulations");
           //      achievement.setTextSize(35);
       //          achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.bucket);
@@ -86,6 +88,7 @@ public class GameOver extends Activity{
         if(finalScore >= 140){
             if(achievementStatus == 1){
                 achievement.setText("Big Drop Unlocked");
+                congrate.setText("Congratulations");
             //    achievement.setTextSize(35);
                 //achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.bigdrop);
@@ -99,6 +102,7 @@ public class GameOver extends Activity{
         if(finalScore >= 180){
             if(achievementStatus == 2){
                 achievement.setText("Crystal Unlocked");
+                congrate.setText("Congratulations");
               //  achievement.setTextSize(35);
                // achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.cyrstal);
@@ -111,6 +115,7 @@ public class GameOver extends Activity{
         if(finalScore >= 200){
             if(achievementStatus == 3){
                 achievement.setText("Snow Ball Unlocked");
+                congrate.setText("Congratulations");
          //       achievement.setTextSize(35);
                // achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.snow);
@@ -124,6 +129,7 @@ public class GameOver extends Activity{
         if(finalScore >= 250){
             if(achievementStatus == 4){
                 achievement.setText("Super Bucket Unlocked");
+                congrate.setText("Congratulations");
           //      achievement.setTextSize(35);
                 //achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.superbucket);
@@ -137,6 +143,7 @@ public class GameOver extends Activity{
         if(finalScore >= 400){
             if(achievementStatus == 5){
                 achievement.setText("Endless Unlocked");
+                congrate.setText("Congratulations");
           //      achievement.setTextSize(35);
                 //achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.endless);
