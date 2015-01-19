@@ -113,11 +113,12 @@
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:gravity="center"
-                        android:text="Magic Bucket"
+                        android:text="Super Bucket"
                         android:padding="5dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textStyle="italic|bold"
                         android:textColor="#C04000"
                         />
 
@@ -145,6 +146,7 @@
                 android:text="1"
                 android:textSize="20dp"
                 android:gravity="center"
+                android:textStyle="italic|bold"
                 android:background="#C04000"
                 />
 
@@ -179,6 +181,7 @@
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:padding="5dp"
+                        android:textStyle="italic|bold"
                         android:text="Thunder Drops "
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
@@ -209,6 +212,7 @@
                 android:textSize="20dp"
                 android:gravity="center"
                 android:background="#C04000"
+                android:textStyle="italic|bold"
                 />
 
             <LinearLayout
@@ -242,6 +246,7 @@
                         android:gravity="center"
                         android:text="Freeze Crystal"
                         android:padding="5dp"
+                        android:textStyle="italic|bold"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:textColor="#C04000"
@@ -269,6 +274,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="1"
+                android:textStyle="italic|bold"
                 android:textSize="20dp"
                 android:gravity="center"
                 android:background="#C04000"
@@ -305,6 +311,7 @@
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:padding="5dp"
+                        android:textStyle="italic|bold"
                         android:text="Snow Ball"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
@@ -331,6 +338,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="1"
+                android:textStyle="italic|bold"
                 android:textSize="20dp"
                 android:background="#C04000"
                 android:gravity="center"
@@ -364,8 +372,9 @@
                         android:textSize="25dp"
                         android:gravity="center"
                         android:layout_gravity="center_vertical"
-                        android:text="Super Bucket"
+                        android:text="Magic Bucket"
                         android:padding="5dp"
+                        android:textStyle="italic|bold"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:textColor="#C04000"
@@ -394,6 +403,7 @@
                 android:layout_height="wrap_content"
                 android:text="1"
                 android:textSize="20dp"
+                android:textStyle="italic|bold"
                 android:background="#C04000"
                 android:gravity="center"
                 />
@@ -432,6 +442,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textStyle="italic|bold"
                         android:textColor="#C04000"
                         />
 
@@ -460,6 +471,7 @@
                 android:textSize="20dp"
                 android:background="#C04000"
                 android:gravity="center"
+                android:textStyle="italic|bold"
                 />
 
         </LinearLayout>

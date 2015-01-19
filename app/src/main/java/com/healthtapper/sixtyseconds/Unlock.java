@@ -27,7 +27,7 @@ public class Unlock extends Activity {
 
         int bucketSize = Splash.pref.getInt(BUCKET, 0);
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "Toxia_FRE.ttf");
+        Typeface font = Typeface.createFromAsset(getAssets(), "Toxia_FRE.ttf");
 
         start = (Button) findViewById(R.id.start);
   //      back = (Button) findViewById(R.id.back);
@@ -40,7 +40,7 @@ public class Unlock extends Activity {
         endlessText = (TextView) findViewById(R.id.endlessText);
         title = (TextView) findViewById(R.id.title);
 
-        title.setTypeface(custom_font);
+        title.setTypeface(font);
 //        bucketText.setTypeface(custom_font);
 //        bigdropText.setTypeface(custom_font);
 //        snowText.setTypeface(custom_font);
@@ -63,56 +63,68 @@ public class Unlock extends Activity {
         bucket.setBackgroundResource(R.drawable.bucket);
         superbucket.setBackgroundResource(R.drawable.superbucket);
         if (bucketSize == 0) {
-            bucketText.setText("Score 100 or more to Unlock");
+            bucketText.setText("Unlocks at score above 100");
+            bucketText.setTypeface(font);
         //    bucketText.setTextColor(Color.RED);
         } else if (bucketSize >= 1) {
             bucketText.setText("Unlocked");
+            bucketText.setTypeface(font);
          //   bucketText.setTextColor(Color.GREEN);
         }
 
         bigdrop.setBackgroundResource(R.drawable.bigdrop);
         if (bucketSize <= 1) {
-            bigdropText.setText("Score 140 or more to Unlock");
+            bigdropText.setText("Unlocks at score above 140");
+            bigdropText.setTypeface(font);
    //         bigdropText.setTextColor(Color.RED);
         } else if (bucketSize >= 2) {
             bigdropText.setText("Unlocked");
+            bigdropText.setTypeface(font);
      //       bigdropText.setTextColor(Color.GREEN);
         }
 
         crystal.setBackgroundResource(R.drawable.cyrstal);
         if (bucketSize <= 2) {
-            crystalText.setText("Score 180 or more to Unlock");
+            crystalText.setText("Unlocks at score above 180");
+            crystalText.setTypeface(font);
       //      crystalText.setTextColor(Color.RED);
         } else if (bucketSize >= 3) {
             crystalText.setText("Unlocked");
+            crystalText.setTypeface(font);
        //     crystalText.setTextColor(Color.GREEN);
         }
 
 
         snow.setBackgroundResource(R.drawable.snow);
         if (bucketSize <= 3) {
-            snowText.setText("Score 200 or more to Unlock");
+            snowText.setText("Unlocks at score above 200");
+            snowText.setTypeface(font);
        //     snowText.setTextColor(Color.RED);
         } else if (bucketSize >= 4) {
             snowText.setText("Unlocked");
+            snowText.setTypeface(font);
      //       snowText.setTextColor(Color.GREEN);
         }
 
 //        multiplier.setBackgroundResource(R.drawable.snow);
         if (bucketSize <= 4) {
-            multiplierText.setText("Score 250 or more to Unlock");
+            multiplierText.setText("Unlocks at score above 250");
+            multiplierText.setTypeface(font);
       //      multiplierText.setTextColor(Color.RED);
         } else if (bucketSize >= 5) {
             multiplierText.setText("Unlocked");
+            multiplierText.setTypeface(font);
      //       multiplierText.setTextColor(Color.GREEN);
         }
 
         endless.setBackgroundResource(R.drawable.endless);
         if (bucketSize <= 5) {
-            endlessText.setText("Score 400 or more to Unlock");
+            endlessText.setText("Unlocks at score above 400");
+            endlessText.setTypeface(font);
     //        endlessText.setTextColor(Color.RED);
         } else if (bucketSize >= 6) {
             endlessText.setText("Unlocked");
+            endlessText.setTypeface(font);
      //       endlessText.setTextColor(Color.GREEN);
         }
 
