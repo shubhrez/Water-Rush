@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ public class GameOver extends Activity{
 
     Button restart;
     int score,bonus;
-    TextView scoreText,achievement,scorevalue,bonusvalue,finalscore,congrate,scoreDesc;
+    TextView scoreText,achievement,scorevalue,bonusvalue,finalscore,congrate,scoreDesc,bonusText;
     ImageView achievementImage;
     public static final String ACHIEVEMENT = "achievementNumber";
     int achievementStatus;
@@ -30,6 +31,7 @@ public class GameOver extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameover);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "Toxia_FRE.ttf");
         restart = (Button) findViewById(R.id.playagain);
         scoreText = (TextView) findViewById(R.id.scoreText);
         finalscore = (TextView) findViewById(R.id.finalscore);
@@ -38,6 +40,14 @@ public class GameOver extends Activity{
         achievement = (TextView) findViewById(R.id.achievement);
         congrate = (TextView) findViewById(R.id.congrate);
         scoreDesc = (TextView) findViewById(R.id.scoreDesc);
+        bonusText = (TextView) findViewById(R.id.bonusText);
+
+        scoreText.setTypeface(custom_font);
+        bonusText.setTypeface(custom_font);
+        scoreDesc.setTypeface(custom_font);
+        achievement.setTypeface(custom_font);
+        congrate.setTypeface(custom_font);
+        restart.setTypeface(custom_font);
 
         achievementImage = (ImageView) findViewById(R.id.achievementImage);
 
@@ -73,7 +83,7 @@ public class GameOver extends Activity{
         bonusvalue.setText(new StringBuilder().append(bonus*5).toString());
         finalscore.setText(new StringBuilder().append(" : ").append(finalScore).toString());
 
-        if(finalScore >= 100){
+        if(finalScore >= 250){
             if(achievementStatus == 0){
                 achievement.setText("Bucket Unlocked");
                 congrate.setText("Congratulations");
@@ -86,7 +96,7 @@ public class GameOver extends Activity{
             }
         }
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 140){
+        if(finalScore >= 650){
             if(achievementStatus == 1){
                 achievement.setText("Big Drop Unlocked");
                 congrate.setText("Congratulations");
@@ -100,7 +110,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 180){
+        if(finalScore >= 750){
             if(achievementStatus == 2){
                 achievement.setText("Crystal Unlocked");
                 congrate.setText("Congratulations");
@@ -113,7 +123,7 @@ public class GameOver extends Activity{
             }
         }
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 200){
+        if(finalScore >= 1000){
             if(achievementStatus == 3){
                 achievement.setText("Snow Ball Unlocked");
                 congrate.setText("Congratulations");
@@ -127,7 +137,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 250){
+        if(finalScore >= 1100){
             if(achievementStatus == 4){
                 achievement.setText("Super Bucket Unlocked");
                 congrate.setText("Congratulations");
@@ -141,7 +151,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 400){
+        if(finalScore >= 1200){
             if(achievementStatus == 5){
                 achievement.setText("Endless Unlocked");
                 congrate.setText("Congratulations");
@@ -154,7 +164,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 100){
+        if(finalScore >= 250){
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if(bucketSize == 0) {
                 SharedPreferences.Editor editor1 = Splash.pref.edit();
@@ -163,7 +173,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 140){
+        if(finalScore >= 650){
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if(bucketSize == 1) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -172,7 +182,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 180) {
+        if(finalScore >= 750) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 2) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -181,7 +191,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 200) {
+        if(finalScore >= 1000) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 3) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -190,7 +200,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 250) {
+        if(finalScore >= 1100) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 4) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -200,7 +210,7 @@ public class GameOver extends Activity{
         }
 
 
-        if(finalScore >= 400) {
+        if(finalScore >= 1200) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 5) {
                 SharedPreferences.Editor editor = Splash.pref.edit();

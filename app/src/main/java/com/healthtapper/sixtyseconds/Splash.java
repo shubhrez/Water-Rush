@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +21,7 @@ import com.flurry.android.FlurryAgent;
 public class Splash extends Activity {
 
     Button start,instructions,freeflow,unlock;
-    TextView title;
+    TextView title,unlocktext;
     public static SharedPreferences pref;
     static String PREF_NAME = "SixtySeconds";
     public static final String HIGHESTSCORE = "highestscore";
@@ -105,13 +107,20 @@ public class Splash extends Activity {
                     startActivity(intent);
                 } else {
 //                    Toast.makeText(Splash.this,"Unlock to play",Toast.LENGTH_SHORT).show();
-                    AlertDialog.Builder builder = new AlertDialog.Builder(
-                            Splash.this);
-                    builder.setMessage("Unlock to play Endless");
+                    LayoutInflater inflater = LayoutInflater.from(Splash.this);
+                    View layout = inflater.inflate(R.layout.endlessdialog, null);
+
+                    Typeface custom_font = Typeface.createFromAsset(getAssets(), "Toxia_FRE.ttf");
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Splash.this);
+       //             builder.setMessage("Unlock to play Endless");
                     builder.setCancelable(true);
+                    builder.setView(layout);
+                    unlocktext = (TextView) layout.findViewById(R.id.unlocktext);
+              //      unlocktext.setTypeface(custom_font);
          //           TextView textView = (TextView) dialog.findViewById(android.R.id.message);
 
-                    builder.setNegativeButton("Check Quest",
+                    builder.setNegativeButton("Check Out Quest",
                             new DialogInterface.OnClickListener() {
 
                                 @Override
@@ -122,11 +131,12 @@ public class Splash extends Activity {
 
                                 }
                             });
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-       //             builder.show();
-                    TextView textView = (TextView) dialog.findViewById(android.R.id.message);
-                    textView.setTextSize(25);
+//                    AlertDialog dialog = builder.create();
+//                    dialog.show();
+                    builder.show();
+//                    TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+//                    textView.setTextSize(25);
+//                    textView.setTextColor(getResources().getColor(R.color.blue));
 
                 }
             }
