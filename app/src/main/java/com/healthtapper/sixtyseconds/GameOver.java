@@ -85,7 +85,7 @@ public class GameOver extends Activity{
 
         if(finalScore >= 250){
             if(achievementStatus == 0){
-                achievement.setText("Bucket Unlocked");
+                achievement.setText("Super Bucket Unlocked");
                 congrate.setText("Congratulations");
           //      achievement.setTextSize(35);
       //          achievement.setTextColor(Color.RED);
@@ -96,7 +96,7 @@ public class GameOver extends Activity{
             }
         }
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 650){
+        if(finalScore >= 500){
             if(achievementStatus == 1){
                 achievement.setText("Big Drop Unlocked");
                 congrate.setText("Congratulations");
@@ -173,7 +173,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 650){
+        if(finalScore >= 500){
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if(bucketSize == 1) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
