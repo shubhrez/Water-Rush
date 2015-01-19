@@ -136,7 +136,7 @@ public class GameOver extends Activity{
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
         if(finalScore >= 400){
             if(achievementStatus == 5){
-                achievement.setText("Congratulations,Endless Unlocked");
+                achievement.setText("Endless Unlocked");
           //      achievement.setTextSize(35);
                 //achievement.setTextColor(Color.RED);
                 achievementImage.setBackgroundResource(R.drawable.endless);

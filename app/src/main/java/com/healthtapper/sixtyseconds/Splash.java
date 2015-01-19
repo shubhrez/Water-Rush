@@ -101,6 +101,12 @@ public class Splash extends Activity {
                 }
             }
         });
+
+        if(bucketSize >= 6){
+            freeflow.setText("Play Endless");
+        } else {
+            freeflow.setText("Unlock to Play Endless");
+        }
     }
 
 //    @Override
