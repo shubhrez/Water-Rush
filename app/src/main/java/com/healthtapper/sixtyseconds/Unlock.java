@@ -88,7 +88,7 @@ public class Unlock extends Activity {
 
         bigdrop.setBackgroundResource(R.drawable.bigdrop);
         if (bucketSize <= 1) {
-            bigdropText.setText("Unlocks at score above 650");
+            bigdropText.setText("Unlocks at score above 500");
        //     bigdropText.setTypeface(font);
    //         bigdropText.setTextColor(Color.RED);
         } else if (bucketSize >= 2) {
@@ -99,7 +99,7 @@ public class Unlock extends Activity {
 
         crystal.setBackgroundResource(R.drawable.cyrstal);
         if (bucketSize <= 2) {
-            crystalText.setText("Unlocks at score above 750");
+            crystalText.setText("Unlocks at score above 600");
        //     crystalText.setTypeface(font);
       //      crystalText.setTextColor(Color.RED);
         } else if (bucketSize >= 3) {
@@ -111,7 +111,7 @@ public class Unlock extends Activity {
 
         snow.setBackgroundResource(R.drawable.snow);
         if (bucketSize <= 3) {
-            snowText.setText("Unlocks at score above 1000");
+            snowText.setText("Unlocks at score above 650");
          //   snowText.setTypeface(font);
        //     snowText.setTextColor(Color.RED);
         } else if (bucketSize >= 4) {
@@ -122,7 +122,7 @@ public class Unlock extends Activity {
 
 //        multiplier.setBackgroundResource(R.drawable.snow);
         if (bucketSize <= 4) {
-            magicbucketText.setText("Unlocks at score above 1100");
+            magicbucketText.setText("Unlocks at score above 800");
         //    multiplierText.setTypeface(font);
       //      multiplierText.setTextColor(Color.RED);
         } else if (bucketSize >= 5) {
