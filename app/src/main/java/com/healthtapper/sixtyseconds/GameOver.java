@@ -110,7 +110,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 750){
+        if(finalScore >= 600){
             if(achievementStatus == 2){
                 achievement.setText("Crystal Unlocked");
                 congrate.setText("Congratulations");
@@ -123,7 +123,7 @@ public class GameOver extends Activity{
             }
         }
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 1000){
+        if(finalScore >= 650){
             if(achievementStatus == 3){
                 achievement.setText("Snow Ball Unlocked");
                 congrate.setText("Congratulations");
@@ -182,7 +182,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 750) {
+        if(finalScore >= 600) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 2) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -191,7 +191,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 1000) {
+        if(finalScore >= 650) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 3) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
