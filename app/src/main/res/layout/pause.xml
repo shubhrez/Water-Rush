@@ -4,9 +4,15 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/gameover"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="50"
+        android:text="Game Paused"
+        android:textSize="45dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:gravity="center"
         />
 
 
@@ -17,7 +23,8 @@
         android:layout_weight="10"
         android:layout_gravity="center"
         android:text="Resume"
-        android:textSize="20dp"
+        android:textStyle="italic|bold"
+        android:textSize="25dp"
         />
 
 

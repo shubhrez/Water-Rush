@@ -13,7 +13,7 @@ public class GameOver1 extends Activity {
     Button restart;
     int score,bonus,totalScore;
     public static final String ENDLESSGAMEVIEWSTATE = "endlessgameviewstate";
-    TextView finalScore,scoreText,scoreValue,bonusText,bonusValue;
+    TextView finalScore,scoreText,scoreValue,bonusText,bonusValue,scoreDesc;
     public static final String ENDLESSHIGHESTSCORE = "endlesshighestscore";
 
 
@@ -28,6 +28,7 @@ public class GameOver1 extends Activity {
         scoreValue = (TextView) findViewById(R.id.scoreValue);
         bonusText = (TextView) findViewById(R.id.bonusText);
         bonusValue = (TextView) findViewById(R.id.bonusValue);
+        scoreDesc = (TextView) findViewById(R.id.scoreDesc);
         restart.setBackgroundResource(R.drawable.cloud);
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +52,12 @@ public class GameOver1 extends Activity {
         finalScore.setText(new StringBuilder().append(" : ").append(totalScore).toString());
 
         int endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
+        if(totalScore > endlesshighestscore){
+            scoreDesc.setText("New High");
+        } else {
+            scoreDesc.setText("Score");
+        }
+
         if(totalScore > endlesshighestscore){
             SharedPreferences.Editor editor = Splash.pref.edit();
             editor.putInt(ENDLESSHIGHESTSCORE, totalScore);

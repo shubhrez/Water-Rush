@@ -15,7 +15,7 @@ public class GameOver extends Activity{
 
     Button restart;
     int score,bonus;
-    TextView scoreText,achievement,scorevalue,bonusvalue,finalscore,congrate;
+    TextView scoreText,achievement,scorevalue,bonusvalue,finalscore,congrate,scoreDesc;
     ImageView achievementImage;
     public static final String ACHIEVEMENT = "achievementNumber";
     int achievementStatus;
@@ -37,6 +37,7 @@ public class GameOver extends Activity{
         scorevalue = (TextView) findViewById(R.id.scoreValue);
         achievement = (TextView) findViewById(R.id.achievement);
         congrate = (TextView) findViewById(R.id.congrate);
+        scoreDesc = (TextView) findViewById(R.id.scoreDesc);
 
         achievementImage = (ImageView) findViewById(R.id.achievementImage);
 
@@ -213,6 +214,13 @@ public class GameOver extends Activity{
                      editor.putInt(HIGHESTSCORE, finalScore);
                      editor.commit();
                  }
+
+        if(finalScore > highestscore){
+            scoreDesc.setText("New High");
+        } else {
+            scoreDesc.setText("Score");
+        }
+
 
 
         SharedPreferences.Editor editor = Splash.pref.edit();
