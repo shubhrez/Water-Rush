@@ -14,7 +14,7 @@ public class Instructions extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.instructions);
+        setContentView(R.layout.instructions1);
         start = (Button) findViewById(R.id.start);
         quest = (Button) findViewById(R.id.quest);
         start.setBackgroundResource(R.drawable.cloud);
