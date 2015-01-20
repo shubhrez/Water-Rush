@@ -137,7 +137,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 950){
+        if(finalScore >= 900){
             if(achievementStatus == 4){
                 achievement.setText("Super Bucket Unlocked");
                 congrate.setText("Congratulations");
@@ -200,7 +200,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 950) {
+        if(finalScore >= 900) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 4) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
