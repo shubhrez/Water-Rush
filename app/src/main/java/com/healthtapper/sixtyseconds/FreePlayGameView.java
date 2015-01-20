@@ -10,6 +10,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -88,6 +89,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     int snowScoreDisplay = 0;
     int snowScoreCount = 0;
     int bonusCount = 0;
+    Typeface font;
 
     public FreePlayGameView(Context context) {
         super(context);
@@ -107,6 +109,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         freeze = sounds.load(context,R.raw.freeze,1);
         thunder = sounds.load(context,R.raw.thunder,1);
         emptydrop = sounds.load(context,R.raw.emptydrop,1);
+        font = Typeface.createFromAsset(context.getAssets(), "Buffied.ttf");
         createDrops();
   //      createDrops5();
         createStones();
@@ -351,11 +354,11 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
   //      canvas.drawText(new StringBuilder().append(life).toString(), 10, 50, textPaint1);
         endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
         textPaint1.setTextSize(40);
-        textPaint1.setARGB(255,192,64,0);
+        textPaint1.setARGB(255,0,0,0);
         canvas.drawText(new StringBuilder().append("Best:").append(endlesshighestscore).toString(), 10, 50, textPaint1);
 
         textPaint1.setTextSize(60);
-        textPaint1.setARGB(255,192,64,0);
+        textPaint1.setARGB(255,0,0,0);
         if(score < 0){
             canvas.drawText("000",getWidth() - 120, 60, textPaint1);
         }
@@ -384,6 +387,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 Paint five = new Paint();
                 five.setTextSize(75);
                 five.setARGB(255,0,178,255);
+                five.setTypeface(font);
                 five.setTextAlign(Paint.Align.CENTER);
                 canvas.drawText("-5",getWidth()/2,getHeight()/2 + 100,five);
                 splashcount++;
@@ -413,6 +417,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 Paint five = new Paint();
                 five.setTextSize(75);
                 five.setARGB(255,0,178,255);
+                five.setTypeface(font);
                 five.setTextAlign(Paint.Align.CENTER);
                 canvas.drawText(new StringBuilder().append("+ ").append(bigScore).toString(),getWidth()/2 - 100,getHeight() -250,five);
                 bigScoreCount ++;
@@ -433,6 +438,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                 Paint five = new Paint();
                 five.setTextSize(75);
                 five.setARGB(255,0,178,255);
+                five.setTypeface(font);
                 five.setTextAlign(Paint.Align.CENTER);
                 canvas.drawText(new StringBuilder().append("+ ").append(snowScore).toString(),getWidth()/2 + 100,getHeight() -250,five);
                 snowScoreCount ++;
