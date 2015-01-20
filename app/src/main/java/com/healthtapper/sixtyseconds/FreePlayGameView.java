@@ -90,6 +90,8 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     int snowScoreCount = 0;
     int bonusCount = 0;
     Typeface font;
+    int displayCrystalSelected = 0;
+    int displayCrystalSelectedCount = 0;
 
     public FreePlayGameView(Context context) {
         super(context);
@@ -408,6 +410,21 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 //            }
 //        }
 
+        if(displayCrystalSelected == 1) {
+            if (displayCrystalSelectedCount <= 20) {
+                Paint five = new Paint();
+                five.setTextSize(75);
+                five.setARGB(255,0,178,255);
+                five.setTextAlign(Paint.Align.CENTER);
+                five.setTypeface(font);
+                canvas.drawText("+ 25",getWidth()/2,getHeight()/2,five);
+                displayCrystalSelectedCount ++;
+            } else {
+                displayCrystalSelectedCount = 0;
+                displayCrystalSelected = 0;
+            }
+        }
+
         if(bigNumber >= 7 ){
             bigScoreDisplay = 1;
         }
@@ -621,6 +638,8 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     crystal.remove(drop);
                     createCrystal();
                     freezeFactor = 2;
+                    score += 25;
+                    displayCrystalSelected = 1;
                     sounds.play(freeze, 0.2f, 0.2f, 0, 0, 1.5f);
                     bonusCount ++;
                 }
@@ -643,6 +662,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
                     //                freezeFactor = 2;
                     snowCollected = 1;
                     thunderStart = 1;
+
                     sounds.play(freeze, 1.0f, 1.0f, 0, 0, 1.5f);
                     sounds.play(thunder, 0.2f, 0.2f, 0, 0, 1.5f);
                     bonusCount ++;
@@ -725,6 +745,8 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
             crystalCount = 0;
             snowCollected = 0;
             bigDropCollected = 0;
+            displayCrystalSelected = 0;
+            displayCrystalSelectedCount = 0;
             life = 0;
             bonusCount = 0;
             for (int i = drops.size() - 1; i >= 0; i--) {

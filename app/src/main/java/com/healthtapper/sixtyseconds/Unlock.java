@@ -122,7 +122,7 @@ public class Unlock extends Activity {
 
 //        multiplier.setBackgroundResource(R.drawable.snow);
         if (bucketSize <= 4) {
-            magicbucketText.setText("Unlocks at score above 800");
+            magicbucketText.setText("Unlocks at score above 950");
         //    multiplierText.setTypeface(font);
       //      multiplierText.setTextColor(Color.RED);
         } else if (bucketSize >= 5) {
@@ -133,7 +133,7 @@ public class Unlock extends Activity {
 
         endless.setBackgroundResource(R.drawable.endless);
         if (bucketSize <= 5) {
-            endlessText.setText("Unlocks at score above 1200");
+            endlessText.setText("Unlocks at score above 1250");
    //         endlessText.setTypeface(font);
     //        endlessText.setTextColor(Color.RED);
         } else if (bucketSize >= 6) {
