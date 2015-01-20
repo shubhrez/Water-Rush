@@ -1,73 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
-    android:background="@drawable/questbackground"
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:padding="5dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:background="@drawable/questbackground"
         >
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/goal1"
+                android:layout_width="20dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="Quest"
+                android:padding="5dp"
+                android:textSize="45dp"
+                android:gravity="center"
+                android:textStyle="italic|bold"
+                />
+
+
+            <ImageView
+                android:id="@+id/goal2"
+                android:layout_width="20dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#C04000"/>
+
         <ImageView
-            android:id="@+id/goal1"
-            android:layout_width="20dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
+            android:background="@drawable/top"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_weight="5"
             />
 
         <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:text="Quest"
-            android:padding="5dp"
-            android:textSize="45dp"
-            android:gravity="center"
-            android:textStyle="italic|bold"
+            android:layout_width="fill_parent"
+            android:layout_height="10dp"
             />
 
 
-        <ImageView
-            android:id="@+id/goal2"
-            android:layout_width="20dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#C04000"/>
 
-    </LinearLayout>
-
-
-    <ImageView
-        android:background="@drawable/top"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_weight="5"
-        />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="20dp"
-        android:layout_weight="5"
-        />
-
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#C04000"/>
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="70"
-        >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -101,16 +109,18 @@
                     >
 
                     <TextView
+                        android:id="@+id/quest1"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:gravity="center"
-                        android:text="Magic Bucket"
+                        android:text="Super Bucket"
                         android:padding="5dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-
+                        android:textStyle="italic|bold"
+                        android:textColor="#C04000"
                         />
 
                     <TextView
@@ -135,8 +145,9 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:gravity="center"
+                android:textStyle="italic|bold"
                 android:background="#C04000"
                 />
 
@@ -163,17 +174,21 @@
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
                     >
-                    <TextView
 
+                    <TextView
+                        android:id="@+id/quest2"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:padding="5dp"
+                        android:textStyle="italic|bold"
                         android:text="Thunder Drops "
                         android:layout_marginLeft="10dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
 
                     <TextView
                         android:id="@+id/bigdropDesc"
@@ -196,9 +211,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:gravity="center"
                 android:background="#C04000"
+                android:textStyle="italic|bold"
                 />
 
             <LinearLayout
@@ -225,7 +241,7 @@
                     >
 
                     <TextView
-
+                        android:id="@+id/quest3"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
@@ -233,8 +249,11 @@
                         android:gravity="center"
                         android:text="Freeze Crystal"
                         android:padding="5dp"
+                        android:textStyle="italic|bold"
                         android:layout_marginLeft="10dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
 
 
                     <TextView
@@ -258,7 +277,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="20dp"
+                android:textStyle="italic|bold"
+                android:textSize="25dp"
                 android:gravity="center"
                 android:background="#C04000"
                 />
@@ -288,16 +308,19 @@
                     >
 
                     <TextView
-
+                        android:id="@+id/quest4"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:padding="5dp"
+                        android:textStyle="italic|bold"
                         android:text="Snow Ball"
                         android:layout_marginLeft="10dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
 
                     <TextView
                         android:id="@+id/snowDesc"
@@ -319,7 +342,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="20dp"
+                android:textStyle="italic|bold"
+                android:textSize="25dp"
                 android:background="#C04000"
                 android:gravity="center"
                 />
@@ -347,16 +371,19 @@
                     >
 
                     <TextView
-
+                        android:id="@+id/quest5"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:gravity="center"
                         android:layout_gravity="center_vertical"
-                        android:text="Super Bucket"
+                        android:text="Magic Bucket"
                         android:padding="5dp"
+                        android:textStyle="italic|bold"
                         android:layout_marginLeft="10dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:textColor="#C04000"
+                        />
 
                     <TextView
                         android:id="@+id/multiplierDesc"
@@ -376,11 +403,12 @@
 
 
             <TextView
-                android:id="@+id/multiplierText"
+                android:id="@+id/magicbucketText"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="20dp"
+                android:textSize="25dp"
+                android:textStyle="italic|bold"
                 android:background="#C04000"
                 android:gravity="center"
                 />
@@ -410,7 +438,7 @@
                     >
 
                     <TextView
-
+                        android:id="@+id/quest6"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
@@ -419,7 +447,10 @@
                         android:padding="5dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:textStyle="italic|bold"
+                        android:textColor="#C04000"
+                        />
 
                     <TextView
                         android:id="@+id/endlessDesc"
@@ -443,61 +474,57 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:background="#C04000"
                 android:gravity="center"
+                android:textStyle="italic|bold"
                 />
 
         </LinearLayout>
 
-    </ScrollView>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#C04000"/>
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="20dp"
-        android:layout_weight="5"
-        />
 
 
-    <ImageView
-        android:background="@drawable/bottom"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_weight="5"
-        />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#C04000"/>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:padding="5dp"
-        android:layout_weight="5"
-        >
-        <Button
-            android:id="@+id/start"
-            android:layout_width="300dp"
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="10dp"
+            />
+
+
+        <ImageView
+            android:background="@drawable/bottom"
+            android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="Start Game"
-            android:layout_gravity="center"
+            android:layout_weight="5"
             />
 
-        <Button
-            android:id="@+id/back"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_weight="2"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#C04000"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:padding="5dp"
+            >
+            <Button
+                android:id="@+id/start"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:text="Start Game"
+                android:textColor="#C04000"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

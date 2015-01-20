@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="bucketdesc">Larger bucket which doubles the water collected</string>
     <string name="bigdropdesc">Unleashes thunder drops,5 points for each thunder drop</string>
-    <string name="crystaldesc">Freeze the speed of falling drops and collect more water</string>
+    <string name="crystaldesc">Freeze the speed of falling drops and get 25 points</string>
     <string name="snowdesc">Unleashes snow balls,10 point for each snow ball</string>
     <string name="multiplierdesc">Triple the water collected with magic bucket</string>
     <string name="endlessdesc">Endless quest,Enjoy</string>

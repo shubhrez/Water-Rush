@@ -24,7 +24,7 @@ public class Unlock extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.unlock1);
+        setContentView(R.layout.unlock);
 
         int bucketSize = Splash.pref.getInt(BUCKET, 0);
 

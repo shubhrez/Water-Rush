@@ -723,7 +723,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         }
 
 
-        if(life >= 10) {
+        if(life >= 1) {
 //            endlesshighestscore = Splash.pref.getInt(ENDLESSHIGHESTSCORE, 0);
 //            if(score > endlesshighestscore){
 //                SharedPreferences.Editor editor = Splash.pref.edit();
