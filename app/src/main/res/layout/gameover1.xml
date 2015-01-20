@@ -72,7 +72,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/drop"
-                android:layout_weight="5"
+                android:layout_weight="6"
                 android:layout_gravity="center"
                 />
 
@@ -116,7 +116,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bonus"
-                android:layout_weight="5"
+                android:layout_weight="6"
                 android:layout_gravity="center"
                 />
 
@@ -139,7 +139,7 @@
                 android:textColor="#00B2FF"
                 android:layout_gravity="center"
                 android:textSize="20dp"
-                android:gravity="left"
+                android:gravity="center"
                 android:layout_weight="4"
                 />
 
