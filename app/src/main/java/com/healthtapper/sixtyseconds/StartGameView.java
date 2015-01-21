@@ -26,7 +26,7 @@ public class StartGameView extends SurfaceView implements Runnable {
     SurfaceHolder holder;
     Thread thread = null;
     private List<StartDrop> drops = new ArrayList<StartDrop>();
-    Bitmap ripple,lighning;
+    Bitmap grass,lighning,cloud,cloudflip;
     int count = 0;
     Boolean running = false;
     private SoundPool sounds;
@@ -43,6 +43,9 @@ public class StartGameView extends SurfaceView implements Runnable {
         thunder = sounds.load(context,R.raw.thunder,1);
         font = Typeface.createFromAsset(context.getAssets(),"Toxia_FRE.ttf");
         lighning = BitmapFactory.decodeResource(getResources(), R.drawable.lightning);
+        cloud = BitmapFactory.decodeResource(getResources(), R.drawable.cloud);
+        grass = BitmapFactory.decodeResource(getResources(), R.drawable.grass);
+        cloudflip = BitmapFactory.decodeResource(getResources(), R.drawable.cloudflip);
         createDrops();
     }
 
@@ -109,6 +112,10 @@ public class StartGameView extends SurfaceView implements Runnable {
                 canvas.drawBitmap(lighning,getWidth()/4,getHeight()/4,null);
             }
 
+        canvas.drawBitmap(grass,0,getHeight() - 150,null);
+
+        canvas.drawBitmap(cloud,getWidth()/4-cloud.getWidth()/2,-100,null);
+        canvas.drawBitmap(cloudflip,3*getWidth()/4-cloudflip.getWidth()/2 + 50,-100,null);
 
         for (StartDrop drop : drops) {
             drop.onDraw(canvas);

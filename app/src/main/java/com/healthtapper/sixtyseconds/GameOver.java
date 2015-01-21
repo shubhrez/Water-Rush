@@ -110,7 +110,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 600){
+        if(finalScore >= 650){
             if(achievementStatus == 2){
                 achievement.setText("Crystal Unlocked");
                 congrate.setText("Congratulations");
@@ -123,7 +123,7 @@ public class GameOver extends Activity{
             }
         }
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 650){
+        if(finalScore >= 700){
             if(achievementStatus == 3){
                 achievement.setText("Snow Ball Unlocked");
                 congrate.setText("Congratulations");
@@ -137,7 +137,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 900){
+        if(finalScore >= 1000){
             if(achievementStatus == 4){
                 achievement.setText("Super Bucket Unlocked");
                 congrate.setText("Congratulations");
@@ -151,7 +151,7 @@ public class GameOver extends Activity{
         }
 
         achievementStatus = Splash.pref.getInt(ACHIEVEMENT,0);
-        if(finalScore >= 1250){
+        if(finalScore >= 1500){
             if(achievementStatus == 5){
                 achievement.setText("Endless Unlocked");
                 congrate.setText("Congratulations");
@@ -182,7 +182,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 600) {
+        if(finalScore >= 650) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 2) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -191,7 +191,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 650) {
+        if(finalScore >= 700) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 3) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -200,7 +200,7 @@ public class GameOver extends Activity{
             }
         }
 
-        if(finalScore >= 900) {
+        if(finalScore >= 1000) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 4) {
                 SharedPreferences.Editor editor = Splash.pref.edit();
@@ -210,7 +210,7 @@ public class GameOver extends Activity{
         }
 
 
-        if(finalScore >= 1250) {
+        if(finalScore >= 1500) {
             bucketSize = Splash.pref.getInt(BUCKET, 0);
             if (bucketSize == 5) {
                 SharedPreferences.Editor editor = Splash.pref.edit();

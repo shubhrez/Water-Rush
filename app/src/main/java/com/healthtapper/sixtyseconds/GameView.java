@@ -31,7 +31,7 @@ public class GameView extends SurfaceView implements Runnable {
     Boolean running = false;
     Thread thread = null;
     int timeleft = 60;
-    Bitmap drop,bucket,drop5,cloud,cloudflip,splash1,splash2,lightning,pause;
+    Bitmap drop,bucket,drop5,cloud,cloudflip,splash1,splash2,lightning,pause,grass;
     private List<Drop> drops = new ArrayList<Drop>();
     private List<Drop> crystal = new ArrayList<Drop>();
     private List<Drop> drops5 = new ArrayList<Drop>();
@@ -103,6 +103,7 @@ public class GameView extends SurfaceView implements Runnable {
         pause = BitmapFactory.decodeResource(getResources(), R.drawable.pause);
         drop5 = BitmapFactory.decodeResource(getResources(), R.drawable.drop5);
         cloud = BitmapFactory.decodeResource(getResources(), R.drawable.cloud);
+        grass = BitmapFactory.decodeResource(getResources(), R.drawable.grass);
         cloudflip = BitmapFactory.decodeResource(getResources(), R.drawable.cloudflip);
         int bucketSize = Splash.pref.getInt(BUCKET,0);
         if(bucketSize <= 0){
@@ -346,6 +347,8 @@ public class GameView extends SurfaceView implements Runnable {
 //            }
 //        }
 
+        canvas.drawBitmap(grass,0,getHeight() - 150,null);
+
         if(bucketSize <= 0){
             bucket = BitmapFactory.decodeResource(getResources(), R.drawable.bucketsmall);
         }
@@ -363,7 +366,8 @@ public class GameView extends SurfaceView implements Runnable {
       //  canvas.drawRect(bucketsupportRect,bucketsupport);
   //      canvas.drawCircle(x,getHeight() + 40,bucket.getWidth()/2 + 28,bucketsupport);
         Rect bucketsupportRect = new Rect(0,getHeight() - 60,getWidth(),getHeight());
-        canvas.drawRect(bucketsupportRect,bucketsupport);
+
+//        canvas.drawRect(bucketsupportRect,bucketsupport);
         canvas.drawBitmap(cloud,getWidth()/4-cloud.getWidth()/2,-100,null);
         canvas.drawBitmap(cloudflip,3*getWidth()/4-cloudflip.getWidth()/2 + 50,-100,null);
         textPaint.setARGB(255,0,178,255);

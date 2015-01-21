@@ -31,7 +31,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
     Boolean running = false;
     Thread thread = null;
     int timeleft = 60;
-    Bitmap drop,bucket,drop5,cloud,splash1,splash2,lightning,pause,cloudflip;
+    Bitmap drop,bucket,drop5,cloud,splash1,splash2,lightning,pause,cloudflip,grass;
     private List<Drop1> drops = new ArrayList<Drop1>();
     private List<Drop1> crystal = new ArrayList<Drop1>();
     private List<Drop1> drops5 = new ArrayList<Drop1>();
@@ -105,6 +105,7 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         splash2 = BitmapFactory.decodeResource(getResources(), R.drawable.splash2);
         lightning = BitmapFactory.decodeResource(getResources(), R.drawable.lightning);
         cloudflip = BitmapFactory.decodeResource(getResources(), R.drawable.cloudflip);
+        grass = BitmapFactory.decodeResource(getResources(), R.drawable.grass);
         sounds = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         waterdrip = sounds.load(context,R.raw.waterdrip,1);
         watersplash = sounds.load(context,R.raw.watersplash,1);
@@ -335,6 +336,8 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
 //            }
 //        }
 
+        canvas.drawBitmap(grass,0,getHeight() - 150,null);
+
         canvas.drawBitmap(bucket,x - bucket.getWidth()/2,getHeight()-175,null);
         Paint bucketsupport = new Paint();
         bucketsupport.setARGB(150,0,178,255);
@@ -342,7 +345,10 @@ public class FreePlayGameView extends SurfaceView implements Runnable {
         //  canvas.drawRect(bucketsupportRect,bucketsupport);
         //      canvas.drawCircle(x,getHeight() + 40,bucket.getWidth()/2 + 28,bucketsupport);
         Rect bucketsupportRect = new Rect(0,getHeight() - 60,getWidth(),getHeight());
-        canvas.drawRect(bucketsupportRect,bucketsupport);
+
+
+
+ //       canvas.drawRect(bucketsupportRect,bucketsupport);
         canvas.drawBitmap(cloud,getWidth()/4-cloud.getWidth()/2,-100,null);
         canvas.drawBitmap(cloudflip,3*getWidth()/4-cloud.getWidth()/2 + 50,-100,null);
         textPaint.setARGB(255,0,178,255);
