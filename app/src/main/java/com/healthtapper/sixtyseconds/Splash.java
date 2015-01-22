@@ -65,17 +65,17 @@ public class Splash extends Activity {
             }
         });
 
-        freeflow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent("com.healthtapper.sixtyseconds.FREEFLOW");
-                if(bucketSize >= 6) {
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(Splash.this,"Unlock to play",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        freeflow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent("com.healthtapper.sixtyseconds.FREEFLOW");
+//                if(bucketSize >= 6) {
+//                    startActivity(intent);
+//                } else {
+//                    Toast.makeText(Splash.this,"Unlock to play",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
         unlock.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,20 +117,20 @@ public class Splash extends Activity {
                     builder.setCancelable(true);
                     builder.setView(layout);
                     unlocktext = (TextView) layout.findViewById(R.id.unlocktext);
-              //      unlocktext.setTypeface(custom_font);
+                   unlocktext.setTypeface(custom_font);
          //           TextView textView = (TextView) dialog.findViewById(android.R.id.message);
 
-                    builder.setNegativeButton("Check Out Quest",
-                            new DialogInterface.OnClickListener() {
-
-                                @Override
-                                public void onClick(DialogInterface dialog,
-                                                    int which) {
-                                    Intent intent = new Intent("com.healthtapper.sixtyseconds.UNLOCK");
-                                    startActivity(intent);
-
-                                }
-                            });
+//                    builder.setNegativeButton("Check Out Quest",
+//                            new DialogInterface.OnClickListener() {
+//
+//                                @Override
+//                                public void onClick(DialogInterface dialog,
+//                                                    int which) {
+//                                    Intent intent = new Intent("com.healthtapper.sixtyseconds.UNLOCK");
+//                                    startActivity(intent);
+//
+//                                }
+//                            });
 //                    AlertDialog dialog = builder.create();
 //                    dialog.show();
                     builder.show();

@@ -8,12 +8,14 @@
     <TextView
         android:id="@+id/unlocktext"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="Unlock to Play"
+        android:layout_height="100dp"
+        android:text="Unlocks at Score above 1500"
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="#00B2FF"
-        android:textSize="35dp"
+        android:textSize="25dp"
+        android:padding="20dp"
+        android:background="#f0f0f0"
         android:textStyle="italic|bold"
         />
 
